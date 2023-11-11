@@ -23,7 +23,7 @@ const Profile = () => {
                 borderRadius={50}
               />
               <VStack space="md">
-                <Text fontSize = {20}>Jasmine</Text>
+                <Text fontSize = {20}>William</Text>
                 <Text fontSize = {17}>Kucing Chiro</Text>
               </VStack>
               <Link

@@ -27,9 +27,9 @@ import {
           
           <HStack space={"2xl"}>
           <Image
-          source={require('../../assets/kucing.jpg')} // Gantilah dengan path gambar yang sesuai
+          source={require('../../assets/kucing.jpg')} 
           alt="funfact 1"
-          w="$20"  // Sesuaikan ukuran gambar sesuai kebutuhan
+          w="$20"  
           h="$20"
           borderRadius={20}
         />
@@ -89,7 +89,7 @@ import {
       <Image
         source={require('../../assets/ikan1.jpg')}
         alt="Gambar Kucing"
-        w="$40" // Sesuaikan ukuran gambar sesuai kebutuhan
+        w="$40" 
         h="$40"
       />
       <VStack space="md" >
@@ -102,7 +102,7 @@ import {
       <Image
         source={require('../../assets/domba1.jpg')}
         alt="Gambar Kucing"
-        w="$40" // Sesuaikan ukuran gambar sesuai kebutuhan
+        w="$40" 
         h="$40"
       />
       <VStack space="md">
@@ -115,7 +115,7 @@ import {
       <Image
         source={require('../../assets/bird1.jpg')}
         alt="Gambar Kucing"
-        w="$40" // Sesuaikan ukuran gambar sesuai kebutuhan
+        w="$40" 
         h="$40"
       />
       <VStack space="md">
@@ -128,7 +128,7 @@ import {
       <Image
         source={require('../../assets/sugarglider.jpg')}
         alt="Gambar Kucing"
-        w="$40" // Sesuaikan ukuran gambar sesuai kebutuhan
+        w="$40" 
         h="$40"
       />
       <VStack space="md">
@@ -141,7 +141,7 @@ import {
       <Image
         source={require('../../assets/hamster2.jpg')}
         alt="Gambar Kucing"
-        w="$40" // Sesuaikan ukuran gambar sesuai kebutuhan
+        w="$40" 
         h="$40"
       />
       <VStack space="md">

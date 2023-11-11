@@ -1,11 +1,9 @@
 import { Box, Image, HStack, Heading } from "@gluestack-ui/themed";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "react-native";
-import { useNavigation } from "expo-router";
 
-const Header = ({ title, withBack = false, withClose = false }) => {
+const Header = ({ title = false }) => {
   const trueGray900 = "#171717";
-  const navigation = useNavigation();
   return (
     <SafeAreaView>
       <StatusBar barStyle="light" backgroundColor={trueGray900} />
