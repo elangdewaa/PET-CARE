@@ -1,9 +1,8 @@
-import { Heading, Box, HStack, Image, VStack, Text, Button, ButtonText, Divider } from "@gluestack-ui/themed";
-import { Link } from "expo-router";
+import { Text, Heading, Box, HStack, Image, VStack, ScrollView, Button, ButtonText, FlatList, Divider } from "@gluestack-ui/themed";
+import { Link, useLocalSearchParams } from "expo-router";
 import { Header } from "../../components";
-import { SafeAreaView, Touchable } from "react-native";
+import { SafeAreaView } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-
 
 const Profile = () => {
 
@@ -18,17 +17,17 @@ const Profile = () => {
               <Image
                 source={require('../../assets/profile1.jpg')}
                 alt="funfact 1"
-                w="$20"  
+                w="$20"
                 h="$20"
                 borderRadius={50}
               />
               <VStack space="md">
-                <Text fontSize = {20}>William</Text>
-                <Text fontSize = {17}>Kucing Chiro</Text>
+                <Text fontSize={20}>Jasmine</Text>
+                <Text fontSize={17}>Kucing Chiro</Text>
               </VStack>
               <Link
                 href={{
-                  pathname: "/editProfile" 
+                  pathname: "/editProfile"
                 }}
               >
                 <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
@@ -39,12 +38,48 @@ const Profile = () => {
           </Heading>
         </Box>
         <VStack space="md" p={20} backgroundColor="lightyellow">
-          <Text>Ubah Password</Text>
+        <Link
+            href={{
+              pathname: "/changepassword"
+            }}
+          >
+            <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
+              <ButtonText color="#0C0C0C"> Ubah Password</ButtonText>
+            </TouchableOpacity>
+          </Link>
+          <Divider my={0.2} />
+          <Link
+            href={{
+              pathname: "/setting"
+            }}
+          >
+            <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
+              <ButtonText color="#0C0C0C"> Setting</ButtonText>
+            </TouchableOpacity>
+          </Link>
+          <Divider my={0.2} />
+          <Link
+            href={{
+              pathname: "/accordion"
+            }}
+          >
+            <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
+              <ButtonText color="#0C0C0C"> FAQ</ButtonText>
+            </TouchableOpacity>
+          </Link>
           <Divider my={0.2}/>
-          <Text>Setting</Text>
-          <Divider my={0.2}/>
+          <Link
+            href={{
+              pathname: "/Aboutus"
+            }}
+          >
+            <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
+              <ButtonText color="#0C0C0C"> About Us</ButtonText>
+            </TouchableOpacity>
+          </Link>
         </VStack>
-      </SafeAreaView>
+
+      </SafeAreaView >
 
     </>
   );

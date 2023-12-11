@@ -10,6 +10,7 @@ import {
     ScrollView,
   } from "@gluestack-ui/themed";
   import { Header } from "../../components";
+  import { SliderBox } from "react-native-image-slider-box";
   
   const Home = () => {
     return (
@@ -17,65 +18,38 @@ import {
         <Header title={"Home"} />
         <Box py={"$6"} bg={"$orange"}>
         
-          <Heading ml={"$4"} lineHeight={"$lg"} mb={"$4"} color="$white">
-            Animal Fun Fact 
-          </Heading>
           <Center>
           <ScrollView
             horizontal={true} 
             contentContainerStyle={{ paddingHorizontal: 16 }} >
           
           <HStack space={"2xl"}>
-          <Image
-          source={require('../../assets/kucing.jpg')} 
-          alt="funfact 1"
-          w="$20"  
-          h="$20"
-          borderRadius={20}
-        />
-      
-          <Image
-          source={require("../../assets/kucing2.jpg")}
-          w="$20"
-          h="$20"
-          alt="funfact 2"
-          role="img"
-          borderRadius={20}
-        />
-        
-          <Image
-          source={require("../../assets/kucing4.jpg")}
-          w="$20"
-          h="$20"
-          alt="funfact 3"
-          role="img"
-          borderRadius={20}
-        />
-
-          <Image
-          source={require("../../assets/anjing1.jpg")}
-          w="$20"
-          h="$20"
-          alt="funfact 3"
-          role="img"
-          borderRadius={20}
-        />
-         <Image
-          source={require("../../assets/kelinci1.jpg")}
-          w="$20"
-          h="$20"
-          alt="funfact 3"
-          role="img"
-          borderRadius={20}
-        />
-        <Image
-          source={require("../../assets/hamster1.jpg")}
-          w="$20"
-          h="$20"
-          alt="funfact 3"
-          role="img"
-          borderRadius={20}
-        />
+          <SliderBox
+            images ={[
+              require("../../assets/anjing1.jpg"),
+              require("../../assets/anjing1.jpg"),
+              require("../../assets/anjing1.jpg"),
+              require("../../assets/anjing1.jpg"),
+              require("../../assets/anjing1.jpg"),
+            ]}
+            autoplay
+            circleLoop
+            paginationBoxStyle={{
+              position: "absolute",
+              bottom: 0,
+              padding: 0,
+              alignItems: "center",
+              alignSelf: "center",
+              justifyContent: "center",
+              paddingVertical: 10
+            }}
+            dotColor="#FFEE58"
+            inactiveDotColor="#90A4AE"
+            
+            resizeMode={"cover"}
+            
+            style={{ width: "200", height: 150, marginTop: 0 }}
+          />
         </HStack>
         </ScrollView>
         </Center>
