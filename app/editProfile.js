@@ -66,7 +66,13 @@ const EditProfile = () => {
             <InputField type="text" ref={inputRef} />
           </Input>
         </VStack>
-      <Button onPress={() => setShowModal(true)} ref={ref}>
+      <Button onPress={() => setShowModal(true)} ref={ref}
+       style={{
+         backgroundColor: 'coral',
+         padding: 10,
+         borderRadius: 5,
+       }}
+      >
         <ButtonText>Save</ButtonText>
       </Button>
         <Modal
