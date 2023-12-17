@@ -29,10 +29,10 @@ const status = () => {
   return (
     <>
       <Header title={"Status"} />
-      <ScrollView flex={1}>
+      <ScrollView flex={1} backgroundColor="floralwhite">
         <VStack px={9}>
           <Box
-            bg={"#f59e0b"}
+            bg={"#FF7F50"}
             pt={5}
             pr={4}
             pb={2}

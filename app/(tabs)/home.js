@@ -59,7 +59,7 @@ import {
       <ScrollView
             vertical={true} 
             contentContainerStyle={{ paddingVertical: 1 }} >   
-    <HStack space={"md"} backgroundColor="lightyellow">
+    <HStack space={"md"} backgroundColor="cornsilk">
       <Image
         source={require('../../assets/ikan1.jpg')}
         alt="Gambar Kucing"

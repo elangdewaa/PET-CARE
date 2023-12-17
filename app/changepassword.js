@@ -67,11 +67,15 @@ import {
               <InputField type="text" ref={inputRef} />
             </Input>
           </VStack>
-        <Button onPress={() => setShowModal(true)} ref={ref}>
-         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 8, paddingVertical: 8, paddingHorizontal: 16, borderWidth: 1, backgroundColor: '#FF7F50', borderColor: '#FF7F50' }}>
-        <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '700', color: '#fff' }}>Ubah Password</Text>
-          </View>
-        </Button>
+          <Button onPress={() => setShowModal(true)} ref={ref}
+       style={{
+         backgroundColor: 'coral',
+         padding: 10,
+         borderRadius: 5,
+       }}
+      >
+        <ButtonText>Ubah Password</ButtonText>
+      </Button>
           <Modal
           isOpen={showModal}
           onClose={() => {
