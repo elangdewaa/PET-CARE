@@ -18,6 +18,7 @@ import {
     ModalFooter,
     inputRef,
     ref,
+    View,
     
   } from "@gluestack-ui/themed";
   import { Header } from "../components";
@@ -67,7 +68,9 @@ import {
             </Input>
           </VStack>
         <Button onPress={() => setShowModal(true)} ref={ref}>
-          <ButtonText>Ubah Password</ButtonText>
+         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 8, paddingVertical: 8, paddingHorizontal: 16, borderWidth: 1, backgroundColor: '#FF7F50', borderColor: '#FF7F50' }}>
+        <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '700', color: '#fff' }}>Ubah Password</Text>
+          </View>
         </Button>
           <Modal
           isOpen={showModal}
