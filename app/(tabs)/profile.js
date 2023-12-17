@@ -10,7 +10,7 @@ const Profile = () => {
     <>
       <SafeAreaView>
         <Header title={"Profile"} />
-        <Box py={"$6"} bg={"$orange"}>
+        <Box py={"$6"} bg={"$Sandy Brown"}>
 
           <Heading ml={"$4"} lineHeight={"$lg"} mb={"$1"} color="$white">
             <HStack space={"2xl"}>
@@ -43,6 +43,7 @@ const Profile = () => {
               pathname: "/changepassword"
             }}
           >
+        
             <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
               <ButtonText color="#0C0C0C"> Ubah Password</ButtonText>
             </TouchableOpacity>
@@ -77,8 +78,8 @@ const Profile = () => {
               <ButtonText color="#0C0C0C"> About Us</ButtonText>
             </TouchableOpacity>
           </Link>
-        </VStack>
 
+        </VStack>
       </SafeAreaView >
 
     </>

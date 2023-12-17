@@ -36,7 +36,7 @@ const TabsLayout = () => {
         tabBarIconStyle: { marginTop: 5 }, 
         tabBarStyle: {
           height: 70,
-          backgroundColor: "orange",
+          backgroundColor: "coral",
           
         },
         tabBarLabel: ({ children, color, focused }) => {
