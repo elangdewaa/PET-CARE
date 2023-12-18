@@ -10,7 +10,7 @@ const Profile = () => {
     <>
       <SafeAreaView>
         <Header title={"Profile"} />
-        <Box py={"$6"} bg={"$orange"}>
+        <Box py={"$6"} bg={"$wheat"}>
 
           <Heading ml={"$4"} lineHeight={"$lg"} mb={"$1"} color="$white">
             <HStack space={"2xl"}>
@@ -37,48 +37,51 @@ const Profile = () => {
             </HStack>
           </Heading>
         </Box>
-        <VStack space="md" p={20} backgroundColor="lightyellow">
-        <Link
-            href={{
-              pathname: "/changepassword"
-            }}
-          >
-            <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
-              <ButtonText color="#0C0C0C"> Ubah Password</ButtonText>
-            </TouchableOpacity>
-          </Link>
-          <Divider my={0.2} />
+        <Box backgroundColor="floralwhite">
+          <VStack space="md" p={20}>
           <Link
-            href={{
-              pathname: "/setting"
-            }}
-          >
-            <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
-              <ButtonText color="#0C0C0C"> Setting</ButtonText>
-            </TouchableOpacity>
-          </Link>
-          <Divider my={0.2} />
-          <Link
-            href={{
-              pathname: "/accordion"
-            }}
-          >
-            <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
-              <ButtonText color="#0C0C0C"> FAQ</ButtonText>
-            </TouchableOpacity>
-          </Link>
-          <Divider my={0.2}/>
-          <Link
-            href={{
-              pathname: "/Aboutus"
-            }}
-          >
-            <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
-              <ButtonText color="#0C0C0C"> About Us</ButtonText>
-            </TouchableOpacity>
-          </Link>
-        </VStack>
-
+              href={{
+                pathname: "/changepassword"
+              }}
+            >
+          
+              <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
+                <ButtonText color="#0C0C0C"> Ubah Password</ButtonText>
+              </TouchableOpacity>
+            </Link>
+            <Divider my={0.2} />
+            <Link
+              href={{
+                pathname: "/setting"
+              }}
+            >
+              <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
+                <ButtonText color="#0C0C0C"> Setting</ButtonText>
+              </TouchableOpacity>
+            </Link>
+            <Divider my={0.2} />
+            <Link
+              href={{
+                pathname: "/accordion"
+              }}
+            >
+              <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
+                <ButtonText color="#0C0C0C"> FAQ</ButtonText>
+              </TouchableOpacity>
+            </Link>
+            <Divider my={0.2}/>
+            <Link
+              href={{
+                pathname: "/Aboutus"
+              }}
+            >
+              <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
+                <ButtonText color="#0C0C0C"> About Us</ButtonText>
+              </TouchableOpacity>
+            </Link>
+            <Divider my={0.2}/>
+          </VStack>
+        </Box>
       </SafeAreaView >
 
     </>

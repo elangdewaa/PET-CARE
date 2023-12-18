@@ -3,11 +3,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "react-native";
 
 const Header = ({ title = false }) => {
-  const trueGray900 = "#171717";
+  const coral = "#FF7F50";
   return (
     <SafeAreaView>
-      <StatusBar barStyle="light" backgroundColor={trueGray900} />
-      <Box bg="$trueGray900" p="$4">
+      <StatusBar barStyle="light" backgroundColor={coral} />
+      <Box bg="$coral" p="$4">
         <HStack justifyContent="space-between" alignItems="center">
           <HStack alignItems="center">
                 <Image
@@ -18,17 +18,7 @@ const Header = ({ title = false }) => {
                   mr={"$2"}
                   role="img"
                 />
-            <Heading color={"$orange"}>{title}</Heading> 
-          </HStack>
-
-          <HStack space={"2xl"}>
-            <Image
-              source={require("../assets/search.png")}
-              w="$5"
-              h="$5"
-              alt="Search Icon"
-              role="img"
-            />
+            <Heading color={"$white"}>{title}</Heading> 
           </HStack>
         </HStack>
       </Box>
