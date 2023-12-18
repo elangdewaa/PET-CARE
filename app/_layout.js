@@ -18,6 +18,8 @@ const StackLayout = () => {
         <Stack.Screen name="Aboutus" options={noHead} />
         <Stack.Screen name="changepassword" options={noHead} />
         <Stack.Screen name="reservation" options={noHead} />
+        <Stack.Screen name="DetailGrooming" options={noHead} />
+        <Stack.Screen name="DetailPenginapan" options={noHead} />
       </Stack>
     </GluestackUIProvider>
   );
