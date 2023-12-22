@@ -2,6 +2,9 @@ import { View, Text, ImageBackground } from 'react-native'
 import { Pressable, Button, ButtonText } from '@gluestack-ui/themed'
 import React from 'react'
 import { useNavigation } from "@react-navigation/native";
+import { Link } from 'expo-router';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
 
 const Dashboard = () => {
     const navigation = useNavigation();
@@ -18,7 +21,27 @@ const Dashboard = () => {
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
-                <Button style={{
+
+                <TouchableOpacity>
+                    <Button style={{
+                        size: 50,
+                        borderRadius: 4,
+                        borderWidth: 8,
+                        backgroundColor: '#FFFFFF',
+                        borderColor: '#FFFFFF'
+                    }}>
+                        <Link
+                        href={{
+                            pathname: "/Login"
+                        }}
+                    >
+                            <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600' }}> login</Text>
+                        </Link>
+                    </Button>
+
+                </TouchableOpacity>
+
+                {/* <Button style={{
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -30,11 +53,14 @@ const Dashboard = () => {
                     borderColor: '#FFFFFF'
                 }}
                     title="login"
-                    onPress={() => navigation.navigate('Login')}
+                onPress={() => navigation.navigate('Login')}
+
                 >
                     <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#000000' }}>
-                        Login</Text>
-                </Button>
+                        Login
+
+                    </Text>
+                </Button> */}
 
             </View>
 

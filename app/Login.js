@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigation } from 'expo-router';
+import { Link, useNavigation } from 'expo-router';
 import {
     SafeAreaView,
     View,
@@ -7,7 +7,7 @@ import {
     TouchableOpacity,
     TextInput,
 } from 'react-native';
-import { Heading } from '@gluestack-ui/themed';
+import { ButtonText, Heading } from '@gluestack-ui/themed';
 
 const Login = () => {
     const navigation = useNavigation();
@@ -81,9 +81,11 @@ const Login = () => {
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('forgotpassword')}>
-                    <Text style={{ textDecorationLine: 'underline' }}>Lupa Password?</Text>
+                        <Text style={{ textDecorationLine: 'underline' }}>Lupa Password?</Text>
                     </TouchableOpacity>
-                    
+                    <TouchableOpacity onPress={() => navigation.navigate('AdminLogin')}>
+                        <Text style={{ textDecorationLine: 'underline' }}>Login Admin</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </SafeAreaView>
