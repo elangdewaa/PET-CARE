@@ -14,7 +14,7 @@ const Dashboard = () => {
             }} >
             <View style={{
                 marginVertical: 24,
-                marginTop: 650,
+                marginTop: 350,
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
