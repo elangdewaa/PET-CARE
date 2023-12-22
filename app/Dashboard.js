@@ -24,17 +24,21 @@ const Dashboard = () => {
 
                 <TouchableOpacity>
                     <Button style={{
-                        size: 50,
-                        borderRadius: 4,
-                        borderWidth: 8,
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: 8,
+                        paddingVertical: 5,
+                        paddingHorizontal: 130,
+                        borderWidth: 1,
                         backgroundColor: '#FFFFFF',
-                        borderColor: '#FFFFFF'
+                        borderColor: '#FFFFFF',
                     }}>
                         <Link
-                        href={{
-                            pathname: "/Login"
-                        }}
-                    >
+                            href={{
+                                pathname: "/Login"
+                            }}
+                        >
                             <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600' }}> login</Text>
                         </Link>
                     </Button>

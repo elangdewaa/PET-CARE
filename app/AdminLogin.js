@@ -55,6 +55,7 @@ const AdminLogin = () => {
                             onChangeText={email => setForm({ ...form, email })}
                             placeholder="masukkan email anda"
                             placeholderTextColor="#6b7280"
+
                             style={{
                                 height: 44,
                                 backgroundColor: '#FFFFFF',
