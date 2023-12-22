@@ -39,6 +39,7 @@ const ChangePassword = () => {
       borderRadius="$lg"
       borderColor="$borderLight300"
       backgroundColor="lightyellow"
+      height="$full"
       sx={{
         _dark: {
           borderWidth: "$1",

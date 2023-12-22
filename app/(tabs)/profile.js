@@ -12,7 +12,8 @@ const Profile = () => {
         <Header title={"Profile"} />
         <Box py={"$6"} bg={"$wheat"}>
 
-          <Heading ml={"$4"} lineHeight={"$lg"} mb={"$1"} color="$white">
+          <Heading ml={"$5"} lineHeight={"$lg"} mb={"$1"} color="$white">
+           
             <HStack space={"2xl"}>
               <Image
                 source={require('../../assets/profile1.jpg')}
@@ -38,7 +39,7 @@ const Profile = () => {
           </Heading>
         </Box>
         <Box backgroundColor="floralwhite">
-          <VStack space="md" p={20}>
+          <VStack space="md" height="$full" p={20}>
           <Link
               href={{
                 pathname: "/changepassword"

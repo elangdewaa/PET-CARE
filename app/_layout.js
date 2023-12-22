@@ -11,6 +11,7 @@ const StackLayout = () => {
     
       <Stack>
         <Stack.Screen name="(tabs)" options={noHead} />
+        <Stack.Screen name="home" options={noHead} />
         <Stack.Screen name="index" options={noHead} />
         <Stack.Screen name="editProfile" options={noHead} />
         <Stack.Screen name="setting" options={true} />
@@ -20,6 +21,9 @@ const StackLayout = () => {
         <Stack.Screen name="reservation" options={noHead} />
         <Stack.Screen name="DetailGrooming" options={noHead} />
         <Stack.Screen name="DetailPenginapan" options={noHead} />
+        <Stack.Screen name="Dashboard" options={noHead} />
+        <Stack.Screen name="Login" options={noHead} />
+
       </Stack>
     </GluestackUIProvider>
   );
