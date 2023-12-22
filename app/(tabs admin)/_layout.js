@@ -11,17 +11,14 @@ const TabsLayout = () => {
         tabBarIcon: ({ focused, color }) => {
           let iconName;
           switch (route.name) {
-            case "home":
+            case "all_reservation":
               iconName = "home-outline";
               break;
-            case "reservation":
+            case "Paket":
               iconName = "clipboard-outline";
               break;
-            case "status":
+            case "Profile":
               iconName = "checkmark-outline";
-              break;
-            case "profile":
-              iconName = "person-outline";
               break;
           }
           return (
@@ -37,6 +34,7 @@ const TabsLayout = () => {
         tabBarStyle: {
           height: 70,
           backgroundColor: "coral",
+         
           
           
           
@@ -50,10 +48,9 @@ const TabsLayout = () => {
         },
       })}
     >
-      <Tabs.Screen name="home" options={{ title: "Home", ...noHead }} />
-      <Tabs.Screen name="reservation" options={{ title: "Reservation", ...noHead }} />
-      <Tabs.Screen name="status" options={{ title: "Status", ...noHead }} />
-      <Tabs.Screen name="profile" options={{ title: "Profile", ...noHead }} />
+      <Tabs.Screen name="all_reservation" options={{ title: "All Reservation", ...noHead }} />
+      <Tabs.Screen name="Paket" options={{ title: "Paket", ...noHead }} />
+      <Tabs.Screen name="Profile_admin" options={{ title: "Profile", ...noHead }} />
     </Tabs>
   );
 };
