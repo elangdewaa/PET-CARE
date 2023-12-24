@@ -19,14 +19,6 @@ const Dashboard = () => {
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
-                <Link href={{ pathname: "/Login" }} >
-                <TouchableOpacity >
-               
-                <Box w={100} h="$20" bg= "$white" borderRadius="$3xl" borderWidth={2} justifyContent="center" alignItems="center" softShadow="" >
-<VStack ><Text color="floralwhite" fontWeight="bold">Login</Text></VStack>
-  </Box>
-                </TouchableOpacity>
-                </Link>
             </View>
             
 
