@@ -18,6 +18,9 @@ import {
   ModalFooter,
   inputRef,
   ref,
+  Center,
+  ButtonIcon,
+  AddIcon,
   
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
@@ -25,13 +28,13 @@ import { useState } from "react";
 import React from "react";
 
 
-const EditProfile = () => {
+const add_detail_grooming = () => {
   const [showModal, setShowModal] = useState(false)
    console.log(showModal)
    const inputRef = React.useRef(null)
   return (
     <>
-    <Header title={"Profile"} />
+    <Header title={"Grooming"} />
     <FormControl
       p="$4"
       borderWidth="$1"
@@ -48,12 +51,14 @@ const EditProfile = () => {
       }}
     >
       <VStack space="xl">
-        <Heading color="$warning900" lineHeight="$md">
-          Edit Profile
+        <Center>
+        <Heading color="$warning900" lineHeight="$md" alignContent="center">
+          Layanan Pet Care
         </Heading>
+        </Center>
         <VStack space="xs">
           <Text color="$warning800" lineHeight="$xs">
-            Nama Pemilik
+            Paket Grooming
           </Text>
           <Input>
             <InputField type="text" />
@@ -61,7 +66,7 @@ const EditProfile = () => {
         </VStack>
         <VStack space="xs">
           <Text color="$warning800" lineHeight="$xs">
-            Nama Hewan
+            Harga
           </Text>
           <Input>
             <InputField type="text" ref={inputRef} />
@@ -74,8 +79,9 @@ const EditProfile = () => {
          borderRadius: 5,
        }}
       >
-        <ButtonText>Save</ButtonText>
-      </Button>
+        <ButtonIcon as={AddIcon}></ButtonIcon>
+        <ButtonText>Tambah</ButtonText>
+        </Button>
         <Modal
         isOpen={showModal}
         onClose={() => {
@@ -86,14 +92,14 @@ const EditProfile = () => {
         <ModalBackdrop />
         <ModalContent>
           <ModalHeader>
-            <Heading size="lg">Update Profile</Heading>
+            <Heading size="lg">Tambah Layanan</Heading>
             <ModalCloseButton>
               <Icon as={CloseIcon} />
             </ModalCloseButton>
           </ModalHeader>
           <ModalBody>
             <Text>
-              Profile anda akan diupdate
+              Layanan akan ditambah
             </Text>
           </ModalBody>
           <ModalFooter>
@@ -127,4 +133,4 @@ const EditProfile = () => {
   );
 };
 
-export default EditProfile;
+export default add_detail_grooming;

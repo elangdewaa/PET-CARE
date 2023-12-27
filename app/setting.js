@@ -258,7 +258,7 @@ const SettingScreen = () => {
 
     return (
         <SafeAreaView>
-            <VStack space="md" p={20} backgroundColor="lightyellow">
+            <VStack space="md" p={20} backgroundColor="lightyellow" height="$full">
                 <TouchableOpacity onPress={handleLanguagePress}>
                     <HStack alignItems="center">
                         <Ionicons size={20} name="language" />
@@ -277,7 +277,7 @@ const SettingScreen = () => {
                 <Divider my={0.2} />
                 <HStack alignItems="center">
                     <Ionicons size={20} name="notifications" />
-                    <Text style={{ marginLeft: 12 }}> Notifikasi</Text>
+                    <Text style={{ marginLeft: 12, marginRight:190 }}> Notifikasi</Text>
                     <Switch
                         trackColor={{ false: '#767577', true: '#81b0ff' }}
                         thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}

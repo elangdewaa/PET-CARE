@@ -1,126 +1,131 @@
 import {
-    Heading,
-    Text,
-    Button,
-    ButtonText,
-    FormControl,
-    VStack,
-    Input,
-    InputField,
-    Modal, 
-    ModalBackdrop,
-    ModalContent,
-    ModalHeader,
-    ModalCloseButton,
-    Icon,
-    CloseIcon,
-    ModalBody,
-    ModalFooter,
-    inputRef,
-    ref,
-    View,
-    
-  } from "@gluestack-ui/themed";
-  import { Header } from "../components";
-  import { useState } from "react";
-  import React from "react";
+  Heading,
+  Text,
+  Button,
+  ButtonText,
+  FormControl,
+  VStack,
+  Input,
+  InputField,
+  Modal, 
+  ModalBackdrop,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  Icon,
+  CloseIcon,
+  ModalBody,
+  ModalFooter,
+  inputRef,
+  ref,
+  View,
   
-  
-  const ChangePassword = () => {
-    const [showModal, setShowModal] = useState(false)
-     console.log(showModal)
-     const inputRef = React.useRef(null)
-    return (
-      <>
-      <Header title={"Profile"} />
-      <FormControl
-        p="$4"
-        borderWidth="$1"
-        borderRadius="$lg"
-        borderColor="$borderLight300"
-        backgroundColor="lightyellow"
-        sx={{
-          _dark: {
-            borderWidth: "$1",
-            borderRadius: "$lg",
-            borderColor: "$borderDark800",
-          },
-        }}
-      >
-        <VStack space="xl">
-          <Heading color="$warning900" lineHeight="$md">
-            Change Password
-          </Heading>
-          <VStack space="xs">
-            <Text color="$warning800" lineHeight="$xs">
-              Masukkan Password lama
-            </Text>
-            <Input>
-              <InputField type="text" />
-            </Input>
-          </VStack>
-          <VStack space="xs">
-            <Text color="$warning800" lineHeight="$xs">
-              Masukkan Password baru
-            </Text>
-            <Input>
-              <InputField type="text" ref={inputRef} />
-            </Input>
-          </VStack>
-        <Button onPress={() => setShowModal(true)} ref={ref}>
-         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 8, paddingVertical: 8, paddingHorizontal: 16, borderWidth: 1, backgroundColor: '#FF7F50', borderColor: '#FF7F50' }}>
-        <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '700', color: '#fff' }}>Ubah Password</Text>
-          </View>
-        </Button>
-          <Modal
-          isOpen={showModal}
-          onClose={() => {
-            setShowModal(false)
-          }}
-          finalFocusRef={ref}
-        >
-          <ModalBackdrop />
-          <ModalContent>
-            <ModalHeader>
-              <Heading size="lg">Update Password</Heading>
-              <ModalCloseButton>
-                <Icon as={CloseIcon} />
-              </ModalCloseButton>
-            </ModalHeader>
-            <ModalBody>
-              <Text>
-                Password anda berhasil diubah
-              </Text>
-            </ModalBody>
-            <ModalFooter>
-              <Button
-                variant="outline"
-                size="sm"
-                action="secondary"
-                mr="$3"
-                onPress={() => {
-                  setShowModal(false)
-                }}
-              >
-                <ButtonText>Cancel</ButtonText>
-              </Button>
-              <Button
-                size="sm"
-                action="positive"
-                borderWidth="$0"
-                onPress={() => {
-                  setShowModal(false)
-                }}
-              >
-                <ButtonText>Save</ButtonText>
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
+} from "@gluestack-ui/themed";
+import { Header } from "../components";
+import { useState } from "react";
+import React from "react";
+
+
+const ChangePassword = () => {
+  const [showModal, setShowModal] = useState(false)
+   console.log(showModal)
+   const inputRef = React.useRef(null)
+  return (
+    <>
+    <Header title={"Profile"} />
+    <FormControl
+      p="$4"
+      borderWidth="$1"
+      borderRadius="$lg"
+      borderColor="$borderLight300"
+      backgroundColor="lightyellow"
+      height="$full"
+      sx={{
+        _dark: {
+          borderWidth: "$1",
+          borderRadius: "$lg",
+          borderColor: "$borderDark800",
+        },
+      }}
+    >
+      <VStack space="xl">
+        <Heading color="$warning900" lineHeight="$md">
+          Change Password
+        </Heading>
+        <VStack space="xs">
+          <Text color="$warning800" lineHeight="$xs">
+            Masukkan Password lama
+          </Text>
+          <Input>
+            <InputField type="text" />
+          </Input>
         </VStack>
-      </FormControl>
-      </>
-    );
-  };
-  
-  export default ChangePassword;
+        <VStack space="xs">
+          <Text color="$warning800" lineHeight="$xs">
+            Masukkan Password baru
+          </Text>
+          <Input>
+            <InputField type="text" ref={inputRef} />
+          </Input>
+        </VStack>
+        <Button onPress={() => setShowModal(true)} ref={ref}
+     style={{
+       backgroundColor: 'coral',
+       padding: 10,
+       borderRadius: 5,
+     }}
+    >
+      <ButtonText>Ubah Password</ButtonText>
+    </Button>
+        <Modal
+        isOpen={showModal}
+        onClose={() => {
+          setShowModal(false)
+        }}
+        finalFocusRef={ref}
+      >
+        <ModalBackdrop />
+        <ModalContent>
+          <ModalHeader>
+            <Heading size="lg">Update Password</Heading>
+            <ModalCloseButton>
+              <Icon as={CloseIcon} />
+            </ModalCloseButton>
+          </ModalHeader>
+          <ModalBody>
+            <Text>
+              Password anda berhasil diubah
+            </Text>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              variant="outline"
+              size="sm"
+              action="secondary"
+              mr="$3"
+              onPress={() => {
+                setShowModal(false)
+              }}
+            >
+              <ButtonText>Cancel</ButtonText>
+            </Button>
+            <Button
+              size="sm"
+              action="positive"
+              borderWidth="$0"
+              onPress={() => {
+                setShowModal(false)
+              }}
+            >
+              <ButtonText>Save</ButtonText>
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      </VStack>
+    </FormControl>
+    </>
+  );
+};
+
+export default ChangePassword;

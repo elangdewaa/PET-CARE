@@ -20,16 +20,6 @@ const Header = ({ title = false }) => {
                 />
             <Heading color={"$white"}>{title}</Heading> 
           </HStack>
-
-          <HStack space={"2xl"}>
-            <Image
-              source={require("../assets/search.png")}
-              w="$5"
-              h="$5"
-              alt="Search Icon"
-              role="img"
-            />
-          </HStack>
         </HStack>
       </Box>
     </SafeAreaView>

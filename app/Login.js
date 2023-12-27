@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { Link, useNavigation } from 'expo-router';
+import { useNavigation } from 'expo-router';
 import {
     SafeAreaView,
     View,
     Text,
     TouchableOpacity,
     TextInput,
+    
 } from 'react-native';
-import { ButtonText, Heading } from '@gluestack-ui/themed';
+import { Heading } from '@gluestack-ui/themed';
 
 const Login = () => {
-    const navigation = useNavigation();
+
     const [form, setForm] = useState({
         email: '',
         password: '',
@@ -65,16 +66,19 @@ const Login = () => {
                             style={{ height: 44, backgroundColor: '#f1f5f9', paddingHorizontal: 16, borderRadius: 12, fontSize: 15, fontWeight: '500', color: '#222' }}
                         />
                     </View>
+                    
+                    
 
                     <View style={{ marginVertical: 24 }}>
-                        <TouchableOpacity onPress={() => navigation.navigate('home')}>
+                        
+                        <TouchableOpacity>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 8, paddingVertical: 8, paddingHorizontal: 16, borderWidth: 1, backgroundColor: '#FF7F50', borderColor: '#FF7F50' }}>
                                 <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }}>Sign in</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+                    <TouchableOpacity >
                         <Text>
                             Belum Punya Akun?{' '}
                             <Text style={{ textDecorationLine: 'underline' }}>Sign up</Text>
