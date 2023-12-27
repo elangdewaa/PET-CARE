@@ -11,17 +11,30 @@ const Paket = () => {
            Layanan Pet Care
          </Heading>
          </Center>
-         <TouchableOpacity>
+         
                 <Box alignSelf="flex-start"
                 width="100%"
                 py="$"
                 px="$10"
                 my={20}>
+                 
                     <Button size="md" variant="solid" backgroundColor="coral" isDisabled={false} isFocusVisible={false} >
                         <ButtonText>Grooming </ButtonText>
                     </Button>
                 </Box>
-            </TouchableOpacity>
+
+                <Box alignSelf="flex-start"
+                width="100%"
+                py="$"
+                px="$10"
+                my={20}>
+                    
+                    <Button size="md" variant="solid" backgroundColor="coral" isDisabled={false} isFocusVisible={false} >
+                        <ButtonText>Penitipan </ButtonText>
+                    </Button>
+                </Box>
+               
+           
          
       </ScrollView>
     </>
