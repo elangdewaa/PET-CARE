@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router/tabs";
-import { Text } from "@gluestack-ui/themed";
+import { Text, borderRadius } from "@gluestack-ui/themed";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 const noHead = { headerShown: false };
@@ -41,9 +41,9 @@ const TabsLayout = () => {
           
           
         },
-        tabBarLabel: ({ children, color, focused }) => {
+        tabBarLabel: ({ children, color, focused  }) => {
           return (
-            <Text mb="$2" color={focused ? "$white" :"brown"} fontSize="$sm">
+            <Text mb="$2" color={focused ? "$white" :"brown"} fontSize="$sm"> 
               {children}
             </Text>
           );
