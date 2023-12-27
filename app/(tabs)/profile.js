@@ -32,8 +32,8 @@ const Profile = () => {
                 }}
               >
                 <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
-                  <ButtonText> Edit Profile</ButtonText>
-                </TouchableOpacity>
+                <ButtonText color="#0C0C0C"> Edit Profile</ButtonText>
+              </TouchableOpacity>
           </Link>
           <Divider my={0.2} />
           <Link
