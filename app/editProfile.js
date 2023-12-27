@@ -37,7 +37,7 @@ const EditProfile = () => {
       borderWidth="$1"
       borderRadius="$lg"
       borderColor="$borderLight300"
-      backgroundColor="lightyellow"
+      backgroundColor="floralwhite"
       height="$full"
       sx={{
         _dark: {
