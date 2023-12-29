@@ -40,6 +40,7 @@ const Reservation = () => {
                 source={require('../../assets/grooming.jpg')}
               />
             </Box>
+            <Box>
             <VStack px='$6' pt='$4' pb='$6'>
               <Heading _dark={{color:"$textLight200"}} size='sm'>
                 Paket Grooming 
@@ -48,6 +49,7 @@ const Reservation = () => {
                 Menyediakan layanan grooming hewan dengan beberapa paket pilihan
               </Text>
             </VStack>
+            </Box>
           </Box>
         </TouchableOpacity>
         
