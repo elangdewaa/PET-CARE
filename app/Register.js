@@ -1,5 +1,5 @@
-import { Heading, ScrollView } from '@gluestack-ui/themed';
-import { useNavigation } from 'expo-router';
+import { Button, ButtonText, Heading, Image, ScrollView } from '@gluestack-ui/themed';
+import { Link, useNavigation } from 'expo-router';
 import React, { useState } from 'react';
 import {
     SafeAreaView,
@@ -19,7 +19,7 @@ const Register = () => {
     });
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#EDE4D3' }}>
             <View
                 style={{
                     paddingVertical: 24,
@@ -29,10 +29,29 @@ const Register = () => {
                     flexBasis: 0,
                 }}
             >
-                <View style={{ marginVertical: 24, paddingHorizontal: 24 }}>
-                    <Heading style={{ fontSize: 32, fontWeight: 'bold', color: '#1d1d1d', marginBottom: 6, textAlign: 'center' }}>Register</Heading>
 
-                    <Text style={{ fontSize: 14, fontWeight: '500', color: '#929292', textAlign: 'center' }}>
+                <View style={{ marginVertical: 24, paddingHorizontal: 24 }}>
+                    <Image
+                        alt=""
+                        resizeMode="contain"
+                        style={{
+                            width: 100,
+                            height: 100,
+                            alignSelf: 'center',
+                            marginBottom: 0,
+                        }}
+                        source={require('../assets/register.png')}>
+
+                    </Image>
+                    <Heading style={{
+                        fontSize: 32,
+                        fontWeight: 'bold',
+                        color: '#1d1d1d',
+                        marginBottom: 6,
+                        textAlign: 'center'
+                    }}>Register</Heading>
+
+                    <Text style={{ fontSize: 14, fontWeight: '500', color: '#1d1d1d', textAlign: 'center' }}>
                         Pet Care
                     </Text>
                 </View>
@@ -158,20 +177,22 @@ const Register = () => {
                             </TouchableOpacity>
                         </View>
 
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('home')}
-                        >
-                            <Text
-                                style={{
+                        <TouchableOpacity>
+
+                            <Link
+                                href={{
+                                    pathname: "/Login"
+                                }}
+                            >
+                                <Text style={{
                                     fontSize: 15,
                                     fontWeight: '500',
                                     color: '#222',
                                     textAlign: 'center',
-                                }}
-                            >
-                                Already have an account?{' '}
-                                <Text style={{ textDecorationLine: 'underline' }}>Sign in</Text>
-                            </Text>
+                                }}> Already have an account? login</Text>
+                            </Link>
+
+
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
