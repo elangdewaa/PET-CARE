@@ -25,6 +25,7 @@ import {
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
 import { useState } from "react";
+import { TextInput } from 'react-native';
 import React from "react";
 
 
@@ -60,17 +61,55 @@ const add_detail_grooming = () => {
           <Text color="$warning800" lineHeight="$xs">
             Paket Grooming
           </Text>
-          <Input>
-            <InputField type="text" />
-          </Input>
+          <TextInput
+            placeholder="Isi Paket Grooming"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              
+              }}
+          />
         </VStack>
         <VStack space="xs">
           <Text color="$warning800" lineHeight="$xs">
             Harga
           </Text>
-          <Input>
-            <InputField type="text" ref={inputRef} />
-          </Input>
+          <TextInput
+            placeholder="Isi Harga"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              
+              }}
+          />
+        </VStack>
+        <VStack space="xs">
+          <Text color="$warning800" lineHeight="$xs">
+            Deskripsi
+          </Text>
+          <TextInput
+            placeholder="Isi Deskripsi"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              
+              }}
+          />
         </VStack>
       <Button onPress={() => setShowModal(true)} ref={ref}
        style={{
@@ -118,6 +157,7 @@ const add_detail_grooming = () => {
               size="sm"
               action="positive"
               borderWidth="$0"
+              backgroundColor="$coral"
               onPress={() => {
                 setShowModal(false)
               }}

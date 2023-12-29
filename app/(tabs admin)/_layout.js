@@ -18,7 +18,7 @@ const TabsLayout = () => {
               iconName = "clipboard-outline";
               break;
             case "Profile":
-              iconName = "checkmark-outline";
+              iconName = "person-outline";
               break;
           }
           return (

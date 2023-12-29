@@ -1,8 +1,7 @@
-import { ScrollView, Box, VStack, Text, Link, Image, Heading, TouchableOpacity } from "@gluestack-ui/themed";
+import { View } from "react-native"; // Import View from React Native
 import { Header } from "../../components";
-import React from 'react';
-import { FlatList } from "react-native-gesture-handler";
-
+import React, { useState } from 'react'; // Import useState from React
+import { FlatList, TouchableOpacity, Text } from "react-native-gesture-handler";
 const noHead = { headerShown: false };
 
 const all_reservation = () => {
