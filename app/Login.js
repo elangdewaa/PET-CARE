@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigation } from 'expo-router';
 import {
     SafeAreaView,
     View,
     Text,
     TouchableOpacity,
     TextInput,
-    
+
 } from 'react-native';
 import { Heading } from '@gluestack-ui/themed';
+import { Link, useLocalSearchParams } from "expo-router";
 
 const Login = () => {
 
@@ -66,11 +66,11 @@ const Login = () => {
                             style={{ height: 44, backgroundColor: '#f1f5f9', paddingHorizontal: 16, borderRadius: 12, fontSize: 15, fontWeight: '500', color: '#222' }}
                         />
                     </View>
-                    
-                    
+
+
 
                     <View style={{ marginVertical: 24 }}>
-                        
+
                         <TouchableOpacity>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 8, paddingVertical: 8, paddingHorizontal: 16, borderWidth: 1, backgroundColor: '#FF7F50', borderColor: '#FF7F50' }}>
                                 <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }}>Sign in</Text>
@@ -87,9 +87,7 @@ const Login = () => {
                     <TouchableOpacity onPress={() => navigation.navigate('forgotpassword')}>
                         <Text style={{ textDecorationLine: 'underline' }}>Lupa Password?</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('AdminLogin')}>
-                        <Text style={{ textDecorationLine: 'underline' }}>Login Admin</Text>
-                    </TouchableOpacity>
+
                 </View>
             </View>
         </SafeAreaView>

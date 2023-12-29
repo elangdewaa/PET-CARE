@@ -19,6 +19,10 @@ const StackLayout = () => {
         <Stack.Screen name="Aboutus" options={noHead} />
         <Stack.Screen name="changepassword" options={noHead} />
         <Stack.Screen name="reservation" options={noHead} />
+        <Stack.Screen name="AdminLogin" options={noHead} />
+        <Stack.Screen name="Dashboard" options={noHead} />
+        <Stack.Screen name="Login" options={noHead} />
+        <Stack.Screen name="(tabs admin)" options={noHead} />
       </Stack>
     </GluestackUIProvider>
   );

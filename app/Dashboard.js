@@ -1,7 +1,9 @@
-import { View, Text, ImageBackground } from 'react-native'
-import { Pressable, Button, ButtonText } from '@gluestack-ui/themed'
-import React from 'react'
-import { useNavigation } from "@react-navigation/native";
+import { View, Text, ImageBackground, TouchableOpacity } from '@gluestack-ui/themed';
+
+import { Button, ButtonText, Box, VStack } from '@gluestack-ui/themed';
+import React from 'react';
+import { Link, useLocalSearchParams } from 'expo-router';
+
 
 const Dashboard = () => {
     return (
@@ -17,29 +19,11 @@ const Dashboard = () => {
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
-                <Button style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: 8,
-                    paddingVertical: 8,
-                    paddingHorizontal: 16,
-                    borderWidth: 1,
-                    backgroundColor: '#FFFFFF',
-                    borderColor: '#FFFFFF'
-                }}
-                    title="login"
-                    onPress={() => navigation.navigate('Login')}
-                >
-                    <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#000000' }}>
-                        Login</Text>
-                </Button>
-
             </View>
-            
+
 
         </ImageBackground>
-         
+
     )
 }
 

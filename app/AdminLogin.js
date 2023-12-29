@@ -1,3 +1,5 @@
+import { Pressable, Button, ButtonText } from '@gluestack-ui/themed'
+import { Link } from 'expo-router';
 import React, { useState } from 'react';
 import {
     SafeAreaView,
@@ -101,7 +103,30 @@ const AdminLogin = () => {
                     </View>
 
                     <View style={{ marginVertical: 24 }}>
-                        <TouchableOpacity
+                        <TouchableOpacity>
+                            <Button style={{
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                borderRadius: 8,
+                                paddingVertical: 5,
+                                paddingHorizontal: 130,
+                                borderWidth: 1,
+                                backgroundColor: '#FF7F50',
+                                borderColor: '#FF7F50',
+                            }}>
+                                <Link
+                                    href={{
+                                        pathname: "/all_reservation"
+                                    }}
+                                >
+                                    <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }}> Login</Text>
+                                </Link>
+                            </Button>
+
+                        </TouchableOpacity>
+
+                        {/* <TouchableOpacity
                             onPress={() => {
                                 // handle onPress
                             }}>
@@ -123,7 +148,7 @@ const AdminLogin = () => {
                                     color: '#fff',
                                 }}>Login</Text>
                             </View>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
 
                     <TouchableOpacity
