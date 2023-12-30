@@ -88,7 +88,7 @@ const Register = () => {
                             <TextInput
                                 autoCapitalize="none"
                                 autoCorrect={false}
-                                keyboardType="email-address"
+                                keyboardT   ype="email-address"
                                 onChangeText={(email) => setForm({ ...form, email })}
                                 placeholder="isi alamat email"
                                 placeholderTextColor="#6b7280"

@@ -100,6 +100,8 @@ const Login = () => {
                                 </Link>
                             </Button>
 
+                            
+
                         </TouchableOpacity>
                     </View>
 
@@ -139,7 +141,8 @@ const Login = () => {
                             fontWeight: '500',
                             color: '#222',
                             textAlign: 'center',
-                            textDecorationLine: 'underline'
+                            textDecorationLine: 'underline',
+                            marginBottom: '$20',
                         }}>Login Admin</Text>
                     </Link>
                 </View>
