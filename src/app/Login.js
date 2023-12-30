@@ -8,6 +8,7 @@ import {
     TextInput,
 } from 'react-native';
 import { Button, ButtonText, Heading, Image } from '@gluestack-ui/themed';
+import { Divider } from '@gluestack-ui/config/build/theme';
 
 import { loginUser } from "../actions/AuthAction";
 
@@ -145,7 +146,9 @@ const Login = ({ navigation }) => {
                             textAlign: 'center',
                             textDecorationLine: 'underline'
                         }}>Belum punya akun? Sign Up</Text>
-                    </Link>
+                        
+                    </Link> 
+                    
                     <Link
                         href={{
                             pathname: "/forgotpassword"
