@@ -16,6 +16,7 @@
     "@react-native-aria/focus": "^0.2.9",
     "@react-native-aria/interactions": "^0.2.11",
     "@react-native-aria/overlays": "^0.3.10",
+    "@react-native-async-storage/async-storage": "1.18.2",
     "date-fns": "^2.30.0",
     "expo": "~49.0.15",
     "expo-constants": "~14.4.2",
