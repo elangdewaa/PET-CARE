@@ -1,8 +1,9 @@
-import { Text, View } from 'react-native'
-import React, { useState } from 'react'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { ScrollView, Box, VStack, Text, Link, Image, Heading, TouchableOpacity } from "@gluestack-ui/themed";
 import { Header } from "../../components";
-import { Box, HStack, VStack } from '@gluestack-ui/themed';
+import React from 'react';
+import { FlatList } from "react-native-gesture-handler";
+
+const noHead = { headerShown: false };
 
 const all_reservation = () => {
   const [selectedTab, setSelectedTab] = useState(0);

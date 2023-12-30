@@ -103,7 +103,7 @@ const Login = () => {
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+                    <TouchableOpacity >
                         <Text>
                             Belum Punya Akun?{' '}
                             <Text style={{ textDecorationLine: 'underline' }}>Sign up</Text>
@@ -112,9 +112,48 @@ const Login = () => {
                     <TouchableOpacity onPress={() => navigation.navigate('forgotpassword')}>
                         <Text style={{ textDecorationLine: 'underline' }}>Lupa Password?</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('AdminLogin')}>
-                        <Text style={{ textDecorationLine: 'underline' }}>Login Admin</Text>
-                    </TouchableOpacity>
+
+=========
+                    <Link
+                        href={{
+                            pathname: "/Register"
+                        }}
+                    >
+                        <Text style={{
+                            fontSize: 15,
+                            fontWeight: '500',
+                            color: '#222',
+                            textAlign: 'center',
+                            textDecorationLine: 'underline'
+                        }}>Belum punya akun? Sign Up</Text>
+                    </Link>
+                    <Link
+                        href={{
+                            pathname: "/forgotpassword"
+                        }}
+                    >
+                        <Text style={{
+                            fontSize: 15,
+                            fontWeight: '500',
+                            color: '#222',
+                            textAlign: 'center',
+                            textDecorationLine: 'underline'
+                        }}>Lupa Password?</Text>
+                    </Link>
+                    <Link
+                        href={{
+                            pathname: "/AdminLogin"
+                        }}
+                    >
+                        <Text style={{
+                            fontSize: 15,
+                            fontWeight: '500',
+                            color: '#222',
+                            textAlign: 'center',
+                            textDecorationLine: 'underline'
+                        }}>Login Admin</Text>
+                    </Link>
+
                 </View>
             </View>
         </SafeAreaView>
