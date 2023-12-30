@@ -16,7 +16,11 @@ const Dashboard = () => {
             }} >
             <View style={{
                 marginVertical: 24,
-                marginTop: 700,
+<<<<<<<<< Temporary merge branch 1
+                marginTop: 'auto',
+=========
+                marginTop: 650,
+>>>>>>>>> Temporary merge branch 2
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
