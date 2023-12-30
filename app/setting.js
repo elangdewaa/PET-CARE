@@ -3,6 +3,7 @@ import { SafeAreaView, View, Text, TouchableOpacity, Switch } from 'react-native
 import { Divider, HStack, VStack, ButtonText } from '@gluestack-ui/themed';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Link, useNavigation } from "expo-router";
+import { Header } from "../components";
 
 const SettingScreen = () => {
     const [isEnabled, setIsEnabled] = useState(false);
@@ -21,8 +22,9 @@ const SettingScreen = () => {
     };
 
     return (
-        <SafeAreaView>
-            <VStack space="md" p={20} backgroundColor="lightyellow" height="$full">
+        <SafeAreaView style={{backgroundColor: '#EDE4D3'}}>
+            <Header title={"Setting"} />
+            <VStack space="md" p={20} height="$full">
                 <TouchableOpacity onPress={handleLanguagePress}>
                     <HStack alignItems="center">
                         <Ionicons size={20} name="language" />
@@ -43,8 +45,8 @@ const SettingScreen = () => {
                     <Ionicons size={20} name="notifications" />
                     <Text style={{ marginLeft: 12, marginRight:190 }}> Notifikasi</Text>
                     <Switch
-                        trackColor={{ false: '#767577', true: '#81b0ff' }}
-                        thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                        trackColor={{ false: '#767577', true: '#23B0FF' }}
+                        thumbColor={isEnabled ? '#f4f3f4E' : '#f4f3f4'}
                         ios_backgroundColor="#3e3e3e"
                         onValueChange={toggleSwitch}
                         value={isEnabled}

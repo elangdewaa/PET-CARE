@@ -16,8 +16,20 @@ const Profile = () => {
           
            
             <HStack space={"2xl"}>
+            <Image
+                        alt=""
+                        resizeMode="contain"
+                        style={{
+                            width: 100,
+                            height: 100,
+                            alignSelf: 'center',
+                            marginBottom: 0,
+                        }}
+                        source={require('../../assets/welcome.png')}
+
+                    />
               <VStack space="md">
-                <Text fontSize={20} style={{ fontFamily: 'Helvetica' }}>Hi, Jasmine !</Text>
+                <Text fontSize={20} marginTop={20} style={{ fontFamily: 'Helvetica' }}>Hi, Jasmine !</Text>
                 <Text fontSize={17} style={{ fontFamily: 'Helvetica' }}>Kucing Chiro</Text>
               </VStack>
             </HStack>
@@ -32,8 +44,8 @@ const Profile = () => {
                 }}
               >
                 <TouchableOpacity backgroundColor="$blue600" borderRadius={"$full"}>
-                  <ButtonText> Edit Profile</ButtonText>
-                </TouchableOpacity>
+                <ButtonText color="#0C0C0C"> Edit Profile</ButtonText>
+              </TouchableOpacity>
           </Link>
           <Divider my={0.2} />
           <Link

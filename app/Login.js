@@ -103,7 +103,6 @@ const Login = () => {
 
                         </TouchableOpacity>
                     </View>
-
                     <Link
                         href={{
                             pathname: "/Register"
@@ -145,6 +144,7 @@ const Login = () => {
                             textDecorationLine: 'underline'
                         }}>Login Admin</Text>
                     </Link>
+
                 </View>
             </View>
         </SafeAreaView>

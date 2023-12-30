@@ -16,7 +16,7 @@ const Dashboard = () => {
             }} >
             <View style={{
                 marginVertical: 24,
-                marginTop: 700,
+                marginTop: 'auto',
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
@@ -44,7 +44,6 @@ const Dashboard = () => {
 
                 </TouchableOpacity>
 
-    
             </View>
 
         </ImageBackground>

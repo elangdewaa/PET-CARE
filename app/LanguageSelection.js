@@ -4,6 +4,7 @@ import { SafeAreaView, View, Text, TouchableOpacity, FlatList } from 'react-nati
 import { VStack, Divider, HStack } from '@gluestack-ui/themed';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import { Header } from "../components";
 
 const languages = [
   { id: 'en', name: 'English' },
@@ -29,8 +30,9 @@ const LanguageSelectionScreen = () => {
   };
 
   return (
-    <SafeAreaView>
-      <VStack space="md" p={20} backgroundColor="lightyellow">
+    <SafeAreaView style={{backgroundColor: '#EDE4D3',}}>
+      <Header title={"Bahasa"} />
+      <VStack space="md" height="$full" p={20}>
         <FlatList
           data={languages}
           keyExtractor={(item) => item.id}
@@ -49,7 +51,7 @@ const LanguageSelectionScreen = () => {
               </HStack>
             </TouchableOpacity>
           )}
-          ItemSeparatorComponent={() => <Divider my={0.2} />}
+          ItemSeparatorComponent={() => <Divider my={10} />}
         />
       </VStack>
     </SafeAreaView>
