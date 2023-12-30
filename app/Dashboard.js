@@ -7,7 +7,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const Dashboard = () => {
-    const navigation = useNavigation();
     return (
         <ImageBackground
             source={require('../assets/Dashboard.png')}
@@ -17,7 +16,7 @@ const Dashboard = () => {
             }} >
             <View style={{
                 marginVertical: 24,
-                marginTop: 650,
+                marginTop: 700,
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>

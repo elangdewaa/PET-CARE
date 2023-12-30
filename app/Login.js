@@ -7,7 +7,7 @@ import {
     TouchableOpacity,
     TextInput,
 } from 'react-native';
-import { ButtonText, Heading, Divider } from '@gluestack-ui/themed';
+import { Button, ButtonText, Heading, Image } from '@gluestack-ui/themed';
 
 const Login = () => {
     const navigation = useNavigation();
@@ -17,22 +17,34 @@ const Login = () => {
     });
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#EDE4D3' }}>
             <View style={{ padding: 24, flexGrow: 1, flexShrink: 1, flexBasis: 0 }}>
                 <View style={{ marginVertical: 36 }}>
+                    <Image
+                        alt=""
+                        resizeMode="contain"
+                        style={{
+                            width: 200,
+                            height: 200,
+                            alignSelf: 'center',
+                            marginBottom: 0,
+                        }}
+                        source={require('../assets/welcome.png')}
+
+                    />
                     <Heading style={{
                         fontSize: 32,
                         fontWeight: 'bold',
                         color: '#1d1d1d',
                         marginBottom: 6,
                         textAlign: 'center'
-                    }}>Welcome!</Heading>
+                    }}>PET CARE</Heading>
                     <Text style={{
                         fontSize: 15,
                         fontWeight: '500',
-                        color: '#929292',
+                        color: '#1d1d1d',
                         textAlign: 'center'
-                    }}>Pet Care</Text>
+                    }}>Solusi aman untuk hewan peliharaan</Text>
                 </View>
 
                 <View style={{ marginBottom: 24 }}>
@@ -67,26 +79,69 @@ const Login = () => {
                     </View>
 
                     <View style={{ marginVertical: 24 }}>
-                        <TouchableOpacity onPress={() => navigation.navigate('home')}>
-                            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 8, paddingVertical: 8, paddingHorizontal: 16, borderWidth: 1, backgroundColor: '#FF7F50', borderColor: '#FF7F50' }}>
-                                <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }}>Sign in</Text>
-                            </View>
+                        <TouchableOpacity>
+                            <Button style={{
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                borderRadius: 8,
+                                paddingVertical: 5,
+                                paddingHorizontal: 130,
+                                borderWidth: 1,
+                                backgroundColor: '#FF7F50',
+                                borderColor: '#FF7F50',
+                            }}>
+                                <Link
+                                    href={{
+                                        pathname: "/home"
+                                    }}
+                                >
+                                    <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }}> Login</Text>
+                                </Link>
+                            </Button>
+
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-                        <Text>
-                            Belum Punya Akun?{' '}
-                            <Text style={{ textDecorationLine: 'underline' }}>Sign up</Text>
-                        </Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() => navigation.navigate('forgotpassword')}>
-                        <Text style={{ textDecorationLine: 'underline' }}>Lupa Password?</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('AdminLogin')}>
-                        <Text style={{ textDecorationLine: 'underline' }}>Login Admin</Text>
-                    </TouchableOpacity>
+                    <Link
+                        href={{
+                            pathname: "/Register"
+                        }}
+                    >
+                        <Text style={{
+                            fontSize: 15,
+                            fontWeight: '500',
+                            color: '#222',
+                            textAlign: 'center',
+                            textDecorationLine: 'underline'
+                        }}>Belum punya akun? Sign Up</Text>
+                    </Link>
+                    <Link
+                        href={{
+                            pathname: "/forgotpassword"
+                        }}
+                    >
+                        <Text style={{
+                            fontSize: 15,
+                            fontWeight: '500',
+                            color: '#222',
+                            textAlign: 'center',
+                            textDecorationLine: 'underline'
+                        }}>Lupa Password?</Text>
+                    </Link>
+                    <Link
+                        href={{
+                            pathname: "/AdminLogin"
+                        }}
+                    >
+                        <Text style={{
+                            fontSize: 15,
+                            fontWeight: '500',
+                            color: '#222',
+                            textAlign: 'center',
+                            textDecorationLine: 'underline'
+                        }}>Login Admin</Text>
+                    </Link>
                 </View>
             </View>
         </SafeAreaView>
