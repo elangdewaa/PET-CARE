@@ -7,7 +7,7 @@ import {
     TouchableOpacity,
     TextInput,
 } from 'react-native';
-import { ButtonText, Heading } from '@gluestack-ui/themed';
+import { Button, ButtonText, Heading, Image } from '@gluestack-ui/themed';
 
 const Login = () => {
     const navigation = useNavigation();
@@ -102,18 +102,6 @@ const Login = () => {
 
                         </TouchableOpacity>
                     </View>
-
-                    <TouchableOpacity >
-                        <Text>
-                            Belum Punya Akun?{' '}
-                            <Text style={{ textDecorationLine: 'underline' }}>Sign up</Text>
-                        </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('forgotpassword')}>
-                        <Text style={{ textDecorationLine: 'underline' }}>Lupa Password?</Text>
-                    </TouchableOpacity>
-
-=========
                     <Link
                         href={{
                             pathname: "/Register"

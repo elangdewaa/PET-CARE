@@ -154,8 +154,6 @@ const Reservation = () => {
 
 export default Reservation;
 
-=========
->>>>>>>>> Temporary merge branch 2
 // import { ScrollView, Box, VStack, Text, Image, Heading, TouchableOpacity } from "@gluestack-ui/themed";
 // import { Header } from "../../components";
 // import React from 'react';

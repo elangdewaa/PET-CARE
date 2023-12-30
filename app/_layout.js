@@ -14,8 +14,8 @@ const StackLayout = () => {
         <Stack.Screen name="home" options={noHead} />
         <Stack.Screen name="index" options={noHead} />
         <Stack.Screen name="editProfile" options={noHead} />
-        <Stack.Screen name="setting" options={true} />
-        <Stack.Screen name="LanguageSelection" options={true} />
+        <Stack.Screen name="setting" options={noHead} />
+        <Stack.Screen name="LanguageSelection" options={noHead} />
         <Stack.Screen name="Aboutus" options={noHead} />
         <Stack.Screen name="changepassword" options={noHead} />
         <Stack.Screen name="reservation" options={noHead} />
@@ -29,7 +29,7 @@ const StackLayout = () => {
         <Stack.Screen name="detail_grooming" options={noHead} />
         <Stack.Screen name="add_detail_grooming" options={noHead} />
         <Stack.Screen name="Paket" options={noHead} />
->>>>>>>>> Temporary merge branch 2
+        <Stack.Screen name="accordion" options={noHead} />
       </Stack>
     </GluestackUIProvider>
   );
