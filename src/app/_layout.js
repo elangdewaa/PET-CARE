@@ -21,7 +21,7 @@ const StackLayout = () => {
         <Stack.Screen name="reservation" options={noHead} />
         <Stack.Screen name="AdminLogin" options={noHead} />
         <Stack.Screen name="Dashboard" options={noHead} />
-        <Stack.Screen name="Login" options={noHead} />
+        <Stack.Screen name="Login" options={noHead}  />
         <Stack.Screen name="(tabs admin)" options={noHead} />
         <Stack.Screen name="all_reservation" options={noHead} />
         <Stack.Screen name="Profile" options={noHead} />

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useNavigation } from 'expo-router';
+import React, { useState,useEffect } from 'react';
+import { Link,router } from 'expo-router';
 import {
     SafeAreaView,
     View,
@@ -8,32 +8,59 @@ import {
     TextInput,
 } from 'react-native';
 import { Button, ButtonText, Heading, Image } from '@gluestack-ui/themed';
+import { Divider } from '@gluestack-ui/config/build/theme';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import firebase from "../config";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+// import { loginUser } from "../actions/AuthAction";
 
-import { loginUser } from "../actions/AuthAction";
 
-const Login = ({ navigation }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
-
+  const auth = getAuth();
+  useEffect(() => {
+    getUser();
+  }, []);
+  const getUser = async () => {
+    try {
+      // Ambil data dari AsyncStorage
+      const userData = await AsyncStorage.getItem("user-data");
+      if (userData !== null) {
+        // Diarahkan ke Halaman Home
+        router.replace("/home");
+      } else {
+        setIsLoading(false);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
   const toggleAlert = (message) => {
     setShowAlert(!showAlert);
     setAlertMessage(message);
   };
 
   const login = () => {
-    if (email && password) {
-      loginUser(email, password)
-        .then((user) => {
-          // Pengguna berhasil login, lakukan sesuatu dengan data pengguna jika perlu
-          navigation.replace("MainApp");
-        })
-        .catch((error) => {
-          // Terjadi kesalahan saat login, tampilkan pesan kesalahan
-          console.log("Error", error.message);
-          toggleAlert(error.message);
-        });
+    firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
+      // const user = userCredential.user
+      saveUserData(email, password, userCredential);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  };
+  const saveUserData = async (email, password, credential) => {
+    const userData = { email, password, credential };
+    try {
+      // Menyimpan data ke AsyncStorage
+      await AsyncStorage.setItem("user-data", JSON.stringify(userData));
+      // Diarahkan ke Home
+      router.replace("/home")
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -100,8 +127,8 @@ const Login = ({ navigation }) => {
                     </View>
 
                     <View style={{ marginVertical: 24 }}>
-                        <TouchableOpacity>
-                            <Button style={{
+                        <TouchableOpacity  >
+                            <Button onPress={login} style={{
                                 flexDirection: 'row',
                                 alignItems: 'center',
                                 justifyContent: 'center',
@@ -112,13 +139,9 @@ const Login = ({ navigation }) => {
                                 backgroundColor: '#FF7F50',
                                 borderColor: '#FF7F50',
                             }}>
-                                <Link
-                                    href={{
-                                        pathname: "/home"
-                                    }}
-                                >
+
                                     <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }}> Login</Text>
-                                </Link>
+            
                             </Button>
                             {/* show Alert */}
                             {showAlert && (
@@ -145,7 +168,9 @@ const Login = ({ navigation }) => {
                             textAlign: 'center',
                             textDecorationLine: 'underline'
                         }}>Belum punya akun? Sign Up</Text>
-                    </Link>
+                        
+                    </Link> 
+                    
                     <Link
                         href={{
                             pathname: "/forgotpassword"

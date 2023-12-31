@@ -1,5 +1,5 @@
 import { Button, ButtonText, Heading, Image, ScrollView, form, } from '@gluestack-ui/themed';
-import { Link, useNavigation } from 'expo-router';
+import { Link, router } from 'expo-router';
 import React, { useState } from 'react';
 import {
     SafeAreaView,
@@ -8,43 +8,28 @@ import {
     TouchableOpacity,
     TextInput,
 } from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import firebase from "../config";
 
-import { registerUser } from "../actions/AuthAction";
-
-const Register = ({ navigation }) => {
-  const [nama, setNama] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("")
-  const [confirmPassword, setconfirmPassword] = useState("");
-
-const toggleAlert = (message) => {
-        setShowAlert(!showAlert);
-        setAlertMessage(message);
+const Register = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name,SetName] = useState("")
+    const registerHandler = async () => { firebase.auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
+        saveUserData(email, password,name, userCredential);
+      }).catch((error) => {
+        console.error(error);
+      });
     };
-    const onRegister = async () => {
-        if (nama && email && password && confirmPassword) {
-          const data = {
-            nama: nama,
-            email: email,
-            status: "user",
-          };
-    
-          console.log(data);
-    
-          try {
-            const user = await registerUser(data, password);
-            navigation.replace("MainApp");
-          } catch (error) {
-            console.log("Error", error.message);
-            toggleAlert(error.message);
-          }
-        } else {
-          console.log("Error", "Data tidak lengkap");
-          toggleAlert("Data tidak lengkap");
-        }
-      };
+    const saveUserData = async (email, password, name,credential) => {
+      const userData = { email, password,name, credential };
+      try {
+        await AsyncStorage.setItem("user-data", JSON.stringify(userData));
+        router.replace("/home");
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#EDE4D3' }}>
@@ -93,7 +78,7 @@ const toggleAlert = (message) => {
 
                             <TextInput
                             label="Nama"
-                                onChangeText={(nama) => setNama(nama)}
+                                onChangeText={(value) => SetName(value)}
                                 placeholder="Isi nama anda"
                                 placeholderTextColor="#6b7280"
                                 style={{
@@ -105,7 +90,6 @@ const toggleAlert = (message) => {
                                     fontWeight: '500',
                                     color: '#222',
                                 }}
-                                value={nama}
                             />
                         </View>
 
@@ -119,7 +103,7 @@ const toggleAlert = (message) => {
                                 autoCapitalize="none"
                                 autoCorrect={false}
                                 keyboardType="email-address"
-                                onChangeText={(email) => setEmail(email)}
+                                onChangeText={(value)=>setEmail(value)}
                                 placeholder="isi alamat email"
                                 placeholderTextColor="#6b7280"
                                 style={{
@@ -131,7 +115,7 @@ const toggleAlert = (message) => {
                                     fontWeight: '500',
                                     color: '#222',
                                 }}
-                                value={email}
+                                
                             />
                         </View>
 
@@ -143,7 +127,7 @@ const toggleAlert = (message) => {
                             <TextInput
                             label="Password"
                                 autoCorrect={false}
-                                onChangeText={(password) => setPassword(password)}
+                                onChangeText={(value) => setPassword(value)}
                                 placeholder="isi password"
                                 placeholderTextColor="#6b7280"
                                 style={{
@@ -156,11 +140,10 @@ const toggleAlert = (message) => {
                                     color: '#222',
                                 }}
                                 secureTextEntry={true}
-                                value={password}
                             />
                         </View>
 
-                        <View style={{ marginBottom: 16 }}>
+                        {/* <View style={{ marginBottom: 16 }}>
                             <Text style={{ fontSize: 17, fontWeight: '600', color: '#222', marginBottom: 8 }}>
                                 Konfirmasi Password
                             </Text>
@@ -184,7 +167,7 @@ const toggleAlert = (message) => {
                                 value={confirmPassword}
 
                             />
-                        </View>
+                        </View> */}
 
                         <View style={{ marginVertical: 24 }}>
                         <Button
@@ -197,9 +180,7 @@ const toggleAlert = (message) => {
                         borderWidth="1"
                         backgroundColor="#FF7F50"
                         borderColor="#FF7F50"
-                         onPress={() => {
-                         onRegister();
-                         }}>
+                         onPress={registerHandler}>
                         <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }} >
                                         Sign up
                         </Text>
