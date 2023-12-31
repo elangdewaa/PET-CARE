@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { SafeAreaView, View, Text, TouchableOpacity, Switch } from 'react-native';
 import { Divider, HStack, VStack, ButtonText } from '@gluestack-ui/themed';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { Link, useNavigation } from "expo-router";
+import { Link } from "expo-router";
 
 const SettingScreen = () => {
     const [isEnabled, setIsEnabled] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState(null);
-    const navigation = useNavigation();
 
     const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
@@ -17,7 +16,7 @@ const SettingScreen = () => {
     };
 
     const handleLanguagePress = () => {
-        navigation.navigate('LanguageSelection', { onSelectLanguage });
+        router.push({pathname: "/LanguageSelection", params: {onSelectLanguage}});
     };
 
     return (

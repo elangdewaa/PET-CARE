@@ -12,13 +12,12 @@ import {
   Button,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
-import { useNavigation } from "@react-navigation/native";
+import { router } from "expo-router";
 
 const Reservation = () => {
-  const navigation = useNavigation();
 
   const handleBackPress = () => {
-    navigation.goBack();
+    router.back()
   };
 
   return (
@@ -140,7 +139,7 @@ export default Reservation;
 //   const navigation = useNavigation();
 
 //   const handleBackPress = () => {
-//     navigation.goBack();
+//     router.back()
 //   };
 
 //   return (

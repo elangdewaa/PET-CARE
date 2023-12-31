@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigation } from 'expo-router';
+import { Link } from 'expo-router';
 import {
     SafeAreaView,
     View,
@@ -7,14 +7,79 @@ import {
     TouchableOpacity,
     TextInput,
 } from 'react-native';
-import { Button, ButtonText, Heading, Image } from '@gluestack-ui/themed';
+import { Button, ButtonText, Heading, Image, Modal,
+    ModalBackdrop,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody, } from '@gluestack-ui/themed';
+import { Alert } from 'react-native';
+import { loginUser } from "../actions/AuthAction";
 
-const Login = () => {
-    const navigation = useNavigation();
-    const [form, setForm] = useState({
-        email: '',
-        password: '',
-    });
+const Login = ({}) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [registrationError, setRegistrationError] = useState(false)
+
+  const toggleAlert = (message) => {
+    setShowAlert(!showAlert);
+    setAlertMessage(message);
+  };
+
+//   if (email && password) {
+//     loginUser(email, password)
+//       .then((user) => {
+//         // Pengguna berhasil login, lakukan sesuatu dengan data pengguna jika perlu
+//         navigation.replace("MainApp");
+//         // Menampilkan alert sukses
+//         Alert.alert("Login Successful", "You have successfully logged in!");
+//       })
+//       .catch((error) => {
+//         // Terjadi kesalahan saat login, tampilkan pesan kesalahan
+//         console.log("Error", error.message);
+//         // Menampilkan alert gagal dengan pesan kesalahan
+//         Alert.alert("Login Failed", "Gagal Login");
+//       };
+//   if (email && password) {
+//     loginUser(email, password)
+//       .then((user) => {
+//         // Pengguna berhasil login, lakukan sesuatu dengan data pengguna jika perlu
+//         navigation.replace("MainApp");
+//         // Menampilkan alert sukses
+//         Alert.alert("Login Successful", "You have successfully logged in!");
+//       })
+//       .catch((error) => {
+//         // Terjadi kesalahan saat login, tampilkan pesan kesalahan
+//         console.log("Error", error.message);
+//         // Menampilkan alert gagal dengan pesan kesalahan
+//         Alert.alert("Login Failed", Error: ${error.message});
+//       });
+
+const login = () => {
+    if (email.trim() === '' || password.trim() === '') {
+      // Menampilkan alert jika email atau password kosong
+      toggleAlert("Email dan password harus diisi");
+      return;
+    }
+  
+    loginUser(email, password)
+      .then((user) => {
+        // Pengguna berhasil login, lakukan sesuatu dengan data pengguna jika perlu
+        router.replace("/(tabs)/home");
+  
+        // Menampilkan alert sukses
+        Alert.alert("Login Successful", "Anda berhasil masuk!");
+      })
+      .catch((error) => {
+        // Terjadi kesalahan saat login, tampilkan pesan kesalahan
+        console.log("Error", error.message);
+  
+        // Menampilkan alert gagal dengan pesan kesalahan
+        Alert.alert("Login Failed", "Gagal masuk");
+      });
+  };
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#EDE4D3' }}>
@@ -55,10 +120,10 @@ const Login = () => {
                         <TextInput
                             autoCapitalize="none"
                             autoCorrect={false}
-                            onChangeText={(email) => setForm({ ...form, email })}
+                            onChangeText={(text) => setEmail(text)} 
                             placeholder="masukkan email anda"
                             placeholderTextColor="#6b7280"
-                            value={form.email}
+                            value={email}
                             style={{ height: 44, backgroundColor: '#f1f5f9', paddingHorizontal: 16, borderRadius: 12, fontSize: 15, fontWeight: '500', color: '#222' }}
                         />
                     </View>
@@ -69,11 +134,11 @@ const Login = () => {
                         </Text>
                         <TextInput
                             autoCorrect={false}
-                            onChangeText={(password) => setForm({ ...form, password })}
+                            onChangeText={(text) => setPassword(text)} 
                             placeholder="masukkan password"
                             placeholderTextColor="#6b7280"
                             secureTextEntry={true}
-                            value={form.password}
+                            value={password}
                             style={{ height: 44, backgroundColor: '#f1f5f9', paddingHorizontal: 16, borderRadius: 12, fontSize: 15, fontWeight: '500', color: '#222' }}
                         />
                     </View>
@@ -99,15 +164,22 @@ const Login = () => {
                                     <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }}> Login</Text>
                                 </Link>
                             </Button>
-
-                            
-
+                            {/* show Alert */}
+                            {showAlert && (
+                                <Modal isOpen={showAlert} onClose={() => toggleAlert()}>
+                                <ModalBackdrop />
+                                <Alert mx="$4" action="error" variant="solid">
+                                    <AlertText fontWeight="$bold">Error!</AlertText>
+                                    <AlertText>{alertMessage}</AlertText>
+                                </Alert>
+                                </Modal>
+                            )}
                         </TouchableOpacity>
                     </View>
 
                     <Link
                         href={{
-                            pathname: "/Register"
+                            pathname: "Register"
                         }}
                     >
                         <Text style={{

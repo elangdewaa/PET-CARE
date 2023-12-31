@@ -18,24 +18,27 @@ import {
   ModalFooter,
   inputRef,
   ref,
+  Center,
+  ButtonIcon,
+  AddIcon,
   
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
 import { useState } from "react";
+import { TextInput } from 'react-native';
 import React from "react";
 
 
-const EditProfile = () => {
+const add_detail_grooming = () => {
   const [showModal, setShowModal] = useState(false)
    console.log(showModal)
    const inputRef = React.useRef(null)
   return (
     <>
-    <Header title={"Profile"} />
+    <Header title={"Grooming"} />
     <FormControl
       p="$4"
       borderWidth="$1"
-      borderRadius="$lg"
       borderColor="$borderLight300"
       backgroundColor="floralwhite"
       height="$full"
@@ -48,24 +51,64 @@ const EditProfile = () => {
       }}
     >
       <VStack space="xl">
-        <Heading color="$warning900" lineHeight="$md">
-          Edit Profile
+        <Center>
+        <Heading color="$warning900" lineHeight="$md" alignContent="center">
+          Layanan Pet Care
         </Heading>
+        </Center>
         <VStack space="xs">
           <Text color="$warning800" lineHeight="$xs">
-            Nama Pemilik
+            Paket Grooming
           </Text>
-          <Input>
-            <InputField type="text" />
-          </Input>
+          <TextInput
+            placeholder="Isi Paket Grooming"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              
+              }}
+          />
         </VStack>
         <VStack space="xs">
           <Text color="$warning800" lineHeight="$xs">
-            Nama Hewan
+            Harga
           </Text>
-          <Input>
-            <InputField type="text" ref={inputRef} />
-          </Input>
+          <TextInput
+            placeholder="Isi Harga"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              
+              }}
+          />
+        </VStack>
+        <VStack space="xs">
+          <Text color="$warning800" lineHeight="$xs">
+            Deskripsi
+          </Text>
+          <TextInput
+            placeholder="Isi Deskripsi"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              
+              }}
+          />
         </VStack>
       <Button onPress={() => setShowModal(true)} ref={ref}
        style={{
@@ -74,8 +117,9 @@ const EditProfile = () => {
          borderRadius: 5,
        }}
       >
-        <ButtonText>Save</ButtonText>
-      </Button>
+        <ButtonIcon as={AddIcon}></ButtonIcon>
+        <ButtonText>Tambah</ButtonText>
+        </Button>
         <Modal
         isOpen={showModal}
         onClose={() => {
@@ -86,14 +130,14 @@ const EditProfile = () => {
         <ModalBackdrop />
         <ModalContent>
           <ModalHeader>
-            <Heading size="lg">Update Profile</Heading>
+            <Heading size="lg">Tambah Layanan</Heading>
             <ModalCloseButton>
               <Icon as={CloseIcon} />
             </ModalCloseButton>
           </ModalHeader>
           <ModalBody>
             <Text>
-              Profile anda akan diupdate
+              Layanan akan ditambah
             </Text>
           </ModalBody>
           <ModalFooter>
@@ -112,6 +156,7 @@ const EditProfile = () => {
               size="sm"
               action="positive"
               borderWidth="$0"
+              backgroundColor="$coral"
               onPress={() => {
                 setShowModal(false)
               }}
@@ -127,4 +172,4 @@ const EditProfile = () => {
   );
 };
 
-export default EditProfile;
+export default add_detail_grooming;

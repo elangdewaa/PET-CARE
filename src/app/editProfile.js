@@ -18,26 +18,27 @@ import {
   ModalFooter,
   inputRef,
   ref,
-  Center,
-  ButtonIcon,
-  AddIcon,
-  
+  Image,
+ form,
+ Link,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
+import { TextInput } from 'react-native';
 import { useState } from "react";
 import React from "react";
 
 
-const add_detail_grooming = () => {
+const EditProfile = () => {
   const [showModal, setShowModal] = useState(false)
    console.log(showModal)
    const inputRef = React.useRef(null)
   return (
     <>
-    <Header title={"Grooming"} />
+    <Header title={"Profile"} />
     <FormControl
       p="$4"
       borderWidth="$1"
+      borderRadius="$lg"
       borderColor="$borderLight300"
       backgroundColor="floralwhite"
       height="$full"
@@ -50,26 +51,53 @@ const add_detail_grooming = () => {
       }}
     >
       <VStack space="xl">
-        <Center>
-        <Heading color="$warning900" lineHeight="$md" alignContent="center">
-          Layanan Pet Care
+        <Heading color="$warning900" lineHeight="$md">
+          Edit Profile
         </Heading>
-        </Center>
+        <Image
+          alt=""
+          resizeMode="contain"
+          style={{
+          width: 100,
+          height: 100,
+          alignSelf: 'center',
+          marginBottom: 0,
+          }}
+          source={require('../assets/register.png')}></Image>
         <VStack space="xs">
           <Text color="$warning800" lineHeight="$xs">
-            Paket Grooming
+            Nama Pemilik
           </Text>
-          <Input>
-            <InputField type="text" />
-          </Input>
+          <TextInput
+            placeholder="Isi username Anda"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              
+              }}
+          />
         </VStack>
         <VStack space="xs">
           <Text color="$warning800" lineHeight="$xs">
-            Harga
+            Nama Hewan
           </Text>
-          <Input>
-            <InputField type="text" ref={inputRef} />
-          </Input>
+          <TextInput
+            placeholder="Isi nama hewan Anda"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              }}
+          />
         </VStack>
       <Button onPress={() => setShowModal(true)} ref={ref}
        style={{
@@ -78,9 +106,8 @@ const add_detail_grooming = () => {
          borderRadius: 5,
        }}
       >
-        <ButtonIcon as={AddIcon}></ButtonIcon>
-        <ButtonText>Tambah</ButtonText>
-        </Button>
+        <ButtonText>Save</ButtonText>
+      </Button>
         <Modal
         isOpen={showModal}
         onClose={() => {
@@ -91,14 +118,14 @@ const add_detail_grooming = () => {
         <ModalBackdrop />
         <ModalContent>
           <ModalHeader>
-            <Heading size="lg">Tambah Layanan</Heading>
+            <Heading size="lg">Update Profile</Heading>
             <ModalCloseButton>
               <Icon as={CloseIcon} />
             </ModalCloseButton>
           </ModalHeader>
           <ModalBody>
             <Text>
-              Layanan akan ditambah
+              Profile anda akan diupdate
             </Text>
           </ModalBody>
           <ModalFooter>
@@ -117,11 +144,14 @@ const add_detail_grooming = () => {
               size="sm"
               action="positive"
               borderWidth="$0"
+              backgroundColor="$coral"
               onPress={() => {
                 setShowModal(false)
               }}
             >
+               {/* <Link href={{ pathname: "/home" }}> */}
               <ButtonText>Save</ButtonText>
+              {/* </Link> */}
             </Button>
           </ModalFooter>
         </ModalContent>
@@ -132,4 +162,4 @@ const add_detail_grooming = () => {
   );
 };
 
-export default add_detail_grooming;
+export default EditProfile;

@@ -1,5 +1,5 @@
 import { Pressable, Button, ButtonText } from '@gluestack-ui/themed'
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import React, { useState } from 'react';
 import {
     SafeAreaView,
@@ -9,12 +9,35 @@ import {
     TextInput,
 } from 'react-native';
 
-const AdminLogin = () => {
-    const [form, setForm] = useState({
-        email: '',
-        password: '',
-    });
 
+const Adminlogin = () => {
+    if (email && password) {
+      loginUser(email, password)
+        .then((user) => {
+          // Pengguna berhasil login, lakukan sesuatu dengan data pengguna jika perlu
+          router.replace("/(tabs admin)");
+        //   navigation.replace("MainApp");
+        })
+        .catch((error) => {
+          // Terjadi kesalahan saat login, tampilkan pesan kesalahan
+          console.log("Error", error.message);
+          toggleAlert(error.message);
+        });
+    }
+  };
+
+
+    const AdminLogin = () => {
+        const [email, setEmail] = useState("");
+        const [password, setPassword] = useState("");
+        const [showAlert, setShowAlert] = useState(false);
+        const [alertMessage, setAlertMessage] = useState("");
+        const toggleAlert = (message) => {
+            setShowAlert(!showAlert);
+            setAlertMessage(message);
+          };
+        
+      
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#EDE4D3' }}>
             <View style={{
@@ -54,7 +77,8 @@ const AdminLogin = () => {
                             autoCapitalize="none"
                             autoCorrect={false}
                             keyboardType="email-address"
-                            onChangeText={email => setForm({ ...form, email })}
+                            onChangeText={(text) => setEmail(text)} // Set email ke dalam state
+
                             placeholder="masukkan email anda"
                             placeholderTextColor="#6b7280"
 
@@ -66,7 +90,7 @@ const AdminLogin = () => {
                                 fontSize: 15,
                                 fontWeight: '500',
                             }}
-                            value={form.email}
+                            value={email}
                         />
                     </View>
 
@@ -85,7 +109,8 @@ const AdminLogin = () => {
 
                         <TextInput
                             autoCorrect={false}
-                            onChangeText={password => setForm({ ...form, password })}
+                            onChangeText={(text) => setPassword(text)} // Set password ke dalam state
+                            value={password}
                             placeholder="********"
                             placeholderTextColor="#6b7280"
                             style={{
@@ -98,7 +123,6 @@ const AdminLogin = () => {
                                 color: '#222'
                             }}
                             secureTextEntry={true}
-                            value={form.password}
                         />
                     </View>
 

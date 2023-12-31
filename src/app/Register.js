@@ -1,5 +1,5 @@
-import { Button, ButtonText, Heading, Image, ScrollView } from '@gluestack-ui/themed';
-import { Link, useNavigation } from 'expo-router';
+import { Button, ButtonText, Heading, Image, ScrollView, form, } from '@gluestack-ui/themed';
+import { Link } from 'expo-router';
 import React, { useState } from 'react';
 import {
     SafeAreaView,
@@ -9,14 +9,44 @@ import {
     TextInput,
 } from 'react-native';
 
-const Register = () => {
-    const navigation = useNavigation();
-    const [form, setForm] = useState({
-        fullname: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-    });
+import { registerUser } from "../actions/AuthAction";
+
+const Register = ({ }) => {
+  const [nama, setNama] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("")
+  const [confirmPassword, setconfirmPassword] = useState("");
+
+const toggleAlert = (message) => {
+        setShowAlert(!showAlert);
+        setAlertMessage(message);
+    };
+    const onRegister = async () => {
+        if (nama && email && password && confirmPassword) {
+          const data = {
+            nama: nama,
+            email: email,
+            password: password,
+            status: "user",
+
+          };
+    
+          console.log(data);
+    
+          try {
+            const user = await registerUser(data, password);
+            router.replace("/(tabs)/home")
+          } catch (error) {
+            console.log("Error", error.message);
+            toggleAlert(error.message);
+          }
+        } else {
+          console.log("Error", "Data tidak lengkap");
+          toggleAlert("Data tidak lengkap");
+        }
+      };
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#EDE4D3' }}>
@@ -64,7 +94,8 @@ const Register = () => {
                             </Text>
 
                             <TextInput
-                                onChangeText={(fullname) => setForm({ ...form, fullname })}
+                            label="Nama"
+                                onChangeText={(nama) => setNama(nama)}
                                 placeholder="Isi nama anda"
                                 placeholderTextColor="#6b7280"
                                 style={{
@@ -76,7 +107,7 @@ const Register = () => {
                                     fontWeight: '500',
                                     color: '#222',
                                 }}
-                                value={form.fullname}
+                                value={nama}
                             />
                         </View>
 
@@ -86,10 +117,11 @@ const Register = () => {
                             </Text>
 
                             <TextInput
+                            label="Email"
                                 autoCapitalize="none"
                                 autoCorrect={false}
-                                keyboardT   ype="email-address"
-                                onChangeText={(email) => setForm({ ...form, email })}
+                                keyboardType="email-address"
+                                onChangeText={(email) => setEmail(email)}
                                 placeholder="isi alamat email"
                                 placeholderTextColor="#6b7280"
                                 style={{
@@ -101,7 +133,7 @@ const Register = () => {
                                     fontWeight: '500',
                                     color: '#222',
                                 }}
-                                value={form.email}
+                                value={email}
                             />
                         </View>
 
@@ -111,8 +143,9 @@ const Register = () => {
                             </Text>
 
                             <TextInput
+                            label="Password"
                                 autoCorrect={false}
-                                onChangeText={(password) => setForm({ ...form, password })}
+                                onChangeText={(password) => setPassword(password)}
                                 placeholder="isi password"
                                 placeholderTextColor="#6b7280"
                                 style={{
@@ -125,7 +158,7 @@ const Register = () => {
                                     color: '#222',
                                 }}
                                 secureTextEntry={true}
-                                value={form.password}
+                                value={password}
                             />
                         </View>
 
@@ -135,8 +168,9 @@ const Register = () => {
                             </Text>
 
                             <TextInput
+                             label="Konfirmasi Password"
                                 autoCorrect={false}
-                                onChangeText={(confirmPassword) => setForm({ ...form, confirmPassword })}
+                                onChangeText={(confirmPassword) => setconfirmPassword(confirmPassword)}
                                 placeholder="ulangi password"
                                 placeholderTextColor="#6b7280"
                                 style={{
@@ -149,12 +183,33 @@ const Register = () => {
                                     color: '#222',
                                 }}
                                 secureTextEntry={true}
-                                value={form.confirmPassword}
+                                value={confirmPassword}
+
                             />
                         </View>
 
                         <View style={{ marginVertical: 24 }}>
-                            <TouchableOpacity
+                        <Button
+                        flexDirection="$row"
+                        alignItems="$center"
+                        justifyContent="center"
+                        borderRadius= "8"
+                        paddingVertical="8"
+                        paddingHorizontal="16"
+                        borderWidth="1"
+                        backgroundColor="#FF7F50"
+                        borderColor="#FF7F50"
+                         onPress={() => {
+                         onRegister();
+                         }}>
+                        <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }} >
+                                        Sign up
+                        </Text>
+                        </Button>  
+                        
+                        
+
+                            {/* <TouchableOpacity
                                 onPress={() => navigation.navigate('Login')}
                             >
                                 <View
@@ -170,11 +225,11 @@ const Register = () => {
                                         borderColor: '#FF7F50',
                                     }}
                                 >
-                                    <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }}>
+                                    <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }} >
                                         Sign up
                                     </Text>
                                 </View>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
                         </View>
 
                         <TouchableOpacity>

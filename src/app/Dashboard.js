@@ -1,7 +1,6 @@
 import { View, Text, ImageBackground } from 'react-native'
 import { Pressable, Button, ButtonText } from '@gluestack-ui/themed'
-import React from 'react'
-import { useNavigation } from "@react-navigation/native";
+import React from 'react';
 import { Link } from 'expo-router';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -56,7 +55,7 @@ const Dashboard = () => {
                     borderColor: '#FFFFFF'
                 }}
                     title="login"
-                onPress={() => navigation.navigate('Login')}
+                onPress={() => ()}
 
                 >
                     <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#000000' }}>
