@@ -1,8 +1,6 @@
 import { Stack } from "expo-router";
 import { GluestackUIProvider } from "@gluestack-ui/themed";
 import { config } from "@gluestack-ui/config";
-import Register from "./Register";
-
 
 const noHead = { headerShown: false };
 
@@ -31,7 +29,6 @@ const StackLayout = () => {
         <Stack.Screen name="detail_grooming" options={noHead} />
         <Stack.Screen name="add_detail_grooming" options={noHead} />
         <Stack.Screen name="Paket" options={noHead} />
-        <Stack.Screen name="Register" component={Register} options={noHead} />
       </Stack>
     </GluestackUIProvider>
   );
