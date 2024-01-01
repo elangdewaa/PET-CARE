@@ -1,5 +1,6 @@
-import { Pressable, Button, ButtonText } from '@gluestack-ui/themed'
+import { Pressable, Button, ButtonText, Modal, ModalBackdrop, Alert, AlertText } from '@gluestack-ui/themed'
 import { Link, router } from 'expo-router';
+import { AdminLogin } from "../actions/AuthAction";
 import React, { useState } from 'react';
 import {
     SafeAreaView,
@@ -9,33 +10,42 @@ import {
     TextInput,
 } from 'react-native';
 
+const LoginAdmin = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState("");
+    const toggleAlert = (message) => {
+        setShowAlert(!showAlert);
+        setAlertMessage(message);
+      };
 
 const Adminlogin = () => {
-    if (email && password) {
-      loginUser(email, password)
-        .then((user) => {
-          // Pengguna berhasil login, lakukan sesuatu dengan data pengguna jika perlu
-          router.replace("/(tabs admin)");
-        //   navigation.replace("MainApp");
-        })
-        .catch((error) => {
-          // Terjadi kesalahan saat login, tampilkan pesan kesalahan
-          console.log("Error", error.message);
-          toggleAlert(error.message);
-        });
+    if (email.trim() === "" || password.trim() === "") {
+      // Menampilkan alert jika email atau password kosong
+      toggleAlert("Email dan password harus diisi");
+      return;
     }
+
+    loginUser(email, password)
+      .then((admin) => {
+        // Pengguna berhasil login, lakukan sesuatu dengan data pengguna jika perlu
+        router.replace("/(tabs admin)/all_reservation");
+
+        // Menampilkan alert sukses
+        toggleAlert( "Anda berhasil masuk!")
+      })
+      .catch((error) => {
+        // Terjadi kesalahan saat login, tampilkan pesan kesalahan
+        console.log("Error", error.message);
+
+        // Menampilkan alert gagal dengan pesan kesalahan
+       toggleAlert(error.message)
+      });
   };
 
 
-    const AdminLogin = () => {
-        const [email, setEmail] = useState("");
-        const [password, setPassword] = useState("");
-        const [showAlert, setShowAlert] = useState(false);
-        const [alertMessage, setAlertMessage] = useState("");
-        const toggleAlert = (message) => {
-            setShowAlert(!showAlert);
-            setAlertMessage(message);
-          };
+   
         
       
     return (
@@ -128,7 +138,8 @@ const Adminlogin = () => {
 
                     <View style={{ marginVertical: 24 }}>
                         <TouchableOpacity>
-                            <Button style={{
+                            <Button onPress={() => Adminlogin()}
+                            style={{
                                 flexDirection: 'row',
                                 alignItems: 'center',
                                 justifyContent: 'center',
@@ -139,17 +150,23 @@ const Adminlogin = () => {
                                 backgroundColor: '#FF7F50',
                                 borderColor: '#FF7F50',
                             }}>
-                                <Link
-                                    href={{
-                                        pathname: "/all_reservation"
-                                    }}
-                                >
+                                
                                     <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }}> Login</Text>
-                                </Link>
+                              
                             </Button>
 
                         </TouchableOpacity>
+
                     </View>
+                    {showAlert && (
+                <Modal isOpen={showAlert} onClose={() => toggleAlert()}>
+                  <ModalBackdrop />
+                  <Alert mx="$4" action="error" variant="solid">
+                    <AlertText fontWeight="$bold">Error!</AlertText>
+                    <AlertText>{alertMessage}</AlertText>
+                  </Alert>
+                </Modal>
+              )}
                 </View>
             </View>
         </SafeAreaView>

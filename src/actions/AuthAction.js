@@ -22,6 +22,8 @@ export const registerUser = async (data, password) => {
     }
 };
 
+
+
 export const loginUser = async (email, password) => {
     try {
         const success = await FIREBASE.auth().signInWithEmailAndPassword(email, password);
@@ -29,6 +31,27 @@ export const loginUser = async (email, password) => {
             .ref("/users/" + success.user.uid)
             .once("value");
 
+          
+        if (resDB.val()) {
+            // Local storage (Async Storage)
+            await storeData("user", resDB.val());
+            return resDB.val();
+        } else {
+            throw new Error("User data not found");
+        }
+    } catch (error) {
+        throw error;
+    }
+};
+
+export const AdminLogin = async (email, password) => {
+    try {
+        const success = await FIREBASE.auth().signInWithEmailAndPassword(email, password);
+        const resDB = await FIREBASE.database()
+            .ref("/users/" + success.user.uid)
+            .once("value");
+
+          
         if (resDB.val()) {
             // Local storage (Async Storage)
             await storeData("user", resDB.val());

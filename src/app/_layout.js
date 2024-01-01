@@ -21,7 +21,7 @@ const StackLayout = () => {
         <Stack.Screen name="DetailGrooming" options={noHead} />
         <Stack.Screen name="DetailPenginapan" options={noHead} />
         <Stack.Screen name="Dashboard" options={noHead} />
-        <Stack.Screen name="Login" options={noHead} />
+        <Stack.Screen name="Login" options={noHead}  />
         <Stack.Screen name="(tabs admin)" options={noHead} />
         <Stack.Screen name="all_reservation" options={noHead} />
         <Stack.Screen name="Profile" options={noHead} />

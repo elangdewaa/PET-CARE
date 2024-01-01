@@ -13,39 +13,14 @@ const Login = ({}) => {
   const [alertMessage, setAlertMessage] = useState("");
   const [registrationError, setRegistrationError] = useState(false);
 
+
+
+  
   const toggleAlert = (message) => {
     setShowAlert(!showAlert);
     setAlertMessage(message);
   };
 
-  //   if (email && password) {
-  //     loginUser(email, password)
-  //       .then((user) => {
-  //         // Pengguna berhasil login, lakukan sesuatu dengan data pengguna jika perlu
-  //         navigation.replace("MainApp");
-  //         // Menampilkan alert sukses
-  //         Alert.alert("Login Successful", "You have successfully logged in!");
-  //       })
-  //       .catch((error) => {
-  //         // Terjadi kesalahan saat login, tampilkan pesan kesalahan
-  //         console.log("Error", error.message);
-  //         // Menampilkan alert gagal dengan pesan kesalahan
-  //         Alert.alert("Login Failed", "Gagal Login");
-  //       };
-  //   if (email && password) {
-  //     loginUser(email, password)
-  //       .then((user) => {
-  //         // Pengguna berhasil login, lakukan sesuatu dengan data pengguna jika perlu
-  //         navigation.replace("MainApp");
-  //         // Menampilkan alert sukses
-  //         Alert.alert("Login Successful", "You have successfully logged in!");
-  //       })
-  //       .catch((error) => {
-  //         // Terjadi kesalahan saat login, tampilkan pesan kesalahan
-  //         console.log("Error", error.message);
-  //         // Menampilkan alert gagal dengan pesan kesalahan
-  //         Alert.alert("Login Failed", Error: ${error.message});
-  //       });
 
   const login = () => {
     if (email.trim() === "" || password.trim() === "") {

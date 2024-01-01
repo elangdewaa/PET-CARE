@@ -37,8 +37,12 @@ const TabsLayout = () => {
         tabBarStyle: {
           height: 70,
           backgroundColor: "coral",
-          
-          
+          borderTopLeftRadius: 10,  // Adjust the value as needed
+          borderTopRightRadius: 10, // Adjust the value as needed
+          borderBottomLeftRadius: 10, // Add this line
+          borderBottomRightRadius: 10, // Add this line
+          marginBottom: 20,
+          marginHorizontal: 10,
           
         },
         tabBarLabel: ({ children, color, focused  }) => {
@@ -54,6 +58,7 @@ const TabsLayout = () => {
       <Tabs.Screen name="reservation" options={{ title: "Reservation", ...noHead }} />
       <Tabs.Screen name="status" options={{ title: "Status", ...noHead }} />
       <Tabs.Screen name="profile" options={{ title: "Profile", ...noHead }} />
+      
     </Tabs>
   );
 };

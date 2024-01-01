@@ -51,7 +51,7 @@ const EditProfile = () => {
       }}
     >
       <VStack space="xl">
-        <Heading color="$warning900" lineHeight="$md">
+        <Heading color="$warning900" lineHeight="$md" >
           Edit Profile
         </Heading>
         <Image
@@ -69,7 +69,7 @@ const EditProfile = () => {
             Nama Pemilik
           </Text>
           <TextInput
-            placeholder="Isi username Anda"
+            placeholder="Ganti username Anda"
             placeholderTextColor="#6b7280"
               style={{
               height: 44,
@@ -79,23 +79,6 @@ const EditProfile = () => {
               fontSize: 15,
               fontWeight: '500',
               
-              }}
-          />
-        </VStack>
-        <VStack space="xs">
-          <Text color="$warning800" lineHeight="$xs">
-            Nama Hewan
-          </Text>
-          <TextInput
-            placeholder="Isi nama hewan Anda"
-            placeholderTextColor="#6b7280"
-              style={{
-              height: 44,
-              backgroundColor: '#ffffff',
-              paddingHorizontal: 16,
-              borderRadius: 12,
-              fontSize: 15,
-              fontWeight: '500',
               }}
           />
         </VStack>

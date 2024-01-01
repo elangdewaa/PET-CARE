@@ -56,40 +56,69 @@ console.log(data)
                         Pet Care
                     </Text>
 
-                    {/* Input Fields */}
+                    {<Text style={{ fontSize: 17, fontWeight: '600', color: '#222', marginBottom: 8 }}>
+                                Nama Lengkap
+                            </Text>}
                     <TextInput
                         onChangeText={setNama}
                         placeholder="Nama Lengkap"
-                        style={{ /* styling for the input */ }}
+                        style={{ height: 44, backgroundColor: "#f1f5f9", paddingHorizontal: 16, borderRadius: 12, fontSize: 15, fontWeight: "500", color: "#222" }}
                         value={nama}
                     />
+                    <Text style={{ fontSize: 17, fontWeight: '600', color: '#222', marginBottom: 8 }}>
+                                Alamat Email
+                            </Text>
                     <TextInput
                         autoCapitalize="none"
                         autoCorrect={false}
                         keyboardType="email-address"
                         onChangeText={setEmail}
                         placeholder="Alamat Email"
-                        style={{ /* styling for the input */ }}
+                        style={{ height: 44, backgroundColor: "#f1f5f9", paddingHorizontal: 16, borderRadius: 12, fontSize: 15, fontWeight: "500", color: "#222" }}
                         value={email}
                     />
+                       <Text style={{ fontSize: 17, fontWeight: '600', color: '#222', marginBottom: 8 }}>
+                                Password
+                            </Text>
                     <TextInput
                         autoCorrect={false}
                         onChangeText={setPassword}
                         placeholder="Password"
                         secureTextEntry={true}
-                        style={{ /* styling for the input */ }}
+                        style={{ height: 44, backgroundColor: "#f1f5f9", paddingHorizontal: 16, borderRadius: 12, fontSize: 15, fontWeight: "500", color: "#222" }}
                         value={password}
                     />
+                       <Text style={{ fontSize: 17, fontWeight: '600', color: '#222', marginBottom: 8 }}>
+                                 Konfirmasi Password
+                            </Text>
                     <TextInput
                         autoCorrect={false}
                         onChangeText={setConfirmPassword}
                         placeholder="Konfirmasi Password"
                         secureTextEntry={true}
-                        style={{ /* styling for the input */ }}
+                        style={{
+                            height: 44,
+                            backgroundColor: '#f1f5f9',
+                            paddingHorizontal: 16,
+                            borderRadius: 12,
+                            fontSize: 15,
+                            fontWeight: '500',
+                            color: '#222',
+                        }}
                         value={confirmPassword}
                     />
 
-                    <Button onPress={onRegister} style={{ /* styling for the button */ }}>
+                    <Button onPress={onRegister} style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: 8,
+                  paddingVertical: 5,
+                  paddingHorizontal: 130,
+                  borderWidth: 1,
+                  backgroundColor: "#FF7F50",
+                  borderColor: "#FF7F50",
+                }}>
                         <Text>Sign up</Text>
                     </Button>
 
