@@ -39,7 +39,6 @@ const add_detail_grooming = () => {
     <FormControl
       p="$4"
       borderWidth="$1"
-      borderRadius="$lg"
       borderColor="$borderLight300"
       backgroundColor="floralwhite"
       height="$full"

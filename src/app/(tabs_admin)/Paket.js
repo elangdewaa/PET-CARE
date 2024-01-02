@@ -1,15 +1,13 @@
 import { ScrollView, Box, VStack, Text, Image, Heading, Center, Button, ButtonText, HStack, } from "@gluestack-ui/themed";
 import { Header } from "../../components";
 import React from 'react';
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 const Paket = () => {
-  const navigation = useNavigation();
 
   const handleBoxPress = (screenName) => {
-    navigation.navigate(screenName);
+    router.push(screenName);
   };
   return (
     <>
@@ -20,7 +18,7 @@ const Paket = () => {
            Layanan Pet Care
          </Heading>
          </Center>
-         <TouchableOpacity onPress={() => handleBoxPress('detail_grooming')}>
+         <TouchableOpacity onPress={() => handleBoxPress('/detail_grooming')}>
           <Box
             maxWidth='$54'
             borderColor='$borderLight200'

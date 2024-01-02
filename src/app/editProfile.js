@@ -20,6 +20,7 @@ import {
   ref,
   Image,
  form,
+ Link,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
 import { TextInput } from 'react-native';
@@ -131,7 +132,9 @@ const EditProfile = () => {
                 setShowModal(false)
               }}
             >
+               {/* <Link href={{ pathname: "/home" }}> */}
               <ButtonText>Save</ButtonText>
+              {/* </Link> */}
             </Button>
           </ModalFooter>
         </ModalContent>

@@ -1,21 +1,24 @@
-import { ScrollView, Box, VStack, Text, Image, Heading } from "@gluestack-ui/themed";
+import { ScrollView, Box, VStack, Text, Image, Heading, Button, HStack, } from "@gluestack-ui/themed";
+import { Link, router, useLocalSearchParams } from "expo-router";
 import { Header } from "../../components";
 import React from 'react';
 import { TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import Ionicons from "@expo/vector-icons/Ionicons";
+
+
 
 const Reservation = () => {
-  const navigation = useNavigation();
 
   const handleBoxPress = (screenName) => {
-    navigation.navigate(screenName);
+    router.push(screenName);
   };
 
   return (
     <>
       <Header title={"Reservation"} />
       <ScrollView flex={1} backgroundColor="floralwhite">
-        <TouchableOpacity onPress={() => handleBoxPress('DetailGrooming')}>
+     
+        <TouchableOpacity onPress={() => handleBoxPress('/DetailGrooming')}>
           <Box
             maxWidth='$54'
             borderColor='$borderLight200'
@@ -87,7 +90,38 @@ const Reservation = () => {
               </Text>
             </VStack>
           </Box>
+
         </TouchableOpacity>
+        
+                  <TouchableOpacity>
+        <Box
+                      w={110}
+                      h="$100"
+                      mr="$10"
+                      bg="$coral"
+                      marginLeft={19}
+                      borderRadius="$3xl"
+                      borderWidth={2}                     
+                      alignItems="center"
+                      softShadow=""
+                     
+                      
+                      
+                    >
+                    <HStack >
+                      <Ionicons
+                       name="add-circle-outline"
+                        size={30}
+                        color="floralwhite"
+                        paddingBottom="3"
+                      />
+                      
+                        <Text color="floralwhite" fontWeight="bold" size="md" pt="$1.5">
+                          Pesan
+                        </Text>
+                        </HStack>
+                    </Box>
+                    </TouchableOpacity>
       </ScrollView>
     </>
   );
