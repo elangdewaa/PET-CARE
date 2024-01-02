@@ -44,7 +44,7 @@ const Profile = () => {
               source={require('../../assets/welcome.png')}
             />
             <VStack space="md">
-              <Text fontSize={23} marginTop={35} style={{ fontFamily: 'Helvetica', fontWeight: 'bold' }}>Hi, {userData.nama} !</Text>
+              <Text fontSize={23} marginTop={35} style={{ fontFamily: 'Helvetica', fontWeight: 'bold' }}>Hi, {userData.name} !</Text>
             </VStack>
           </HStack>
         </Box>
