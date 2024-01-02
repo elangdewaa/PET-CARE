@@ -11,22 +11,25 @@ import {
   Button,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
-import React from "react";
-import { Link } from "expo-router";
 
 const Reservation = () => {
+
+  const handleBackPress = () => {
+    router.back()
+  };
+
   return (
     <>
       <Header title={"Detail Penitipan"} />
       <ScrollView>
-        <Heading lineHeight={"$5xl"} mb={"$7"} color="$black" ml={"$5"}>
+        <Heading lineHeight={"$5xl"} mb={"$7"}  ml={"$5"}>
           Our Services
         </Heading>
         <Center>
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-            borderRadius="$lg"
+            
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -41,14 +44,7 @@ const Reservation = () => {
             }}
           >
             <Box>
-              <Image
-                borderRadius="$4xl"
-                h={150}
-                width="100%"
-                source={{
-                  uri: "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1634025439/345904dd98766f700f6c92f61bc6a08b13a5b1f39d4b7c33ba4f789814cff17c.jpg",
-                }}
-              />
+            
             </Box>
             <VStack px="$6" pt="$4" pb="$6">
               <Heading _dark={{ color: "$textLight200" }} size="sm">
@@ -65,7 +61,7 @@ const Reservation = () => {
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-            borderRadius="$lg"
+            
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -80,14 +76,8 @@ const Reservation = () => {
             }}
           >
             <Box>
-              <Image
-                borderRadius="$4xl"
-                h={150}
-                width="100%"
-                source={{
-                  uri: "https://asset-2.tstatic.net/jabar/foto/bank/images/ilustrasi-jasa-penitipan-kucing-anjing-binatang_20180612_090330.jpg"
-                }}
-              />
+              
+              
             </Box>
             <VStack px="$6" pt="$4" pb="$6">
               <Heading _dark={{ color: "$textLight200" }} size="sm">
@@ -104,7 +94,6 @@ const Reservation = () => {
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-            borderRadius="$lg"
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -119,14 +108,7 @@ const Reservation = () => {
             }}
           >
             <Box>
-              <Image
-                borderRadius="$4xl"
-                h={150}
-                width="100%"
-                source={{
-                  uri: "https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/radarjogja/2022/09/WEB-LIFESTYLE-1-3.jpg",
-                }}
-              />
+              
             </Box>
             <VStack px="$6" pt="$4" pb="$6">
               <Heading _dark={{ color: "$textLight200" }} size="sm">

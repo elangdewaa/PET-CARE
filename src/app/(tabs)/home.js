@@ -12,13 +12,13 @@ import {
 } from "@gluestack-ui/themed";
 import { Header } from "../../components";
 import { SliderBox } from "react-native-image-slider-box";
-import { Link, useLocalSearchParams } from "expo-router";
+import { Link } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [news, setNewsData] = useState([]); // Rename setNews to setNewsData
+  const [news, setNewsData] = useState([]); 
   const [refreshing, setRefreshing] = useState(false);
   const [currentFactIndex, setCurrentFactIndex] = useState(0);
 

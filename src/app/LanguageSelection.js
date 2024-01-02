@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import { SafeAreaView, View, Text, TouchableOpacity, FlatList } from 'react-native';
 import { VStack, Divider, HStack } from '@gluestack-ui/themed';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { useNavigation } from '@react-navigation/native';
-import { Header } from "../components";
 
 const languages = [
   { id: 'en', name: 'English' },
@@ -14,13 +12,12 @@ const languages = [
 
 const LanguageSelectionScreen = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
-  const navigation = useNavigation();
 
   const handleLanguageSelect = (language) => {
     setSelectedLanguage(language);
     // Memanggil fungsi onSelectLanguage langsung di sini
     onSelectLanguage(language.id);
-    navigation.goBack();
+    router.back()
   };
 
   // Modifikasi fungsi onSelectLanguage agar bisa diserialisasi

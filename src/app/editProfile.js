@@ -18,15 +18,16 @@ import {
   ModalFooter,
   inputRef,
   ref,
-  View,
-  
+  Image,
+ form,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
+import { TextInput } from 'react-native';
 import { useState } from "react";
 import React from "react";
 
 
-const ChangePassword = () => {
+const EditProfile = () => {
   const [showModal, setShowModal] = useState(false)
    console.log(showModal)
    const inputRef = React.useRef(null)
@@ -38,7 +39,7 @@ const ChangePassword = () => {
       borderWidth="$1"
       borderRadius="$lg"
       borderColor="$borderLight300"
-      backgroundColor="lightyellow"
+      backgroundColor="floralwhite"
       height="$full"
       sx={{
         _dark: {
@@ -50,33 +51,62 @@ const ChangePassword = () => {
     >
       <VStack space="xl">
         <Heading color="$warning900" lineHeight="$md">
-          Change Password
+          Edit Profile
         </Heading>
+        <Image
+          alt=""
+          resizeMode="contain"
+          style={{
+          width: 100,
+          height: 100,
+          alignSelf: 'center',
+          marginBottom: 0,
+          }}
+          source={require('../assets/register.png')}></Image>
         <VStack space="xs">
           <Text color="$warning800" lineHeight="$xs">
-            Masukkan Password lama
+            Nama Pemilik
           </Text>
-          <Input>
-            <InputField type="text" />
-          </Input>
+          <TextInput
+            placeholder="Isi username Anda"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              
+              }}
+          />
         </VStack>
         <VStack space="xs">
           <Text color="$warning800" lineHeight="$xs">
-            Masukkan Password baru
+            Nama Hewan
           </Text>
-          <Input>
-            <InputField type="text" ref={inputRef} />
-          </Input>
+          <TextInput
+            placeholder="Isi nama hewan Anda"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              }}
+          />
         </VStack>
-        <Button onPress={() => setShowModal(true)} ref={ref}
-     style={{
-       backgroundColor: 'coral',
-       padding: 10,
-       borderRadius: 5,
-     }}
-    >
-      <ButtonText>Ubah Password</ButtonText>
-    </Button>
+      <Button onPress={() => setShowModal(true)} ref={ref}
+       style={{
+         backgroundColor: 'coral',
+         padding: 10,
+         borderRadius: 5,
+       }}
+      >
+        <ButtonText>Save</ButtonText>
+      </Button>
         <Modal
         isOpen={showModal}
         onClose={() => {
@@ -87,14 +117,14 @@ const ChangePassword = () => {
         <ModalBackdrop />
         <ModalContent>
           <ModalHeader>
-            <Heading size="lg">Update Password</Heading>
+            <Heading size="lg">Update Profile</Heading>
             <ModalCloseButton>
               <Icon as={CloseIcon} />
             </ModalCloseButton>
           </ModalHeader>
           <ModalBody>
             <Text>
-              Password anda berhasil diubah
+              Profile anda akan diupdate
             </Text>
           </ModalBody>
           <ModalFooter>
@@ -113,6 +143,7 @@ const ChangePassword = () => {
               size="sm"
               action="positive"
               borderWidth="$0"
+              backgroundColor="$coral"
               onPress={() => {
                 setShowModal(false)
               }}
@@ -128,4 +159,4 @@ const ChangePassword = () => {
   );
 };
 
-export default ChangePassword;
+export default EditProfile;
