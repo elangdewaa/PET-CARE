@@ -32,7 +32,7 @@ const Reservation = () => {
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-            borderRadius="$lg"
+            
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -48,7 +48,7 @@ const Reservation = () => {
           >
             <Box>
               <Image
-                borderRadius="$4xl"
+                
                 h={150}
                 width="100%"
                 source={{
@@ -71,7 +71,7 @@ const Reservation = () => {
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-            borderRadius="$lg"
+            
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -87,7 +87,7 @@ const Reservation = () => {
           >
             <Box>
               <Image
-                borderRadius="$4xl"
+                
                 h={150}
                 width="100%"
                 source={{
@@ -110,7 +110,7 @@ const Reservation = () => {
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-            borderRadius="$lg"
+            
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -126,7 +126,7 @@ const Reservation = () => {
           >
             <Box>
               <Image
-                borderRadius="$4xl"
+                
                 h={150}
                 width="100%"
                 source={{
