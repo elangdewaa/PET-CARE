@@ -1,4 +1,4 @@
-import { ScrollView, Box, VStack, Text, Image, Heading, Center, Button, ButtonText, } from "@gluestack-ui/themed";
+import { ScrollView, Box, VStack, Text, Image, Heading, Center, Button, ButtonText, HStack, } from "@gluestack-ui/themed";
 import { Header } from "../../components";
 import React from 'react';
 import { Link } from "expo-router";
@@ -30,7 +30,7 @@ const Paket = () => {
             overflow="hidden"
             sx={{
               "@base": {
-                mx: '$5',
+                mx: '$3',
               },            
               "_dark": {
                 bg:"$backgroundDark900",
@@ -38,22 +38,30 @@ const Paket = () => {
               },
             }}
           >
+            
             <Box>
-              <Image
-                h={150}
-                width="100%"
-                source={require('../../assets/grooming.jpg')}
-              />
-            </Box>
-            <Box>
+            <HStack>
+            <Image
+                        alt=""
+                        resizeMode="contain"
+                        style={{
+                            width: 95,
+                            height: 100,
+                            alignSelf: 'center',
+                            marginBottom: 0,
+                        }}
+                        source={require('../../assets/admin.png')}
+
+                    />
             <VStack px='$6' pt='$4' pb='$6'>
               <Heading _dark={{color:"$textLight200"}} size='sm'>
                 Edit Paket Grooming 
               </Heading>
-              <Text my='$1.5' _dark={{color:"$textLight200"}} fontSize='$xs'>
-                Menyediakan layanan grooming hewan dengan beberapa paket pilihan
+              <Text my='$1' _dark={{color:"$textLight200"}} fontSize='$xs'>
+                Menyediakan paket grooming hewan
               </Text>
             </VStack>
+            </HStack>
             </Box>
           </Box>
         </TouchableOpacity>
@@ -67,7 +75,7 @@ const Paket = () => {
             overflow="hidden"
             sx={{
               "@base": {
-                mx: '$5',
+                mx: '$3',
               },            
               "_dark": {
                 bg:"$backgroundDark900",
@@ -75,21 +83,28 @@ const Paket = () => {
               },
             }}
           >
-            <Box>
-              <Image
-                h={150}
-                width="100%"
-                source={require('../../assets/Pethotel.jpg')}
-              />
-            </Box>
+            <HStack>
+            <Image
+                        alt=""
+                        resizeMode="contain"
+                        style={{
+                            width: 95,
+                            height: 100,
+                            alignSelf: 'center',
+                            marginBottom: 0,
+                        }}
+                        source={require('../../assets/admin2.png')}
+
+                    />
             <VStack px='$6' pt='$4' pb='$6'>
               <Heading _dark={{color:"$textLight200"}} size='sm'>
                 Edit Paket Penitipan Hewan 
               </Heading>
               <Text my='$1.5' _dark={{color:"$textLight200"}} fontSize='$xs'>
-                Menyediakan layanan penitipan hewan dengan beberapa kamar pilihan
+                Menyediakan paket penitipan hewan 
               </Text>
             </VStack>
+            </HStack>
           </Box>
         </TouchableOpacity>
                

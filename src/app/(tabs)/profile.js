@@ -30,7 +30,6 @@ const Profile = () => {
                     />
               <VStack space="md">
                 <Text fontSize={20} marginTop={20} style={{ fontFamily: 'Helvetica' }}>Hi, Jasmine !</Text>
-                <Text fontSize={17} style={{ fontFamily: 'Helvetica' }}>Kucing Chiro</Text>
               </VStack>
             </HStack>
           

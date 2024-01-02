@@ -10,12 +10,33 @@ import {
 import { Button, ButtonText, Heading, Image } from '@gluestack-ui/themed';
 import { Divider } from '@gluestack-ui/config/build/theme';
 
-const Login = () => {
-    const navigation = useNavigation();
-    const [form, setForm] = useState({
-        email: '',
-        password: '',
-    });
+import { loginUser } from "../actions/AuthAction";
+
+const Login = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+
+  const toggleAlert = (message) => {
+    setShowAlert(!showAlert);
+    setAlertMessage(message);
+  };
+
+  const login = () => {
+    if (email && password) {
+      loginUser(email, password)
+        .then((user) => {
+          // Pengguna berhasil login, lakukan sesuatu dengan data pengguna jika perlu
+          navigation.replace("MainApp");
+        })
+        .catch((error) => {
+          // Terjadi kesalahan saat login, tampilkan pesan kesalahan
+          console.log("Error", error.message);
+          toggleAlert(error.message);
+        });
+    }
+  };
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#EDE4D3' }}>
@@ -56,10 +77,10 @@ const Login = () => {
                         <TextInput
                             autoCapitalize="none"
                             autoCorrect={false}
-                            onChangeText={(email) => setForm({ ...form, email })}
+                            onChangeText={(text) => setEmail(text)} 
                             placeholder="masukkan email anda"
                             placeholderTextColor="#6b7280"
-                            value={form.email}
+                            value={email}
                             style={{ height: 44, backgroundColor: '#f1f5f9', paddingHorizontal: 16, borderRadius: 12, fontSize: 15, fontWeight: '500', color: '#222' }}
                         />
                     </View>
@@ -70,11 +91,11 @@ const Login = () => {
                         </Text>
                         <TextInput
                             autoCorrect={false}
-                            onChangeText={(password) => setForm({ ...form, password })}
+                            onChangeText={(text) => setPassword(text)} 
                             placeholder="masukkan password"
                             placeholderTextColor="#6b7280"
                             secureTextEntry={true}
-                            value={form.password}
+                            value={password}
                             style={{ height: 44, backgroundColor: '#f1f5f9', paddingHorizontal: 16, borderRadius: 12, fontSize: 15, fontWeight: '500', color: '#222' }}
                         />
                     </View>
@@ -100,7 +121,16 @@ const Login = () => {
                                     <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }}> Login</Text>
                                 </Link>
                             </Button>
-
+                            {/* show Alert */}
+                            {showAlert && (
+                                <Modal isOpen={showAlert} onClose={() => toggleAlert()}>
+                                <ModalBackdrop />
+                                <Alert mx="$4" action="error" variant="solid">
+                                    <AlertText fontWeight="$bold">Error!</AlertText>
+                                    <AlertText>{alertMessage}</AlertText>
+                                </Alert>
+                                </Modal>
+                            )}
                         </TouchableOpacity>
                     </View>
                     <Link
@@ -141,7 +171,8 @@ const Login = () => {
                             fontWeight: '500',
                             color: '#222',
                             textAlign: 'center',
-                            textDecorationLine: 'underline'
+                            textDecorationLine: 'underline',
+                            marginBottom: '$20',
                         }}>Login Admin</Text>
                     </Link>
 
