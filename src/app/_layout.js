@@ -10,6 +10,7 @@ const StackLayout = () => {
     
       <Stack>
         <Stack.Screen name="(tabs)" options={noHead} />
+        <Stack.Screen name="(tabs_admin)" options={noHead} />
         <Stack.Screen name="home" options={noHead} />
         <Stack.Screen name="index" options={noHead} />
         <Stack.Screen name="editProfile" options={noHead} />
@@ -22,7 +23,6 @@ const StackLayout = () => {
         <Stack.Screen name="DetailPenginapan" options={noHead} />
         <Stack.Screen name="Dashboard" options={noHead} />
         <Stack.Screen name="Login" options={noHead}  />
-        <Stack.Screen name="(tabs admin)" options={noHead} />
         <Stack.Screen name="all_reservation" options={noHead} />
         <Stack.Screen name="Profile" options={noHead} />
         <Stack.Screen name="Profile_admin" options={noHead} />
