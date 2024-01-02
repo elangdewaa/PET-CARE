@@ -18,7 +18,7 @@ const Paket = () => {
            Layanan Pet Care
          </Heading>
          </Center>
-         <TouchableOpacity onPress={() => handleBoxPress('/detail_grooming')}>
+         <TouchableOpacity onPress={() => handleBoxPress('/add_detail_grooming')}>
           <Box
             maxWidth='$54'
             borderColor='$borderLight200'
@@ -53,7 +53,7 @@ const Paket = () => {
                     />
             <VStack px='$6' pt='$4' pb='$6'>
               <Heading _dark={{color:"$textLight200"}} size='sm'>
-                Edit Paket Grooming 
+                Tambah Paket Grooming 
               </Heading>
               <Text my='$1' _dark={{color:"$textLight200"}} fontSize='$xs'>
                 Menyediakan paket grooming hewan
@@ -63,7 +63,7 @@ const Paket = () => {
             </Box>
           </Box>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleBoxPress('DetailPenginapan')}>
+        <TouchableOpacity onPress={() => handleBoxPress('/add_detail_penitipan')}>
           <Box
             maxWidth='$54'
             borderColor='$borderLight200'
@@ -96,7 +96,7 @@ const Paket = () => {
                     />
             <VStack px='$6' pt='$4' pb='$6'>
               <Heading _dark={{color:"$textLight200"}} size='sm'>
-                Edit Paket Penitipan Hewan 
+                Tambah Paket Penitipan  
               </Heading>
               <Text my='$1.5' _dark={{color:"$textLight200"}} fontSize='$xs'>
                 Menyediakan paket penitipan hewan 

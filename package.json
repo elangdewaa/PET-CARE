@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/metro-runtime": "^2.2.16",
     "@gluestack-style/legend-motion-animation-driver": "^1.0.3",
     "@gluestack-style/react": "^1.0.29",
     "@gluestack-ui/config": "^1.0.10",
@@ -22,7 +23,7 @@
     "expo": "~49.0.15",
     "expo-constants": "~14.4.2",
     "expo-linking": "~5.0.2",
-    "expo-router": "^2.0.0",
+    "expo-router": "^2.0.14",
     "expo-status-bar": "~1.6.0",
     "firebase": "^10.7.1",
     "react": "18.2.0",

@@ -16,16 +16,52 @@ import {
   CloseIcon,
   ModalBody,
   ModalFooter,
+  Box,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
 import { Platform, TextInput } from "react-native";
 import { Link } from "expo-router";
+// import { DateTimePicker } from "@react-native-community/datetimepicker";
+import { TouchableOpacity } from "react-native-gesture-handler";
+// import DateTimePicker from '@react-native-community/datetimepicker';
 
 const FormBooking = () => {
   const [showModal, setShowModal] = useState(false);
   const jenisHewanInputRef = useRef(null);
   const tanggalReservasiInputRef = useRef(null);
   const jenisLayananInputRef = useRef(null);
+
+  // const [date, setDate] = useState(new Date());
+  // const [mode, setMode] = useState('date');
+  // const [show, setShow] = useState(false);
+
+  // const onChange = (event, selectedDate) => {
+  //   const currentDate = selectedDate || date;
+  //   setShow(Platform.OS === 'ios');
+  //   setDate(currentDate);
+  // };
+
+  // const showMode = currentMode => {
+  //   setShow(true);
+  //   setMode(currentMode);
+  // };
+
+  // const showDatepicker = () => {
+  //   showMode('date');
+  // };
+
+  // const [date, setDate] = useState(new Date());
+  // const [showPicker, setShowPicker] = useState(false);
+
+  // const onChange = (event, selectedDate) => {
+  //   const currentDate = selectedDate || date;
+  //   setShowPicker(Platform.OS === 'ios');
+  //   setDate(currentDate);
+  // };
+
+  // const showDatepicker = () => {
+  //   setShowPicker(true);
+  // };
 
   const handleSave = () => {
     // Add logic for handling the save button press
@@ -59,7 +95,7 @@ const FormBooking = () => {
               Jenis Hewan
             </Text>
             <TextInput
-              
+              ref={jenisHewanInputRef}
               placeholder="Isi jenis hewan Anda"
               placeholderTextColor="#6b7280"
               style={{
@@ -73,29 +109,47 @@ const FormBooking = () => {
             />
           </VStack>
           <VStack space="xs">
-            <Text color="$warning800" lineHeight="$xs">
+            {/* <Text color="$warning800" lineHeight="$xs">
               Tanggal Reservasi dan booking
             </Text>
-            <TextInput
-            //   ref={tanggalReservasiInputRef}
-              placeholder="Isi tanggal rencana reservasi dan booking"
-              placeholderTextColor="#6b7280"
-              style={{
-                height: 44,
-                backgroundColor: "#ffffff",
-                paddingHorizontal: 16,
-                borderRadius: 12,
-                fontSize: 15,
-                fontWeight: "500",
-              }}
-            />
+            <Button title='Pilih Tanggal Reservasi' onPress={() => showMode('date')} />
+            {show && (
+              <DateTimePicker
+                testID='dateTimePicker'
+                value={date}
+                mode={mode}
+                is24Hour={true}
+                display='default'
+                onChange={onChange}
+              />)} */}
+            {/* <Box style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <TouchableOpacity
+                onPress={showDatepicker}
+                style={{ backgroundColor: '#4CAF50', padding: 10, borderRadius: 5 }}
+              >
+                <Text style={{ color: 'black', fontSize: 16 }}>Show Date Picker</Text>
+              </TouchableOpacity>
+
+              {showPicker && (
+                <DateTimePicker
+                  testID="dateTimePicker"
+                  value={date}
+                  mode="datetime"
+                  is24Hour={true}
+                  display="default"
+                  onChange={onChange}
+                />
+              )}
+            </Box> */}
           </VStack>
+
+
           <VStack space="xs">
             <Text color="$warning800" lineHeight="$xs">
               Jenis Layanan
             </Text>
             <TextInput
-            //   ref={jenisLayananInputRef}
+              ref={tanggalReservasiInputRef}
               placeholder="Isi jenis layanan yang ingin dipesan"
               placeholderTextColor="#6b7280"
               style={{
@@ -107,7 +161,7 @@ const FormBooking = () => {
                 fontWeight: "500",
               }}
             />
-            </VStack>
+          </VStack>
           <Button
             onPress={handleSave}
             style={{
@@ -123,7 +177,7 @@ const FormBooking = () => {
             onClose={() => {
               setShowModal(false);
             }}
-            // finalFocusRef={jenisHewanInputRef} // Use any input ref here for accessibility
+            finalFocusRef={jenisHewanInputRef} // Use any input ref here for accessibility
           >
             <ModalBackdrop />
             <ModalContent>
