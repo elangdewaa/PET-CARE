@@ -125,38 +125,7 @@ const AdminLogin = () => {
                             </Button>
 
                         </TouchableOpacity>
-
-                        {/* <TouchableOpacity
-                            onPress={() => {
-                                // handle onPress
-                            }}>
-                            <View style={{
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                borderRadius: 8,
-                                paddingVertical: 10,
-                                paddingHorizontal: 20,
-                                borderWidth: 1,
-                                backgroundColor: '#FF7F50',
-                                borderColor: '#FF7F50',
-                            }}>
-                                <Text style={{
-                                    fontSize: 18,
-                                    lineHeight: 26,
-                                    fontWeight: '600',
-                                    color: '#fff',
-                                }}>Login</Text>
-                            </View>
-                        </TouchableOpacity> */}
                     </View>
-
-                    <TouchableOpacity
-                        onPress={() => {
-                            // handle link
-                        }}
-                        style={{ marginTop: 'auto' }}>
-                    </TouchableOpacity>
                 </View>
             </View>
         </SafeAreaView>
