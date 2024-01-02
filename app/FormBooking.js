@@ -1,3 +1,4 @@
+import React, { useState, useRef } from "react";
 import {
   Heading,
   Text,
@@ -6,7 +7,6 @@ import {
   FormControl,
   VStack,
   Input,
-  InputField,
   Modal,
   ModalBackdrop,
   ModalContent,
@@ -16,24 +16,46 @@ import {
   CloseIcon,
   ModalBody,
   ModalFooter,
-  inputRef,
-  ref,
-  Image,
-  form,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
-import { TextInput } from 'react-native';
-import { useState } from "react";
-import React from "react";
+import { Platform, TextInput } from "react-native";
+import { Link } from "expo-router";
+// import DateTimePicker from '@react-native-community/datetimepicker';
+
+const FormBooking = () => {
+  const [showModal, setShowModal] = useState(false);
+  const jenisHewanInputRef = useRef(null);
+  const tanggalReservasiInputRef = useRef(null);
+  const jenisLayananInputRef = useRef(null);
+
+  // const [date, setDate] = useState(new Date());
+  // const [mode, setMode] = useState('date');
+  // const [show, setShow] = useState(false);
+
+  // const onChange = (event, selectedDate) => {
+  //   const currentDate = selectedDate || date;
+  //   setShow(Platform.OS === 'ios');
+  //   setDate(currentDate);
+  // };
+
+  // const showMode = currentMode => {
+  //   setShow(true);
+  //   setMode(currentMode);
+  // };
+
+  // const showDatepicker = () => {
+  //   showMode('date');
+  // };
 
 
-const EditProfile = () => {
-  const [showModal, setShowModal] = useState(false)
-  console.log(showModal)
-  const inputRef = React.useRef(null)
+  const handleSave = () => {
+    // Add logic for handling the save button press
+    setShowModal(true);
+  };
+
   return (
     <>
-      <Header title={"Profile"} />
+      <Header title={"Form Booking"} />
       <FormControl
         p="$4"
         borderWidth="$1"
@@ -51,56 +73,65 @@ const EditProfile = () => {
       >
         <VStack space="xl">
           <Heading color="$warning900" lineHeight="$md">
-            Edit Profile
+            Form Booking
           </Heading>
-          <Image
-            alt=""
-            resizeMode="contain"
-            style={{
-              width: 100,
-              height: 100,
-              alignSelf: 'center',
-              marginBottom: 0,
-            }}
-            source={require('../assets/register.png')}></Image>
           <VStack space="xs">
             <Text color="$warning800" lineHeight="$xs">
-              Nama Pemilik
+              Jenis Hewan
             </Text>
             <TextInput
-              placeholder="Isi nama anda"
+              ref={jenisHewanInputRef}
+              placeholder="Isi jenis hewan Anda"
               placeholderTextColor="#6b7280"
               style={{
                 height: 44,
-                backgroundColor: '#ffffff',
+                backgroundColor: "#ffffff",
                 paddingHorizontal: 16,
                 borderRadius: 12,
                 fontSize: 15,
-                fontWeight: '500',
+                fontWeight: "500",
+              }}
+            />
+          </VStack>
+          <VStack space="xs">
+            <Text color="$warning800" lineHeight="$xs">
+              Tanggal Reservasi dan booking
+            </Text>
+            <Button title='Pilih Tanggal Reservasi' onPress={() => showMode('date')} />
 
-              }}
-            />
           </VStack>
+          {/* {show && (
+            <DateTimePicker
+              testID='dateTimePicker'
+              value={date}
+              mode={mode}
+              is24Hour={true}
+              display='default'
+              onChange={onChange}
+            />)} */}
+
           <VStack space="xs">
             <Text color="$warning800" lineHeight="$xs">
-              Nama Hewan
+              Jenis Layanan
             </Text>
             <TextInput
-              placeholder="Isi nama hewan anda"
+              ref={tanggalReservasiInputRef}
+              placeholder="Isi jenis layanan yang ingin dipesan"
               placeholderTextColor="#6b7280"
               style={{
                 height: 44,
-                backgroundColor: '#ffffff',
+                backgroundColor: "#ffffff",
                 paddingHorizontal: 16,
                 borderRadius: 12,
                 fontSize: 15,
-                fontWeight: '500',
+                fontWeight: "500",
               }}
             />
           </VStack>
-          <Button onPress={() => setShowModal(true)} ref={ref}
+          <Button
+            onPress={handleSave}
             style={{
-              backgroundColor: 'coral',
+              backgroundColor: "coral",
               padding: 10,
               borderRadius: 5,
             }}
@@ -110,22 +141,20 @@ const EditProfile = () => {
           <Modal
             isOpen={showModal}
             onClose={() => {
-              setShowModal(false)
+              setShowModal(false);
             }}
-            finalFocusRef={ref}
+            finalFocusRef={jenisHewanInputRef} // Use any input ref here for accessibility
           >
             <ModalBackdrop />
             <ModalContent>
               <ModalHeader>
-                <Heading size="lg">Update Profile</Heading>
+                <Heading size="lg">Pemesanan Berhasil</Heading>
                 <ModalCloseButton>
                   <Icon as={CloseIcon} />
                 </ModalCloseButton>
               </ModalHeader>
               <ModalBody>
-                <Text>
-                  Profile anda akan diupdate
-                </Text>
+                <Text>Jadwal reservasi berhasil disubmit</Text>
               </ModalBody>
               <ModalFooter>
                 <Button
@@ -134,7 +163,7 @@ const EditProfile = () => {
                   action="secondary"
                   mr="$3"
                   onPress={() => {
-                    setShowModal(false)
+                    setShowModal(false);
                   }}
                 >
                   <ButtonText>Cancel</ButtonText>
@@ -145,10 +174,10 @@ const EditProfile = () => {
                   borderWidth="$0"
                   backgroundColor="$coral"
                   onPress={() => {
-                    setShowModal(false)
+                    setShowModal(false);
                   }}
                 >
-                  <ButtonText>Save</ButtonText>
+                  <ButtonText>Booking</ButtonText>
                 </Button>
               </ModalFooter>
             </ModalContent>
@@ -159,4 +188,4 @@ const EditProfile = () => {
   );
 };
 
-export default EditProfile;
+export default FormBooking;

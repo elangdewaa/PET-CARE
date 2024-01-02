@@ -5,34 +5,28 @@ import {
   Image,
   Box,
   VStack,
-  Link,
   ScrollView,
   FlatList,
   HStack,
   Button,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
-import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { Link } from "expo-router";
 
 const Reservation = () => {
-  const navigation = useNavigation();
-
-  const handleBackPress = () => {
-    navigation.goBack();
-  };
-
   return (
     <>
       <Header title={"Detail Penitipan"} />
       <ScrollView>
-        <Heading lineHeight={"$5xl"} mb={"$7"}  ml={"$5"}>
+        <Heading lineHeight={"$5xl"} mb={"$7"} color="$black" ml={"$5"}>
           Our Services
         </Heading>
         <Center>
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-            
+            borderRadius="$lg"
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -48,7 +42,7 @@ const Reservation = () => {
           >
             <Box>
               <Image
-                
+                borderRadius="$4xl"
                 h={150}
                 width="100%"
                 source={{
@@ -71,7 +65,7 @@ const Reservation = () => {
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-            
+            borderRadius="$lg"
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -87,7 +81,7 @@ const Reservation = () => {
           >
             <Box>
               <Image
-                
+                borderRadius="$4xl"
                 h={150}
                 width="100%"
                 source={{
@@ -110,7 +104,7 @@ const Reservation = () => {
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-            
+            borderRadius="$lg"
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -126,7 +120,7 @@ const Reservation = () => {
           >
             <Box>
               <Image
-                
+                borderRadius="$4xl"
                 h={150}
                 width="100%"
                 source={{

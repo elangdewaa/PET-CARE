@@ -5,22 +5,19 @@ import {
   Image,
   Box,
   VStack,
-  Link,
   ScrollView,
   FlatList,
   HStack,
   Button,
+  ButtonText,
+  ButtonIcon,
+  AddIcon,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
-import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { Link } from "expo-router";
 
 const Reservation = () => {
-  const navigation = useNavigation();
-
-  const handleBackPress = () => {
-    navigation.goBack();
-  };
-
   return (
     <>
       <Header title={"Detail Grooming"} />
@@ -56,6 +53,7 @@ const Reservation = () => {
                 }}
               />
             </Box>
+      
             <VStack px="$6" pt="$4" pb="$6">
               <Heading _dark={{ color: "$textLight200" }} size="sm">
                 Mandi biasa

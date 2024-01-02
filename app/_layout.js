@@ -29,7 +29,7 @@ const StackLayout = () => {
         <Stack.Screen name="detail_grooming" options={noHead} />
         <Stack.Screen name="add_detail_grooming" options={noHead} />
         <Stack.Screen name="Paket" options={noHead} />
-        <Stack.Screen name="accordion" options={noHead} />
+        <Stack.Screen name="FormBooking"  options={noHead} />
       </Stack>
     </GluestackUIProvider>
   );
