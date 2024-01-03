@@ -115,7 +115,7 @@ const Reservation = () => {
                 Pesan
               </Text>
             </HStack>
-          </Box>
+          </Box> 
         </TouchableOpacity>
                
         
