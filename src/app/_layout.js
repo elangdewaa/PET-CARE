@@ -23,9 +23,6 @@ const StackLayout = () => {
         <Stack.Screen name="DetailPenginapan" options={noHead} />
         <Stack.Screen name="Dashboard" options={noHead} />
         <Stack.Screen name="Login" options={noHead} />
-<<<<<<<<< Temporary merge branch 1
-
-=========
         <Stack.Screen name="(tabs admin)" options={noHead} />
         <Stack.Screen name="all_reservation" options={noHead} />
         <Stack.Screen name="Profile" options={noHead} />
@@ -33,7 +30,7 @@ const StackLayout = () => {
         <Stack.Screen name="detail_grooming" options={noHead} />
         <Stack.Screen name="add_detail_grooming" options={noHead} />
         <Stack.Screen name="Paket" options={noHead} />
->>>>>>>>> Temporary merge branch 2
+        <Stack.Screen name="FormBooking" options={noHead} />
       </Stack>
     </GluestackUIProvider>
   );

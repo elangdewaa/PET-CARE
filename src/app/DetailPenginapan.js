@@ -12,6 +12,7 @@ import {
   Button,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
+import { router } from "expo-router";
 
 const Reservation = () => {
 

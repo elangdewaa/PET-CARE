@@ -24,7 +24,9 @@ import {
 import { Header } from "../components";
 import { useState } from "react";
 import React from "react";
-
+import { Link, router } from "expo-router";
+import firebase from "../config";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ChangePassword = () => {
   const [showModal, setShowModal] = useState(false)

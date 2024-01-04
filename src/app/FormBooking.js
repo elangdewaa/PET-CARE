@@ -19,13 +19,57 @@ import {
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
 import { Platform, TextInput } from "react-native";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
+import firebase from "../config";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const FormBooking = () => {
   const [showModal, setShowModal] = useState(false);
   const jenisHewanInputRef = useRef(null);
   const tanggalReservasiInputRef = useRef(null);
   const jenisLayananInputRef = useRef(null);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+
+  const getUser = async () => {
+    try {
+      // Ambil data dari AsyncStorage
+      const userData = await AsyncStorage.getItem("user-data");
+      if (userData !== null) {
+        // Diarahkan ke Halaman Home
+        router.replace("/home");
+      } else {
+        setIsLoading(false);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  const toggleAlert = (message) => {
+    setShowAlert(!showAlert);
+    setAlertMessage(message);
+  };
+
+  const booking = () => {
+    firebase.auth().Input(jenishewan, tanggal).then((layanan) => {
+      // const user = userCredential.user
+      saveUserData(jenishewan, tanggal, layanan);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  };
+  const saveUserData = async (jenishewan, tanggal, layanan) => {
+    const userData = { jenishewan, tanggal, layanan };
+    try {
+      // Menyimpan data ke AsyncStorage
+      await AsyncStorage.setItem("user-data", JSON.stringify(userData));
+      // Diarahkan ke Home
+      router.replace("/home")
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleSave = () => {
     // Add logic for handling the save button press
