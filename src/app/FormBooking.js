@@ -20,7 +20,6 @@ import {
 import { Header } from "../components";
 import { Platform, TextInput } from "react-native";
 import { Link } from "expo-router";
-import DateTimePicker from '@react-native-community/datetimepicker';
 
 const FormBooking = () => {
   const [showModal, setShowModal] = useState(false);
@@ -60,7 +59,7 @@ const FormBooking = () => {
               Jenis Hewan
             </Text>
             <TextInput
-              ref={jenisHewanInputRef}
+              
               placeholder="Isi jenis hewan Anda"
               placeholderTextColor="#6b7280"
               style={{
@@ -78,7 +77,7 @@ const FormBooking = () => {
               Tanggal Reservasi dan booking
             </Text>
             <TextInput
-              ref={tanggalReservasiInputRef}
+            //   ref={tanggalReservasiInputRef}
               placeholder="Isi tanggal rencana reservasi dan booking"
               placeholderTextColor="#6b7280"
               style={{
@@ -96,7 +95,7 @@ const FormBooking = () => {
               Jenis Layanan
             </Text>
             <TextInput
-              ref={tanggalReservasiInputRef}
+            //   ref={jenisLayananInputRef}
               placeholder="Isi jenis layanan yang ingin dipesan"
               placeholderTextColor="#6b7280"
               style={{
@@ -124,7 +123,7 @@ const FormBooking = () => {
             onClose={() => {
               setShowModal(false);
             }}
-            finalFocusRef={jenisHewanInputRef} // Use any input ref here for accessibility
+            // finalFocusRef={jenisHewanInputRef} // Use any input ref here for accessibility
           >
             <ModalBackdrop />
             <ModalContent>

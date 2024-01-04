@@ -18,9 +18,12 @@ import {
   ModalFooter,
   inputRef,
   ref,
-  
+  Image,
+ form,
+ Link,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
+import { TextInput } from 'react-native';
 import { useState } from "react";
 import React from "react";
 
@@ -48,24 +51,36 @@ const EditProfile = () => {
       }}
     >
       <VStack space="xl">
-        <Heading color="$warning900" lineHeight="$md">
+        <Heading color="$warning900" lineHeight="$md" >
           Edit Profile
         </Heading>
+        <Image
+          alt=""
+          resizeMode="contain"
+          style={{
+          width: 100,
+          height: 100,
+          alignSelf: 'center',
+          marginBottom: 0,
+          }}
+          source={require('../assets/register.png')}></Image>
         <VStack space="xs">
           <Text color="$warning800" lineHeight="$xs">
             Nama Pemilik
           </Text>
-          <Input>
-            <InputField type="text" />
-          </Input>
-        </VStack>
-        <VStack space="xs">
-          <Text color="$warning800" lineHeight="$xs">
-            Nama Hewan
-          </Text>
-          <Input>
-            <InputField type="text" ref={inputRef} />
-          </Input>
+          <TextInput
+            placeholder="Ganti username Anda"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              
+              }}
+          />
         </VStack>
       <Button onPress={() => setShowModal(true)} ref={ref}
        style={{
@@ -112,11 +127,14 @@ const EditProfile = () => {
               size="sm"
               action="positive"
               borderWidth="$0"
+              backgroundColor="$coral"
               onPress={() => {
                 setShowModal(false)
               }}
             >
+               {/* <Link href={{ pathname: "/home" }}> */}
               <ButtonText>Save</ButtonText>
+              {/* </Link> */}
             </Button>
           </ModalFooter>
         </ModalContent>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD:app/(tabs)/reservation.js
 import {
   ScrollView,
   Box,
@@ -17,12 +18,20 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+=======
+import { ScrollView, Box, VStack, Text, Image, Heading, Button, HStack, } from "@gluestack-ui/themed";
+import { Link, router, useLocalSearchParams } from "expo-router";
+import { Header } from "../../components";
+import { TouchableOpacity } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
+
+
+>>>>>>> e10f11ecca9ab59baa825875476412f7a639f2e8:src/app/(tabs)/reservation.js
 
 const Reservation = () => {
-  const navigation = useNavigation();
 
   const handleBoxPress = (screenName) => {
-    navigation.navigate(screenName);
+    router.push(screenName);
   };
 
 
@@ -30,7 +39,12 @@ const Reservation = () => {
     <>
       <Header title={"Reservation"} />
       <ScrollView flex={1} backgroundColor="floralwhite">
+<<<<<<< HEAD:app/(tabs)/reservation.js
         <TouchableOpacity onPress={() => handleBoxPress("DetailGrooming")}>
+=======
+     
+        <TouchableOpacity onPress={() => handleBoxPress('/DetailGrooming')}>
+>>>>>>> e10f11ecca9ab59baa825875476412f7a639f2e8:src/app/(tabs)/reservation.js
           <Box
             maxWidth="$54"
             borderColor="$borderLight200"
@@ -56,6 +70,7 @@ const Reservation = () => {
               />
             </Box>
             <Box>
+<<<<<<< HEAD:app/(tabs)/reservation.js
               <VStack px="$6" pt="$4" pb="$6">
                 <Heading _dark={{ color: "$textLight200" }} size="sm">
                   Paket Grooming
@@ -69,6 +84,16 @@ const Reservation = () => {
                   pilihan
                 </Text>
               </VStack>
+=======
+            <VStack px='$6' pt='$4' pb='$6'>
+              <Heading _dark={{color:"$textLight200"}} size='sm'>
+                Paket Grooming 
+              </Heading>
+              <Text my='$1.5' _dark={{color:"$textLight200"}} fontSize='$xs'>
+                Menyediakan layanan grooming hewan dengan beberapa paket pilihan
+              </Text>
+            </VStack>
+>>>>>>> e10f11ecca9ab59baa825875476412f7a639f2e8:src/app/(tabs)/reservation.js
             </Box>
           </Box>
         </TouchableOpacity>
@@ -110,6 +135,10 @@ const Reservation = () => {
           </Box>
         </TouchableOpacity>
 
+<<<<<<< HEAD:app/(tabs)/reservation.js
+=======
+      
+>>>>>>> e10f11ecca9ab59baa825875476412f7a639f2e8:src/app/(tabs)/reservation.js
         <TouchableOpacity onPress={() => handleBoxPress("FormBooking")}>
           <Box
             w={110}
@@ -135,6 +164,11 @@ const Reservation = () => {
             </HStack>
           </Box>
         </TouchableOpacity>
+<<<<<<< HEAD:app/(tabs)/reservation.js
+=======
+               
+        
+>>>>>>> e10f11ecca9ab59baa825875476412f7a639f2e8:src/app/(tabs)/reservation.js
       </ScrollView>
     </>
   );

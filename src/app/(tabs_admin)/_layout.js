@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router/tabs";
-import { Text, borderRadius } from "@gluestack-ui/themed";
+import { Text } from "@gluestack-ui/themed";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 const noHead = { headerShown: false };
@@ -11,16 +11,13 @@ const TabsLayout = () => {
         tabBarIcon: ({ focused, color }) => {
           let iconName;
           switch (route.name) {
-            case "home":
+            case "all_reservation":
               iconName = "home-outline";
               break;
-            case "reservation":
+            case "Paket":
               iconName = "clipboard-outline";
               break;
-            case "status":
-              iconName = "checkmark-outline";
-              break;
-            case "profile":
+            case "Profile":
               iconName = "person-outline";
               break;
           }
@@ -37,23 +34,23 @@ const TabsLayout = () => {
         tabBarStyle: {
           height: 70,
           backgroundColor: "coral",
+         
           
           
           
         },
-        tabBarLabel: ({ children, color, focused  }) => {
+        tabBarLabel: ({ children, color, focused }) => {
           return (
-            <Text mb="$2" color={focused ? "$white" :"brown"} fontSize="$sm"> 
+            <Text mb="$2" color={focused ? "$white" :"brown"} fontSize="$sm">
               {children}
             </Text>
           );
         },
       })}
     >
-      <Tabs.Screen name="home" options={{ title: "Home", ...noHead }} />
-      <Tabs.Screen name="reservation" options={{ title: "Reservation", ...noHead }} />
-      <Tabs.Screen name="status" options={{ title: "Status", ...noHead }} />
-      <Tabs.Screen name="profile" options={{ title: "Profile", ...noHead }} />
+      <Tabs.Screen name="all_reservation" options={{ title: "All Reservation", ...noHead }} />
+      <Tabs.Screen name="Paket" options={{ title: "Paket", ...noHead }} />
+      <Tabs.Screen name="Profile_admin" options={{ title: "Profile", ...noHead }} />
     </Tabs>
   );
 };

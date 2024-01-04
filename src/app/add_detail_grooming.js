@@ -18,27 +18,29 @@ import {
   ModalFooter,
   inputRef,
   ref,
-  View,
+  Center,
+  ButtonIcon,
+  AddIcon,
   
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
 import { useState } from "react";
+import { TextInput } from 'react-native';
 import React from "react";
 
 
-const ChangePassword = () => {
+const add_detail_grooming = () => {
   const [showModal, setShowModal] = useState(false)
    console.log(showModal)
    const inputRef = React.useRef(null)
   return (
     <>
-    <Header title={"Profile"} />
+    <Header title={"Grooming"} />
     <FormControl
       p="$4"
       borderWidth="$1"
-      borderRadius="$lg"
       borderColor="$borderLight300"
-      backgroundColor="lightyellow"
+      backgroundColor="floralwhite"
       height="$full"
       sx={{
         _dark: {
@@ -49,34 +51,75 @@ const ChangePassword = () => {
       }}
     >
       <VStack space="xl">
-        <Heading color="$warning900" lineHeight="$md">
-          Change Password
+        <Center>
+        <Heading color="$warning900" lineHeight="$md" alignContent="center">
+          Layanan Pet Care
         </Heading>
+        </Center>
         <VStack space="xs">
           <Text color="$warning800" lineHeight="$xs">
-            Masukkan Password lama
+            Paket Grooming
           </Text>
-          <Input>
-            <InputField type="text" />
-          </Input>
+          <TextInput
+            placeholder="Isi Paket Grooming"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              
+              }}
+          />
         </VStack>
         <VStack space="xs">
           <Text color="$warning800" lineHeight="$xs">
-            Masukkan Password baru
+            Harga
           </Text>
-          <Input>
-            <InputField type="text" ref={inputRef} />
-          </Input>
+          <TextInput
+            placeholder="Isi Harga"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              
+              }}
+          />
         </VStack>
-        <Button onPress={() => setShowModal(true)} ref={ref}
-     style={{
-       backgroundColor: 'coral',
-       padding: 10,
-       borderRadius: 5,
-     }}
-    >
-      <ButtonText>Ubah Password</ButtonText>
-    </Button>
+        <VStack space="xs">
+          <Text color="$warning800" lineHeight="$xs">
+            Deskripsi
+          </Text>
+          <TextInput
+            placeholder="Isi Deskripsi"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
+              
+              }}
+          />
+        </VStack>
+      <Button onPress={() => setShowModal(true)} ref={ref}
+       style={{
+         backgroundColor: 'coral',
+         padding: 10,
+         borderRadius: 5,
+       }}
+      >
+        <ButtonIcon as={AddIcon}></ButtonIcon>
+        <ButtonText>Tambah</ButtonText>
+        </Button>
         <Modal
         isOpen={showModal}
         onClose={() => {
@@ -87,14 +130,14 @@ const ChangePassword = () => {
         <ModalBackdrop />
         <ModalContent>
           <ModalHeader>
-            <Heading size="lg">Update Password</Heading>
+            <Heading size="lg">Tambah Layanan</Heading>
             <ModalCloseButton>
               <Icon as={CloseIcon} />
             </ModalCloseButton>
           </ModalHeader>
           <ModalBody>
             <Text>
-              Password anda berhasil diubah
+              Layanan akan ditambah
             </Text>
           </ModalBody>
           <ModalFooter>
@@ -113,6 +156,7 @@ const ChangePassword = () => {
               size="sm"
               action="positive"
               borderWidth="$0"
+              backgroundColor="$coral"
               onPress={() => {
                 setShowModal(false)
               }}
@@ -128,4 +172,4 @@ const ChangePassword = () => {
   );
 };
 
-export default ChangePassword;
+export default add_detail_grooming;
