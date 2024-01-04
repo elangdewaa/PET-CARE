@@ -47,7 +47,6 @@ const add_detail_grooming = () => {
       .push(groomingData)
       .then(() => {
         // data sukses untuk di tambahkan
-        // mamat
         setShowModal(true);
       })
       .catch((error) => {
