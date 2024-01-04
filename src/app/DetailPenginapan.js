@@ -14,6 +14,28 @@ import {
 import { Header } from "../components";
 
 const Reservation = () => {
+  // State untuk menyimpan data dari Firebase salam hangat dari mamat :*
+  const [firebaseData, setFirebaseData] = useState([]);
+  
+  // UseEffect untuk mendapatkan data dari Firebase saat komponen dimuat
+  useEffect(() => {
+    const databaseRef = FIREBASE.database().ref("addpenitipan");
+
+    const onDataChange = (snapshot) => {
+      const data = snapshot.val();
+      const penitipanItems = data
+        ? Object.entries(data).map(([id, value]) => ({ id, ...value }))
+        : [];
+
+      setFirebaseData(penitipanItems);
+    };
+
+    databaseRef.on("value", onDataChange);
+
+    return () => {
+      databaseRef.off("value", onDataChange);
+    };
+  }, []);
 
   const handleBackPress = () => {
     router.back()

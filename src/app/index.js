@@ -1,7 +1,7 @@
 import { Redirect } from "expo-router";
 
 const Root = () => {
-  return <Redirect href="/detail_penitipan"/>;
+  return <Redirect href="/all_reservation"/>;
 };
 
 export default Root;

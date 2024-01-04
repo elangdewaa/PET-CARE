@@ -25,6 +25,8 @@ import {
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
 import { TextInput } from "react-native";
+import { TouchableOpacity } from "react-native";
+import { Link } from "expo-router";
 import FIREBASE from "../config";
 
 const add_detail_grooming = () => {
@@ -189,7 +191,12 @@ const add_detail_grooming = () => {
                     setShowModal(false);
                   }}
                 >
-                  <ButtonText>Save</ButtonText>
+                  <TouchableOpacity>
+                    <Link href="/detail_grooming">
+                      <ButtonText >Save</ButtonText>
+                    </Link>
+                  </TouchableOpacity>
+
                 </Button>
               </ModalFooter>
             </ModalContent>

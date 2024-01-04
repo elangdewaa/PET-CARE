@@ -1,24 +1,28 @@
-import { ScrollView, Box, VStack, Text, Image, Heading, Center, Button, ButtonText, HStack, } from "@gluestack-ui/themed";
+import { ScrollView, Box, VStack, Text, Image, Heading, Center, Button, HStack, } from "@gluestack-ui/themed";
 import { Header } from "../../components";
+
 import React from 'react';
 import { Link, router } from "expo-router";
+
 import { TouchableOpacity } from "react-native";
 
 const Paket = () => {
+ 
 
   const handleBoxPress = (screenName) => {
     router.push(screenName);
   };
   return (
     <>
-      <Header title={"Welcome, Admin"} />
+      <Header title={"Welcome, Admin"}  />
+      
       <ScrollView flex={1} backgroundColor="floralwhite">
       <Center my={15}>
          <Heading color="$warning900" lineHeight="$md" alignContent="center">
            Layanan Pet Care
          </Heading>
          </Center>
-         <TouchableOpacity onPress={() => handleBoxPress('/add_detail_grooming')}>
+         <TouchableOpacity onPress={() => handleBoxPress('/detail_grooming')}>
           <Box
             maxWidth='$54'
             borderColor='$borderLight200'
@@ -63,7 +67,7 @@ const Paket = () => {
             </Box>
           </Box>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleBoxPress('/add_detail_penitipan')}>
+        <TouchableOpacity onPress={() => handleBoxPress('/detail_penitipan')}>
           <Box
             maxWidth='$54'
             borderColor='$borderLight200'
@@ -105,10 +109,9 @@ const Paket = () => {
             </HStack>
           </Box>
         </TouchableOpacity>
-               
-           
-         
       </ScrollView>
+      
+      
     </>
   );
 };

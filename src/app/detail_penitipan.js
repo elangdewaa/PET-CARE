@@ -11,7 +11,8 @@ import {
 } from "@gluestack-ui/themed";
 import { TouchableOpacity, FlatList } from "react-native";
 import { Header } from "../components";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
+import { MaterialIcons } from '@expo/vector-icons';
 import FIREBASE from "../config";
 
 const DetailPenitipan = () => {
@@ -20,19 +21,19 @@ const DetailPenitipan = () => {
 
   // UseEffect untuk mendapatkan data dari Firebase saat komponen dimuat
   useEffect(() => {
-    const databaseRef = FIREBASE.database().ref("addgrooming");
-
+    const databaseRef = FIREBASE.database().ref("addpenitipan");
+  
     const onDataChange = (snapshot) => {
       const data = snapshot.val();
-      const groomingItems = data
+      const penitipanItems = data
         ? Object.entries(data).map(([id, value]) => ({ id, ...value }))
         : [];
-
-      setFirebaseData(groomingItems);
+  
+      setFirebaseData(penitipanItems);
     };
-
+  
     databaseRef.on("value", onDataChange);
-
+  
     return () => {
       databaseRef.off("value", onDataChange);
     };
@@ -47,7 +48,7 @@ const DetailPenitipan = () => {
   // Fungsi untuk menghapus data dari Firebase
   const handleDelete = (itemId) => {
     if (itemId) {
-      const databaseRef = FIREBASE.database().ref("addgrooming").child(itemId);
+      const databaseRef = FIREBASE.database().ref("addpenitipan").child(itemId);
 
       databaseRef
         .remove()
@@ -75,7 +76,7 @@ const DetailPenitipan = () => {
             onPress={handleAddDetail}
           >
             <TouchableOpacity>
-              <Link href="/add_detail_grooming">
+              <Link href="/add_detail_penitipan">
                 <ButtonText>Add</ButtonText>
                 <ButtonIcon as={AddIcon} />
               </Link>
@@ -83,7 +84,44 @@ const DetailPenitipan = () => {
           </Button>
         </Box>
 
-       
+        <VStack space="xl">
+          <Heading color="$warning900" lineHeight="$md" alignContent="center">
+            Data dari Firebase
+          </Heading>
+          <FlatList
+            data={firebaseData}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <Box  maxWidth="$70"
+              borderColor="$borderLight200"
+              
+              borderWidth="$1"
+              my="$4"
+              overflow="hidden"
+              sx={{
+                "@base": {
+                  mx: "$5",
+        
+                },
+                _dark: {
+                  bg: "$backgroundDark900",
+                  borderColor: "$borderDark800",
+                },
+              }}>
+
+                <Text>{`Paket Penitipan: ${item.paketPenitipan}`}</Text>
+                <Text>{`Harga: ${item.harga}`}</Text>
+                <Text>{`Deskripsi: ${item.deskripsi}`}</Text>
+                {/* Tombol untuk menghapus data */}
+                
+                <TouchableOpacity onPress={() => handleDelete(item.id)}style={{ marginLeft: 'auto'}}>
+                <MaterialIcons name="delete" size={30} color="red" />
+                </TouchableOpacity>
+                
+              </Box>
+            )}
+          />
+        </VStack>
       </VStack>
     </>
   );
