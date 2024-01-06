@@ -25,7 +25,7 @@ import { Header } from "../components";
 import { TextInput } from 'react-native';
 import { useState } from "react";
 import React from "react";
-
+import { Link, router } from "expo-router";
 
 const EditProfile = () => {
   const [showModal, setShowModal] = useState(false)

@@ -15,6 +15,7 @@ const Reservation = () => {
     <>
       <Header title={"Reservation"} />
       <ScrollView flex={1} backgroundColor="floralwhite">
+     
         <TouchableOpacity onPress={() => handleBoxPress('/DetailGrooming')}>
           <Box
             maxWidth='$54'
@@ -26,9 +27,9 @@ const Reservation = () => {
             sx={{
               "@base": {
                 mx: '$5',
-              },
+              },            
               "_dark": {
-                bg: "$backgroundDark900",
+                bg:"$backgroundDark900",
                 borderColor: '$borderDark800'
               },
             }}
@@ -41,18 +42,18 @@ const Reservation = () => {
               />
             </Box>
             <Box>
-              <VStack px='$6' pt='$4' pb='$6'>
-                <Heading _dark={{ color: "$textLight200" }} size='sm'>
-                  Paket Grooming
-                </Heading>
-                <Text my='$1.5' _dark={{ color: "$textLight200" }} fontSize='$xs'>
-                  Menyediakan layanan grooming hewan dengan beberapa paket pilihan
-                </Text>
-              </VStack>
+            <VStack px='$6' pt='$4' pb='$6'>
+              <Heading _dark={{color:"$textLight200"}} size='sm'>
+                Paket Grooming 
+              </Heading>
+              <Text my='$1.5' _dark={{color:"$textLight200"}} fontSize='$xs'>
+                Menyediakan layanan grooming hewan dengan beberapa paket pilihan
+              </Text>
+            </VStack>
             </Box>
           </Box>
         </TouchableOpacity>
-
+        
         <TouchableOpacity onPress={() => handleBoxPress('DetailPenginapan')}>
           <Box
             maxWidth='$54'
@@ -64,9 +65,9 @@ const Reservation = () => {
             sx={{
               "@base": {
                 mx: '$5',
-              },
+              },            
               "_dark": {
-                bg: "$backgroundDark900",
+                bg:"$backgroundDark900",
                 borderColor: '$borderDark800'
               },
             }}
@@ -79,10 +80,10 @@ const Reservation = () => {
               />
             </Box>
             <VStack px='$6' pt='$4' pb='$6'>
-              <Heading _dark={{ color: "$textLight200" }} size='sm'>
-                Paket Penitipan Hewan
+              <Heading _dark={{color:"$textLight200"}} size='sm'>
+                Paket Penitipan Hewan 
               </Heading>
-              <Text my='$1.5' _dark={{ color: "$textLight200" }} fontSize='$xs'>
+              <Text my='$1.5' _dark={{color:"$textLight200"}} fontSize='$xs'>
                 Menyediakan layanan penitipan hewan dengan beberapa kamar pilihan
               </Text>
             </VStack>
@@ -90,7 +91,8 @@ const Reservation = () => {
 
         </TouchableOpacity>
 
-        <TouchableOpacity>
+      
+        <TouchableOpacity onPress={() => handleBoxPress("FormBooking")}>
           <Box
             w={110}
             h="$100"
@@ -103,26 +105,21 @@ const Reservation = () => {
             softShadow=""iuyt
 
           >
-            <Link
-              href={{
-                pathname: "/FormBooking"
-              }}
-            >
-              <HStack >
-                <Ionicons
-                  name="add-circle-outline"
-                  size={30}
-                  color="floralwhite"
-                  paddingBottom="3"
-                />
-
-                <Text color="floralwhite" fontWeight="bold" size="md" pt="$1.5">
-                  Pesan
-                </Text>
-              </HStack>
-            </Link>
-          </Box>
+            <HStack>
+              <Ionicons
+                name="add-circle-outline"
+                size={30}
+                color="floralwhite"
+                paddingBottom="3"
+              />
+              <Text color="floralwhite" fontWeight="bold" size="md" pt="$1.5">
+                Pesan
+              </Text>
+            </HStack>
+          </Box> 
         </TouchableOpacity>
+               
+        
       </ScrollView>
     </>
   );

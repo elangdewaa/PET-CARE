@@ -15,33 +15,21 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 // import { loginUser } from "../actions/AuthAction";
 
 
-const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [showAlert, setShowAlert] = useState(false);
-    const [alertMessage, setAlertMessage] = useState("");
-    const auth = getAuth();
-    useEffect(() => {
-        getUser();
-    }, []);
-    const getUser = async () => {
-        try {
-            // Ambil data dari AsyncStorage
-            const userData = await AsyncStorage.getItem("user-data");
-            if (userData !== null) {
-                // Diarahkan ke Halaman Home
-                router.replace("/home");
-            } else {
-                setIsLoading(false);
-            }
-        } catch (e) {
-            console.error(e);
-        }
-    };
-    const toggleAlert = (message) => {
-        setShowAlert(!showAlert);
-        setAlertMessage(message);
-    };
+const Login = ({}) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [registrationError, setRegistrationError] = useState(false);
+
+
+
+  
+  const toggleAlert = (message) => {
+    setShowAlert(!showAlert);
+    setAlertMessage(message);
+  };
+
 
     const login = () => {
         firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
