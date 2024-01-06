@@ -20,28 +20,93 @@ import {
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
 import { Platform, TextInput } from "react-native";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
+import firebase from "../config";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import FIREBASE from "../config";
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 
 const FormBooking = () => {
   const [showModal, setShowModal] = useState(false);
-
   const jenisHewanInputRef = useRef(null);
   const tanggalReservasiInputRef = useRef(null);
   const jenisLayananInputRef = useRef(null);
   const [Booking, setBooking] = useState(new Date()); // State untuk tanggal peminjaman
-  const [showBookingPicker, setShowBookingPicker] = useState(false);
+  const [showBookingPicker, setShowBookingPicker] = useState(true);
   const onBookingChange = (_, selected) => {
     if (selected) {
       setBooking(selected);
-      setShowBookingPicker(false);
+      setShowBookingPicker(true);
     }
   };
 
-  const handleSave = () => {
-    // Add logic for handling the save button press
-    setShowModal(true);
+  const [bookingData, setBookingData] = useState({
+    jenisHewan: "",
+    tanggalReservasi: "",
+    jenisLayanan: "",
+  });
+
+  const handleInputChange = (field, value) => {
+    setBookingData((prevData) => ({ ...prevData, [field]: value }));
+  };
+
+  const addBookingDataToFirebase = () => {
+    const databaseRef = FIREBASE.database().ref("addbook");
+
+    // buat push data ke database
+    databaseRef
+      .push(bookingData)
+      .then(() => {
+        // data sukses untuk di tambahkan
+        setShowModal(true);
+      })
+      .catch((error) => {
+        console.error("Error adding data to Firebase: ", error);
+      });
+  };
+
+  const getUser = async () => {
+    try {
+      // Ambil data dari AsyncStorage
+      const userData = await AsyncStorage.getItem("user-data");
+      if (userData !== null) {
+        // Diarahkan ke Halaman Home
+        router.replace("/home");
+      } else {
+        setIsLoading(false);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  const toggleAlert = (message) => {
+    setShowAlert(!showAlert);
+    setAlertMessage(message);
+  };
+
+  const booking = () => {
+    firebase
+      .auth()
+      .Input(jenishewan, tanggal)
+      .then((layanan) => {
+        // const user = userCredential.user
+        saveUserData(jenishewan, tanggal, layanan);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  const saveUserData = async (jenishewan, tanggal, layanan) => {
+    const userData = { jenishewan, tanggal, layanan };
+    try {
+      // Menyimpan data ke AsyncStorage
+      await AsyncStorage.setItem("user-data", JSON.stringify(userData));
+      // Diarahkan ke Home
+      router.replace("/home");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -82,6 +147,8 @@ const FormBooking = () => {
                 fontSize: 15,
                 fontWeight: "500",
               }}
+              value={bookingData.jenisHewan}
+              onChangeText={(text) => handleInputChange("jenisHewan", text)}
             />
           </VStack>
           <VStack space="xs">
@@ -140,11 +207,13 @@ const FormBooking = () => {
                 fontSize: 15,
                 fontWeight: "500",
               }}
+              value={bookingData.jenisLayanan}
+              onChangeText={(text) => handleInputChange("jenisLayanan", text)}
             />
 
           </VStack>
           <Button
-            onPress={handleSave}
+            onPress={() => addBookingDataToFirebase()}
             style={{
               backgroundColor: "coral",
               padding: 10,

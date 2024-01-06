@@ -1,5 +1,5 @@
-import React, { useState,useEffect } from 'react';
-import { Link,router } from 'expo-router';
+import React, { useState, useEffect } from 'react';
+import { Link, router } from 'expo-router';
 import {
     SafeAreaView,
     View,
@@ -16,53 +16,53 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
-  const auth = getAuth();
-  useEffect(() => {
-    getUser();
-  }, []);
-  const getUser = async () => {
-    try {
-      // Ambil data dari AsyncStorage
-      const userData = await AsyncStorage.getItem("user-data");
-      if (userData !== null) {
-        // Diarahkan ke Halaman Home
-        router.replace("/home");
-      } else {
-        setIsLoading(false);
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
-  const toggleAlert = (message) => {
-    setShowAlert(!showAlert);
-    setAlertMessage(message);
-  };
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState("");
+    const auth = getAuth();
+    useEffect(() => {
+        getUser();
+    }, []);
+    const getUser = async () => {
+        try {
+            // Ambil data dari AsyncStorage
+            const userData = await AsyncStorage.getItem("user-data");
+            if (userData !== null) {
+                // Diarahkan ke Halaman Home
+                router.replace("/home");
+            } else {
+                setIsLoading(false);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    };
+    const toggleAlert = (message) => {
+        setShowAlert(!showAlert);
+        setAlertMessage(message);
+    };
 
-  const login = () => {
-    firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
-      // const user = userCredential.user
-      saveUserData(email, password, userCredential);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  };
-  const saveUserData = async (email, password, credential) => {
-    const userData = { email, password, credential };
-    try {
-      // Menyimpan data ke AsyncStorage
-      await AsyncStorage.setItem("user-data", JSON.stringify(userData));
-      // Diarahkan ke Home
-      router.replace("/home")
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    const login = () => {
+        firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
+            // const user = userCredential.user
+            saveUserData(email, password, userCredential);
+        })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
+    const saveUserData = async (email, password, credential) => {
+        const userData = { email, password, credential };
+        try {
+            // Menyimpan data ke AsyncStorage
+            await AsyncStorage.setItem("user-data", JSON.stringify(userData));
+            // Diarahkan ke Home
+            router.replace("/home")
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#EDE4D3' }}>
@@ -103,7 +103,7 @@ const Login = () => {
                         <TextInput
                             autoCapitalize="none"
                             autoCorrect={false}
-                            onChangeText={(text) => setEmail(text)} 
+                            onChangeText={(text) => setEmail(text)}
                             placeholder="masukkan email anda"
                             placeholderTextColor="#6b7280"
                             value={email}
@@ -117,7 +117,7 @@ const Login = () => {
                         </Text>
                         <TextInput
                             autoCorrect={false}
-                            onChangeText={(text) => setPassword(text)} 
+                            onChangeText={(text) => setPassword(text)}
                             placeholder="masukkan password"
                             placeholderTextColor="#6b7280"
                             secureTextEntry={true}
@@ -140,17 +140,17 @@ const Login = () => {
                                 borderColor: '#FF7F50',
                             }}>
 
-                                    <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }}> Login</Text>
-            
+                                <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }}> Login</Text>
+
                             </Button>
                             {/* show Alert */}
                             {showAlert && (
                                 <Modal isOpen={showAlert} onClose={() => toggleAlert()}>
-                                <ModalBackdrop />
-                                <Alert mx="$4" action="error" variant="solid">
-                                    <AlertText fontWeight="$bold">Error!</AlertText>
-                                    <AlertText>{alertMessage}</AlertText>
-                                </Alert>
+                                    <ModalBackdrop />
+                                    <Alert mx="$4" action="error" variant="solid">
+                                        <AlertText fontWeight="$bold">Error!</AlertText>
+                                        <AlertText>{alertMessage}</AlertText>
+                                    </Alert>
                                 </Modal>
                             )}
                         </TouchableOpacity>
@@ -168,35 +168,59 @@ const Login = () => {
                             textAlign: 'center',
                             textDecorationLine: 'underline'
                         }}>Belum punya akun? Sign Up</Text>
-                        
-                    </Link> 
-                    
-                    <Link
-                        href={{
-                            pathname: "/forgotpassword"
-                        }}
-                    >
-                        <Text style={{
-                            fontSize: 15,
-                            fontWeight: '500',
-                            color: '#222',
-                            textAlign: 'center',
-                            textDecorationLine: 'underline'
-                        }}>Lupa Password?</Text>
                     </Link>
                     <Link
                         href={{
-                            pathname: "/AdminLogin"
+                            pathname: "/forgotpassword",
                         }}
                     >
-                        <Text style={{
-                            fontSize: 15,
-                            fontWeight: '500',
-                            color: '#222',
-                            textAlign: 'center',
-                            textDecorationLine: 'underline',
-                            marginBottom: '$20',
-                        }}>Login Admin</Text>
+                        <Text
+                            style={{
+                                fontSize: 15,
+                                fontWeight: "500",
+                                color: "#222",
+                                textAlign: "center",
+                                textDecorationLine: "underline",
+                            }}
+                        >
+                            Lupa Password?
+                        </Text>
+                    </Link>
+                    <Link
+                        href={{
+                            pathname: "/AdminLogin",
+                        }}
+                    >
+                        <Text
+                            style={{
+                                fontSize: 15,
+                                fontWeight: "500",
+                                color: "#222",
+                                textAlign: "center",
+                                textDecorationLine: "underline",
+                                marginBottom: "$20",
+                            }}
+                        >
+                            Login Admin
+                        </Text>
+                    </Link>
+                    <Link
+                        href={{
+                            pathname: "/Register",
+                        }}
+                    >
+                        <Text
+                            style={{
+                                fontSize: 15,
+                                fontWeight: "500",
+                                color: "#222",
+                                textAlign: "center",
+                                textDecorationLine: "underline",
+                                marginBottom: "$20",
+                            }}
+                        >
+                            REGISTER
+                        </Text>
                     </Link>
                 </View>
             </View>
