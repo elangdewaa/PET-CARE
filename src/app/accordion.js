@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, SafeAreaView, Text, Platform, UIManager } from 'react-native';
 import { AccordionList } from 'react-native-accordion-list-view';
+import { Header } from '../components';
 
 const Accordion = () => {
   const data = [
@@ -23,12 +24,13 @@ const Accordion = () => {
     }
   }, []);
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#EDE4D3' }}>
+      <Header title={"FAQ"} />
       <View>
         <AccordionList
           data={data}
-          customTitle={item => <Text>{item.title}</Text>}
-          customBody={item => <Text>{item.body}</Text>}
+          customTitle={item => <Text >{item.title}</Text>}
+          customBody={item => <Text >{item.body}</Text>}
           animationDuration={400}
           expandMultiple={true}
         />
