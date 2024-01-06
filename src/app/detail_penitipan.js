@@ -14,7 +14,7 @@ import { Header } from "../components";
 import { Link } from "expo-router";
 import FIREBASE from "../config";
 
-const DetailGrooming = () => {
+const DetailPenitipan = () => {
   // State untuk menyimpan data dari Firebase salam hangat dari mamat :*
   const [firebaseData, setFirebaseData] = useState([]);
 
@@ -40,6 +40,7 @@ const DetailGrooming = () => {
 
   // Fungsi untuk menavigasi ke halaman tambah data
   const handleAddDetail = () => {
+    router.replace("add_detail_penitipan");
     // Implementasikan navigasi ke halaman 'add_detail_grooming' sesuai kebutuhan
   };
 
@@ -61,7 +62,7 @@ const DetailGrooming = () => {
 
   return (
     <>
-      <Header title={"Grooming"} />
+      <Header title={"Penitipan"} />
       <VStack space="md">
         {/* Tombol untuk navigasi ke halaman tambah data */}
         <Box alignSelf="flex-start" py={10} px={10}>
@@ -82,32 +83,10 @@ const DetailGrooming = () => {
           </Button>
         </Box>
 
-        {/* Menampilkan data dari Firebase menggunakan FlatList */}
-        <VStack space="xl">
-          <Heading color="$warning900" lineHeight="$md" alignContent="center">
-            Data dari Firebase
-          </Heading>
-          <FlatList
-            data={firebaseData}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <Box p="4"  borderColor="gray.300">
-                <Text>{`Paket Grooming: ${item.paketGrooming}`}</Text>
-                <Text>{`Harga: ${item.harga}`}</Text>
-                <Text>{`Deskripsi: ${item.deskripsi}`}</Text>
-                {/* Tombol untuk menghapus data */}
-                <TouchableOpacity onPress={() => handleDelete(item.id)}>
-                  <Text style={{ color: "red", marginTop: 10 }}>
-                    Hapus Data
-                  </Text>
-                </TouchableOpacity>
-              </Box>
-            )}
-          />
-        </VStack>
+       
       </VStack>
     </>
   );
 };
 
-export default DetailGrooming;
+export default DetailPenitipan;

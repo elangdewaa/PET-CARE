@@ -5,7 +5,6 @@ import { TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 
-
 const Reservation = () => {
 
   const handleBoxPress = (screenName) => {
@@ -115,7 +114,7 @@ const Reservation = () => {
                 Pesan
               </Text>
             </HStack>
-          </Box>
+          </Box> 
         </TouchableOpacity>
                
         
