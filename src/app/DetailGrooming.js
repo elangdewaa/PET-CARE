@@ -5,14 +5,15 @@ import {
   Image,
   Box,
   VStack,
-  Link,
   ScrollView,
   FlatList,
   HStack,
   Button,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
-import { router } from "expo-router";
+import { Link } from "expo-router";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const Reservation = () => {
 
@@ -31,7 +32,7 @@ const Reservation = () => {
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-            
+
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -46,7 +47,7 @@ const Reservation = () => {
             }}
           >
             <Box>
-          
+
             </Box>
             <VStack px="$6" pt="$4" pb="$6">
               <Heading _dark={{ color: "$textLight200" }} size="sm">
@@ -63,7 +64,7 @@ const Reservation = () => {
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-            
+
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -94,7 +95,7 @@ const Reservation = () => {
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-            
+
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -123,6 +124,8 @@ const Reservation = () => {
             </VStack>
           </Box>
         </Center>
+       
+         
       </ScrollView>
     </>
   );

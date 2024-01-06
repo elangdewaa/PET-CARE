@@ -11,6 +11,9 @@ import {
   Button,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { Link } from "expo-router";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const Reservation = () => {
 
@@ -123,6 +126,37 @@ const Reservation = () => {
             </VStack>
           </Box>
         </Center>
+         <TouchableOpacity>
+          <Box
+            w={110}
+            h="$100"
+            mr="$10"
+            bg="$coral"
+            ml={19}
+            borderRadius="$3xl"
+            borderWidth={2}
+            alignItems="center"
+            softShadow=""
+          >
+            <Link
+              href={{
+                pathname: "/form_pesan"
+              }}
+            >
+              <HStack>
+                <Ionicons
+                  name="add-circle-outline"
+                  size={30}
+                  color="floralwhite"
+                  paddingBottom="3"
+                />
+                <Text color="floralwhite" fontWeight="bold" size="md" pt="$1.5">
+                  Pesan
+                </Text>
+              </HStack>
+            </Link>
+          </Box>
+        </TouchableOpacity>
       </ScrollView>
     </>
   );

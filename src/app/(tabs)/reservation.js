@@ -110,7 +110,8 @@ const Reservation = () => {
           </Box>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => handleBoxPress("FormBooking")}>
+
+        <TouchableOpacity>
           <Box
             w={110}
             h="$100"
@@ -122,20 +123,28 @@ const Reservation = () => {
             alignItems="center"
             softShadow=""
           >
-            <HStack>
-              <Ionicons
-                name="add-circle-outline"
-                size={30}
-                color="floralwhite"
-                paddingBottom="3"
-              />
-              <Text color="floralwhite" fontWeight="bold" size="md" pt="$1.5">
-                Pesan
-              </Text>
-            </HStack>
+            <Link
+              href={{
+                pathname: "/FormBooking"
+              }}
+            >
+              <HStack>
+                <Ionicons
+                  name="add-circle-outline"
+                  size={30}
+                  color="floralwhite"
+                  paddingBottom="3"
+                />
+                <Text color="floralwhite" fontWeight="bold" size="md" pt="$1.5">
+                  Pesan
+                </Text>
+              </HStack>
+            </Link>
           </Box>
         </TouchableOpacity>
-      </ScrollView>
+
+
+      </ScrollView >
     </>
   );
 };
