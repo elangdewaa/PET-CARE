@@ -33,6 +33,7 @@ const StackLayout = () => {
         <Stack.Screen name="add_detail_penitipan" options={noHead} />
         <Stack.Screen name="detail_penitipan" options={noHead} />
         <Stack.Screen name="profileadmin" options={noHead} />
+        <Stack.Screen name="AdminLogin" options={noHead} />
 
       </Stack>
     </GluestackUIProvider>
