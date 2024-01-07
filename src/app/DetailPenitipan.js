@@ -11,8 +11,8 @@ import {
   Button,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
-import { Link } from "expo-router";
 import { TouchableOpacity } from "react-native";
+import { Link } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 const Reservation = () => {
@@ -23,16 +23,16 @@ const Reservation = () => {
 
   return (
     <>
-      <Header title={"Detail Grooming"} />
+      <Header title={"Detail Penitipan"} />
       <ScrollView>
-        <Heading lineHeight={"$5xl"} mb={"$7"} color="$black" ml={"$5"}>
+        <Heading lineHeight={"$5xl"} mb={"$7"}  ml={"$5"}>
           Our Services
         </Heading>
         <Center>
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-
+            
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -47,24 +47,24 @@ const Reservation = () => {
             }}
           >
             <Box>
-
+            
             </Box>
             <VStack px="$6" pt="$4" pb="$6">
               <Heading _dark={{ color: "$textLight200" }} size="sm">
-                Mandi biasa
+                Penitipan perhari
               </Heading>
               <Heading _dark={{ color: "$textLight200" }} size="xs">
-                Rp. 30.000
+                Rp. 40.000
               </Heading>
               <Text my="$1.5" _dark={{ color: "$textLight200" }} fontSize="$xs">
-                Shampoo biasa, bersihkan telinga, potong kuku, parfum.
+                Harga penitipan dihitung perhari, include makan, mandi, cek kesehatan, perawatan.
               </Text>
             </VStack>
           </Box>
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-
+            
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -79,52 +79,53 @@ const Reservation = () => {
             }}
           >
             <Box>
+              
+              
             </Box>
             <VStack px="$6" pt="$4" pb="$6">
               <Heading _dark={{ color: "$textLight200" }} size="sm">
-                Mandi kutu
-              </Heading>
-              <Heading _dark={{ color: "$textLight200" }} size="xs">
-                Rp. 50.000
-              </Heading>
-              <Text my="$1.5" _dark={{ color: "$textLight200" }} fontSize="$xs">
-                Shampoo kutu, bersihkan telinga, pengecekan bulu, potong kuku, parfum.
-              </Text>
-            </VStack>
-          </Box>
-          <Box
-            maxWidth="$70"
-            borderColor="$borderLight200"
-
-            borderWidth="$1"
-            my="$4"
-            overflow="hidden"
-            sx={{
-              "@base": {
-                mx: "$5",
-              },
-              _dark: {
-                bg: "$backgroundDark900",
-                borderColor: "$borderDark800",
-              },
-            }}
-          >
-            <Box>
-            </Box>
-            <VStack px="$6" pt="$4" pb="$6">
-              <Heading _dark={{ color: "$textLight200" }} size="sm">
-                Mandi Lengkap
+                Penitipan perminggu
               </Heading>
               <Heading _dark={{ color: "$textLight200" }} size="xs">
                 Rp. 60.000
               </Heading>
               <Text my="$1.5" _dark={{ color: "$textLight200" }} fontSize="$xs">
-                Shampoo biasa/kutu, potong kuku, pengecekan kesehatan, parfum.
+                Harga penitipan dihitung perminggu, include makan, vitamin, mandi, cek kesehatan, perawatan.
+              </Text>
+            </VStack>
+          </Box>
+          <Box
+            maxWidth="$70"
+            borderColor="$borderLight200"
+            borderWidth="$1"
+            my="$4"
+            overflow="hidden"
+            sx={{
+              "@base": {
+                mx: "$5",
+              },
+              _dark: {
+                bg: "$backgroundDark900",
+                borderColor: "$borderDark800",
+              },
+            }}
+          >
+            <Box>
+              
+            </Box>
+            <VStack px="$6" pt="$4" pb="$6">
+              <Heading _dark={{ color: "$textLight200" }} size="sm">
+                Penitipan perbulan
+              </Heading>
+              <Heading _dark={{ color: "$textLight200" }} size="xs">
+                Rp. 100.000
+              </Heading>
+              <Text my="$1.5" _dark={{ color: "$textLight200" }} fontSize="$xs">
+                Harga penitipan dihitung perbulan, include makan, vitamin, mandi, cek kesehatan, perawatan.
               </Text>
             </VStack>
           </Box>
         </Center>
-       
         <TouchableOpacity onPress={() => handleBoxPress('FormBooking')}>
           <Box
             w={110}
@@ -139,7 +140,7 @@ const Reservation = () => {
           >
             <Link
               href={{
-                pathname: "/FormBooking"
+                pathname: "/form_pesan"
               }}
             >
               <HStack>
@@ -163,28 +164,19 @@ const Reservation = () => {
 
 export default Reservation;
 
-// import { ScrollView, Box, VStack, Text, Image, Heading, TouchableOpacity } from "@gluestack-ui/themed";
+// import { ScrollView, Box, VStack, Text, Link, Image, Heading, TouchableOpacity } from "@gluestack-ui/themed";
 // import { Header } from "../../components";
 // import React from 'react';
-// import { useNavigation } from "@react-navigation/native";
 
-// const DetailGrooming = () => {
-//   const navigation = useNavigation();
-
-//   const handleBackPress = () => {
-//     router.back()
-//   };
-
+// const DetailPenginapan = () => {
 //   return (
 //     <>
 //       <Header title={"Reservation"} />
 //       <ScrollView flex={1} backgroundColor="floralwhite">
-//         {/* isi konten */}
-//         <TouchableOpacity onPress={handleBackPress}>
-//         </TouchableOpacity>
+//        {/* isi konten */}
 //       </ScrollView>
 //     </>
 //   );
 // };
 
-// export default DetailGrooming;
+// export default DetailPenginapan;

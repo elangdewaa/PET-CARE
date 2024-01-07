@@ -13,8 +13,6 @@ const Login = ({}) => {
   const [alertMessage, setAlertMessage] = useState("");
   const [registrationError, setRegistrationError] = useState(false);
 
-
-
   
   const toggleAlert = (message) => {
     setShowAlert(!showAlert);

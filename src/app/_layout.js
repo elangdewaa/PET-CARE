@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import { GluestackUIProvider } from "@gluestack-ui/themed";
 import { config } from "@gluestack-ui/config";
 
+
 const noHead = { headerShown: false };
 
 const StackLayout = () => {
@@ -10,7 +11,6 @@ const StackLayout = () => {
     
       <Stack>
         <Stack.Screen name="(tabs)" options={noHead} />
-        <Stack.Screen name="(tabs_admin)" options={noHead} />
         <Stack.Screen name="home" options={noHead} />
         <Stack.Screen name="index" options={noHead} />
         <Stack.Screen name="editProfile" options={noHead} />
@@ -20,16 +20,19 @@ const StackLayout = () => {
         <Stack.Screen name="changepassword" options={noHead} />
         <Stack.Screen name="reservation" options={noHead} />
         <Stack.Screen name="DetailGrooming" options={noHead} />
-        <Stack.Screen name="DetailPenginapan" options={noHead} />
+        <Stack.Screen name="DetailPenitipan" options={noHead} />
         <Stack.Screen name="Dashboard" options={noHead} />
-        <Stack.Screen name="Login" options={noHead}  />
+        <Stack.Screen name="Login" options={noHead} />
+        <Stack.Screen name="(tabs admin)" options={noHead} />
         <Stack.Screen name="all_reservation" options={noHead} />
         <Stack.Screen name="Profile" options={noHead} />
         <Stack.Screen name="Profile_admin" options={noHead} />
         <Stack.Screen name="detail_grooming" options={noHead} />
         <Stack.Screen name="add_detail_grooming" options={noHead} />
         <Stack.Screen name="Paket" options={noHead} />
+        <Stack.Screen name="FormBooking" options={noHead} />
         <Stack.Screen name="detail_penitipan" options={noHead} />
+        <Stack.Screen name="form_pesan" options={noHead} />
       </Stack>
     </GluestackUIProvider>
   );
