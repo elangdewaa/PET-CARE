@@ -11,7 +11,7 @@
   "dependencies": {
     "@expo/metro-runtime": "^2.2.16",
     "@gluestack-style/legend-motion-animation-driver": "^1.0.3",
-    "@gluestack-style/react": "^1.0.29",
+    "@gluestack-style/react": "^1.0.30",
     "@gluestack-ui/config": "^1.0.10",
     "@gluestack-ui/themed": "^1.0.33",
     "@react-native-aria/focus": "^0.2.9",
@@ -29,6 +29,7 @@
     "react": "18.2.0",
     "react-native": "0.72.6",
     "react-native-accordion-list-view": "^2.0.3",
+    "react-native-dropdown-select-list": "^2.0.5",
     "react-native-gesture-handler": "~2.12.0",
     "react-native-image-slider-box": "^2.0.7",
     "react-native-picker-select": "^9.0.0",

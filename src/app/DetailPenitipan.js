@@ -11,9 +11,9 @@ import {
   Button,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
+import { TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Reservation = () => {
 
@@ -126,7 +126,7 @@ const Reservation = () => {
             </VStack>
           </Box>
         </Center>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => handleBoxPress('FormBooking')}>
           <Box
             w={110}
             h="$100"
