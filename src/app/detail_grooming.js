@@ -73,13 +73,6 @@ const DetailGrooming = () => {
         {/* Tombol untuk navigasi ke halaman tambah data */}
         <HStack>
         <Box alignSelf="flex-start" py={10} px={10}>
-            <TouchableOpacity>
-              <Ionicons name="arrow-back-circle-outline" size={40}></Ionicons>
-              <Link href="/add_detail_grooming">
-              </Link>
-            </TouchableOpacity>
-        </Box>
-        <Box alignSelf="flex-start" py={10} px={10}>
           <Button
             size="md"
             variant="solid"

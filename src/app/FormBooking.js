@@ -34,7 +34,7 @@ const FormBooking = () => {
 
   return (
     <>
-      <Header title={"Form Booking"} />
+      <Header title={"Form Booking"}  withBack="true" />
       <FormControl
         p="$4"
         borderWidth="$1"

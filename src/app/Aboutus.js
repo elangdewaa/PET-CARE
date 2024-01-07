@@ -21,7 +21,7 @@ import {
         <SafeAreaView flex={1}>
           <Box>
             <ScrollView>
-              <Header title={"About us"} />
+              <Header title={"About us"}  withBack="true"/>
               <Center>
                 <Heading
                   ml={"$1"}

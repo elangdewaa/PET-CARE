@@ -58,7 +58,7 @@ const add_detail_grooming = () => {
 
   return (
     <>
-      <Header title={"Grooming"} />
+      <Header title={"Grooming"}  withBack="true" />
       <FormControl
         p="$4"
         borderWidth="$1"

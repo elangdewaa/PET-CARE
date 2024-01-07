@@ -14,7 +14,7 @@ import React, { useState, useEffect } from "react";
 import FIREBASE from "../config";
 
 const Reservation = () => {
-    // State untuk menyimpan data dari Firebase salam hangat dari mamat :*
+    // State untuk menyimpan data dari Firebase 
     const [firebaseData, setFirebaseData] = useState([]);
   
     // UseEffect untuk mendapatkan data dari Firebase saat komponen dimuat
@@ -42,7 +42,7 @@ const Reservation = () => {
 
   return (
     <>
-      <Header title={"Detail Grooming"} />
+      <Header title={"Detail Grooming"}  withBack="true" />
       <ScrollView>
        
         <Center>
@@ -115,29 +115,3 @@ const Reservation = () => {
 };
 
 export default Reservation;
-
-// import { ScrollView, Box, VStack, Text, Image, Heading, TouchableOpacity } from "@gluestack-ui/themed";
-// import { Header } from "../../components";
-// import React from 'react';
-// import { useNavigation } from "@react-navigation/native";
-
-// const DetailGrooming = () => {
-//   const navigation = useNavigation();
-
-//   const handleBackPress = () => {
-//     router.back()
-//   };
-
-//   return (
-//     <>
-//       <Header title={"Reservation"} />
-//       <ScrollView flex={1} backgroundColor="floralwhite">
-//         {/* isi konten */}
-//         <TouchableOpacity onPress={handleBackPress}>
-//         </TouchableOpacity>
-//       </ScrollView>
-//     </>
-//   );
-// };
-
-// export default DetailGrooming;

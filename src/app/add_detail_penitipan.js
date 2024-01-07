@@ -62,7 +62,7 @@ const add_detail_penitipan = () => {
 
   return (
     <>
-      <Header title={"Penitipan Hewan"} />
+      <Header title={"Penitipan Hewan"}  withBack="true" />
       <FormControl
         p="$4"
         borderWidth="$1"

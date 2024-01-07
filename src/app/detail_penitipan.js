@@ -63,7 +63,7 @@ const DetailPenitipan = () => {
 
   return (
     <>
-      <Header title={"Penitipan"} />
+      <Header title={"Penitipan"}  withBack="true" />
       <VStack space="md">
         {/* Tombol untuk navigasi ke halaman tambah data */}
         <Box alignSelf="flex-start" py={10} px={10}>
