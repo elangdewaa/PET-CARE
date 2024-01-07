@@ -25,13 +25,13 @@ import firebase from "../config";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import FIREBASE from "../config";
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { SelectList } from 'react-native-dropdown-select-list';
 
-
-const FormPesan = () => {
+const FormPenitipan = () => {
   const [showModal, setShowModal] = useState(false);
   const jenisHewanInputRef = useRef(null);
   const tanggalReservasiInputRef = useRef(null);
-  const jenisLayananInputRef = useRef(null);
+  const pilihanpaketInputRef = useRef(null);
   const [Booking, setBooking] = useState(new Date()); // State untuk tanggal peminjaman
   const [showBookingPicker, setShowBookingPicker] = useState(true);
   const onBookingChange = (_, selected) => {
@@ -44,7 +44,7 @@ const FormPesan = () => {
   const [bookingData, setBookingData] = useState({
     jenisHewan: "",
     tanggalReservasi: "",
-    jenisLayanan: "",
+    pilihPaket: "",
   });
 
   const handleInputChange = (field, value) => {
@@ -153,7 +153,46 @@ const FormPesan = () => {
           </VStack>
           <VStack space="xs">
             <Text color="$warning800" lineHeight="$xs">
-              Tanggal Reservasi dan booking
+              Mulai tanggal
+            </Text>
+            <Pressable onPress={() => setShowBookingPicker(true)}>
+              <TextInput
+                //   ref={tanggalReservasiInputRef}
+                placeholder="Isi tanggal rencana reservasi dan booking"
+                placeholderTextColor="#6b7280"
+                style={{
+                  height: 44,
+                  backgroundColor: "#ffffff",
+                  paddingHorizontal: 16,
+                  borderRadius: 12,
+                  fontSize: 15,
+                  fontWeight: "500",
+                  color: "#6b7280"
+                }}
+                editable={false}
+                value={Booking.toDateString() }
+              />
+            </Pressable>
+            {showBookingPicker && (
+              <DateTimePicker
+                value={Booking}
+                mode="date"
+                display="calendar"
+                onChange={onBookingChange}
+                style={{
+                  borderBottomWidth: 3,
+                  borderEndWidth: 3,
+                  borderTopWidth: 1,
+                  borderStartWidth: 1,
+                  borderColor: '#021C35',
+                  // Tambahkan properti gaya lainnya di sini sesuai kebutuhan
+                }}
+              />
+            )}
+          </VStack>
+          <VStack space="xs">
+            <Text color="$warning800" lineHeight="$xs">
+              Sampai tanggal
             </Text>
             <Pressable onPress={() => setShowBookingPicker(true)}>
               <TextInput
@@ -190,25 +229,26 @@ const FormPesan = () => {
               />
 
             )}
+            
           </VStack>
           <VStack space="xs">
             <Text color="$warning800" lineHeight="$xs">
-              Jenis Layanan
+              Pilihan Paket
             </Text>
             <TextInput
-                ref={jenisLayananInputRef}
+                ref={pilihanpaketInputRef}
               placeholder="Isi jenis layanan yang ingin dipesan"
               placeholderTextColor="#6b7280"
               style={{
                 height: 44,
                 backgroundColor: "#ffffff",
-                paddingHorizontal: 16,
+                paddingHorizontal: 16, 
                 borderRadius: 12,
                 fontSize: 15,
                 fontWeight: "500",
               }}
-              value={bookingData.jenisLayanan}
-              onChangeText={(text) => handleInputChange("jenisLayanan", text)}
+              value={bookingData.pilihanpaket}
+              onChangeText={(text) => handleInputChange("pilihanpaket", text)}
             />
 
           </VStack>
@@ -272,4 +312,4 @@ const FormPesan = () => {
   );
 };
 
-export default FormPesan;
+export default FormPenitipan;

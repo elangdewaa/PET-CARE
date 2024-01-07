@@ -26,12 +26,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import FIREBASE from "../config";
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-
-const FormBooking = () => {
+const FormGrooming = () => {
   const [showModal, setShowModal] = useState(false);
   const jenisHewanInputRef = useRef(null);
   const tanggalReservasiInputRef = useRef(null);
-  const jenisLayananInputRef = useRef(null);
+  const pilihanpaketInputRef = useRef(null);
   const [Booking, setBooking] = useState(new Date()); // State untuk tanggal peminjaman
   const [showBookingPicker, setShowBookingPicker] = useState(true);
   const onBookingChange = (_, selected) => {
@@ -44,7 +43,7 @@ const FormBooking = () => {
   const [bookingData, setBookingData] = useState({
     jenisHewan: "",
     tanggalReservasi: "",
-    jenisLayanan: "",
+    pilihPaket: "",
   });
 
   const handleInputChange = (field, value) => {
@@ -89,16 +88,16 @@ const FormBooking = () => {
     firebase
       .auth()
       .Input(jenishewan, tanggal)
-      .then((layanan) => {
+      .then((pilihpaket) => {
         // const user = userCredential.user
-        saveUserData(jenishewan, tanggal, layanan);
+        saveUserData(jenishewan, tanggal, pilihanpaket);
       })
       .catch((error) => {
         console.error(error);
       });
   };
-  const saveUserData = async (jenishewan, tanggal, layanan) => {
-    const userData = { jenishewan, tanggal, layanan };
+  const saveUserData = async (jenishewan, tanggal, pilihanpaket) => {
+    const userData = { jenishewan, tanggal, pilihanpaket };
     try {
       // Menyimpan data ke AsyncStorage
       await AsyncStorage.setItem("user-data", JSON.stringify(userData));
@@ -111,7 +110,7 @@ const FormBooking = () => {
 
   return (
     <>
-      <Header title={"Form Booking"} />
+      <Header title={"Form Booking Grooming"} />
       <FormControl
         p="$4"
         borderWidth="$1"
@@ -193,10 +192,10 @@ const FormBooking = () => {
           </VStack>
           <VStack space="xs">
             <Text color="$warning800" lineHeight="$xs">
-              Jenis Layanan
+              Pilihan Paket
             </Text>
             <TextInput
-                ref={jenisLayananInputRef}
+                ref={pilihanpaketInputRef}
               placeholder="Isi jenis layanan yang ingin dipesan"
               placeholderTextColor="#6b7280"
               style={{
@@ -207,8 +206,8 @@ const FormBooking = () => {
                 fontSize: 15,
                 fontWeight: "500",
               }}
-              value={bookingData.jenisLayanan}
-              onChangeText={(text) => handleInputChange("jenisLayanan", text)}
+              value={bookingData.pilihanpaket}
+              onChangeText={(text) => handleInputChange("pilihanpaket", text)}
             />
 
           </VStack>
@@ -272,4 +271,4 @@ const FormBooking = () => {
   );
 };
 
-export default FormBooking;
+export default FormGrooming;

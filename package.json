@@ -28,6 +28,7 @@
     "react": "18.2.0",
     "react-native": "0.72.6",
     "react-native-accordion-list-view": "^2.0.3",
+    "react-native-dropdown-select-list": "^2.0.5",
     "react-native-gesture-handler": "~2.12.0",
     "react-native-image-slider-box": "^2.0.7",
     "react-native-picker-select": "^9.0.0",
