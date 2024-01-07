@@ -68,7 +68,7 @@ const all_reservation = () => {
           </TouchableOpacity>
         </Box>
         {selectedTab == 0 ? (
-          <Box style={{ flex: 1, marginTop: 10, alignItems: 'center', }}>
+          <Box py={"$2"} px={'$4'} m={'$1'} rounded={'$2xl'} borderRadius={'$7'}>
             <Box style={{
               width: '95%',
               marginTop: 10,
@@ -85,7 +85,7 @@ const all_reservation = () => {
               }}>
                 <HStack>
                   <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#000' }}>Jasmine</Text>
-                  <Text style={{ fontSize: 17, color: '#000', textAlign: 'right', alignItems: 'right', paddingLeft: '55%' }}> 29/12/2023</Text>
+
                 </HStack>
               </VStack>
 
@@ -104,12 +104,9 @@ const all_reservation = () => {
                   <Text style={{ fontSize: 17, fontWeight: '600', color: '#000' }}>Pet Name</Text>
                   <Text style={{ fontSize: 17, color: '#000', paddingLeft: '20%' }}> : Mochi </Text>
                 </HStack>
+
                 <HStack>
-                  <Text style={{ fontSize: 17, fontWeight: '600', color: '#000' }}>Category</Text>
-                  <Text style={{ fontSize: 17, color: '#000', paddingLeft: '22%' }}> : Grooming </Text>
-                </HStack>
-                <HStack>
-                  <Text style={{ fontSize: 17, fontWeight: '600', color: '#000' }}>Package Option</Text>
+                  <Text style={{ fontSize: 17, fontWeight: '600', color: '#000' }}>Jenis Paket</Text>
                   <Text style={{ fontSize: 17, color: '#000', paddingLeft: '8%' }}> : Dry Grooming + Anti Kutu </Text>
                 </HStack>
                 <HStack>
@@ -117,16 +114,11 @@ const all_reservation = () => {
                   <Text style={{ fontSize: 17, color: '#000', paddingLeft: '30%' }}> : Rp75.000 </Text>
                 </HStack>
                 <HStack>
-                  <Text style={{ fontSize: 17, fontWeight: '600', color: '#000' }}>Number Order</Text>
-                  <Text style={{ fontSize: 17, color: '#000', paddingLeft: '11%' }}> : 01 </Text>
-                </HStack>
-                <HStack>
                   <Text style={{ fontSize: 17, fontWeight: '600', color: '#000' }}>Reservation for</Text>
                   <Text style={{ fontSize: 17, color: '#000', paddingLeft: '9%' }}> : 10/12/2023 </Text>
                 </HStack>
               </VStack>
             </Box>
-            <Text>Grooming</Text>
           </Box>
         ) : (
           <Box style={{ flex: 1, alignItems: 'center', }}>
@@ -146,7 +138,6 @@ const all_reservation = () => {
               }}>
                 <HStack>
                   <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#000' }}>Dhila</Text>
-                  <Text style={{ fontSize: 17, color: '#000', textAlign: 'right', alignItems: 'right', paddingLeft: '55%' }}> 04/12/2023</Text>
                 </HStack>
               </VStack>
 
@@ -166,20 +157,12 @@ const all_reservation = () => {
                   <Text style={{ fontSize: 17, color: '#000', paddingLeft: '20%' }}> : Pony </Text>
                 </HStack>
                 <HStack>
-                  <Text style={{ fontSize: 17, fontWeight: '600', color: '#000' }}>Category</Text>
-                  <Text style={{ fontSize: 17, color: '#000', paddingLeft: '22%' }}> : Penitipan </Text>
-                </HStack>
-                <HStack>
-                  <Text style={{ fontSize: 17, fontWeight: '600', color: '#000' }}>Package Option</Text>
+                  <Text style={{ fontSize: 17, fontWeight: '600', color: '#000' }}>Jenis Paket</Text>
                   <Text style={{ fontSize: 17, color: '#000', paddingLeft: '8%' }}> : Room 1 </Text>
                 </HStack>
                 <HStack>
                   <Text style={{ fontSize: 17, fontWeight: '600', color: '#000' }}>Price</Text>
                   <Text style={{ fontSize: 17, color: '#000', paddingLeft: '30%' }}> : Rp100.000 </Text>
-                </HStack>
-                <HStack>
-                  <Text style={{ fontSize: 17, fontWeight: '600', color: '#000' }}>Number Order</Text>
-                  <Text style={{ fontSize: 17, color: '#000', paddingLeft: '11%' }}> : 01 </Text>
                 </HStack>
                 <HStack>
                   <Text style={{ fontSize: 17, fontWeight: '600', color: '#000' }}>Reservation for</Text>

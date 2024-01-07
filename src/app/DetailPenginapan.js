@@ -12,8 +12,32 @@ import {
   Button,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
+import React, { useState, useEffect } from "react";
+import FIREBASE from "../config";
 
 const Reservation = () => {
+  // State untuk menyimpan data dari Firebase
+  const [firebaseData, setFirebaseData] = useState([]);
+  
+  // UseEffect untuk mendapatkan data dari Firebase saat komponen dimuat
+  useEffect(() => {
+    const databaseRef = FIREBASE.database().ref("addpenitipan");
+
+    const onDataChange = (snapshot) => {
+      const data = snapshot.val();
+      const penitipanItems = data
+        ? Object.entries(data).map(([id, value]) => ({ id, ...value }))
+        : [];
+
+      setFirebaseData(penitipanItems);
+    };
+
+    databaseRef.on("value", onDataChange);
+
+    return () => {
+      databaseRef.off("value", onDataChange);
+    };
+  }, []);
 
   const handleBackPress = () => {
     router.back()
@@ -21,7 +45,7 @@ const Reservation = () => {
 
   return (
     <>
-      <Header title={"Detail Penitipan"} />
+      <Header title={"Detail Penitipan"}  withBack="true"/>
       <ScrollView>
         <Heading lineHeight={"$5xl"} mb={"$7"}  ml={"$5"}>
           Our Services
@@ -130,20 +154,3 @@ const Reservation = () => {
 };
 
 export default Reservation;
-
-// import { ScrollView, Box, VStack, Text, Link, Image, Heading, TouchableOpacity } from "@gluestack-ui/themed";
-// import { Header } from "../../components";
-// import React from 'react';
-
-// const DetailPenginapan = () => {
-//   return (
-//     <>
-//       <Header title={"Reservation"} />
-//       <ScrollView flex={1} backgroundColor="floralwhite">
-//        {/* isi konten */}
-//       </ScrollView>
-//     </>
-//   );
-// };
-
-// export default DetailPenginapan;

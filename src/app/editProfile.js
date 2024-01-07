@@ -33,7 +33,7 @@ const EditProfile = () => {
    const inputRef = React.useRef(null)
   return (
     <>
-    <Header title={"Profile"} />
+    <Header title={"Profile"}  withBack="true" />
     <FormControl
       p="$4"
       borderWidth="$1"
