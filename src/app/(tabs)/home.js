@@ -18,7 +18,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [news, setNewsData] = useState([]); 
+  const [news, setNewsData] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
   const [currentFactIndex, setCurrentFactIndex] = useState(0);
 
@@ -28,7 +28,7 @@ const Home = () => {
   }, []);
 
   const NewsList = ({ news }) => {
-    
+
 
     return (
       <div>
@@ -41,12 +41,12 @@ const Home = () => {
 
   const fetchData = () => {
     setRefreshing(true);
-  
+
     fetch("https://catfact.ninja/facts?limit=50")
       .then((response) => response.json())
       .then((data) => {
         const limitedNews = data.data.slice(0, 50);
-        setNewsData(limitedNews); 
+        setNewsData(limitedNews);
         setRefreshing(false);
       })
       .catch((error) => {
@@ -55,7 +55,7 @@ const Home = () => {
       });
   };
 
- const handleNextFact = () => {
+  const handleNextFact = () => {
     setCurrentFactIndex((prevIndex) => (prevIndex + 1) % news.length);
   };
 
@@ -96,6 +96,7 @@ const Home = () => {
                       bg="$coral"
                       borderRadius="$3xl"
                       borderWidth={2}
+                      borderColor="$brown"
                       justifyContent="center"
                       alignItems="center"
                       softShadow=""
@@ -123,17 +124,18 @@ const Home = () => {
                       bg="$coral"
                       borderRadius="$3xl"
                       borderWidth={2}
+                      borderColor="$brown"
                       justifyContent="center"
                       alignItems="center"
                     >
                       <Ionicons
-                        name="checkmark-sharp"
+                        name="refresh-circle-outline"
                         size={40}
                         color="floralwhite"
                       />
                       <VStack paddingBottom={10}>
                         <Text fontWeight="bold" color="floralwhite">
-                          Status
+                          History
                         </Text>
                       </VStack>
                     </Box>
@@ -148,6 +150,7 @@ const Home = () => {
                       bg="$coral"
                       borderRadius="$3xl"
                       borderWidth={2}
+                      borderColor="$brown"
                       justifyContent="center"
                       alignItems="center"
                     >
@@ -169,70 +172,74 @@ const Home = () => {
               <Divider bg="$trueGray300" $dark-bg="$backgroundDark700" />
 
               <Box
-  bg="coral"
-  p="$5"
-  borderRadius="$md"
-  alignSelf="flex-start"
-  width="100%"
-  borderWidth={1.5}
-  py="$2"
-  px="$10"
->
-  <HStack>
-    <Text color="white" fontWeight="bold" size="lg"  alignSelf="flex-start" > 
-      Fun Facts
-    </Text>
-    <TouchableOpacity onPress={handleNextFact}>
-    <Ionicons
-                  name="refresh"
-                  size={28}
-                  color="floralwhite"
-                  
-                  
-                />
-                </TouchableOpacity>
-  </HStack> 
-            </Box>
+                bg="coral"
+                p="$5"
+                borderRadius="$md"
+                alignSelf="flex-start"
+                width="100%"
+                alignItems="center"
+                alignContent="center"
+
+                borderWidth={1.5}
+                borderColor="$brown"
+                py="$2"
+                px="$10"
+              >
+                <HStack>
+                  <Text color="white" fontWeight="bold" size="lg" alignSelf="flex-start" >
+                    Fun Facts
+                  </Text>
+                  <TouchableOpacity onPress={handleNextFact}>
+                    <Ionicons
+                      name="refresh"
+                      size={28}
+                      color="floralwhite"
+
+
+                    />
+                  </TouchableOpacity>
+                </HStack>
+              </Box>
               <HStack>
 
                 <ScrollView
                   horizontal={true}
                   contentContainerStyle={{ paddingHorizontal: 0 }}
                 >
-                  
+
                   <HStack>
 
-                   {news.map((item, index) => (
-                <HStack key={index}>
-                  <Box
-                    maxWidth="$64"
-                    borderColor="$borderLight200"
-                    borderRadius="$lg"
-                    borderWidth="$1"
-                    my="$5"
-                    overflow="hidden"
-                    $base-mx="$5"
-                    $dark-bg="$backgroundDark900"
-                    $dark-borderColor="$borderDark800"
-                    marginLeft="$5"
-                    paddingBottom="$10"
-                    pr="$10"
-                    display={index === currentFactIndex ? "flex" : "none"}
-                  >
-                    <Box></Box>
-                    <VStack px="$6" pt="$4" pb="$0">
-                      <Heading $dark-color="$textLight200" size="sm"></Heading>
-                      <Text
-                        my="$1.5"
-                        $dark-color="$textLight200"
-                        fontSize="$xs"
-                      >
-                        {item.fact}
-                      </Text>
-                    </VStack>
-                  </Box>
-                </HStack>
-              ))}
+                    {news.map((item, index) => (
+                      <HStack key={index}>
+                        <Box
+                          maxWidth="$64"
+                          borderColor="$borderLight200"
+                          borderRadius="$lg"
+                          borderWidth="$1"
+                          my="$5"
+                          overflow="hidden"
+                          $base-mx="$5"
+                          $dark-bg="$backgroundDark900"
+                          $dark-borderColor="$borderDark800"
+                          marginLeft="$5"
+                          paddingBottom="$10"
+                          pr="$10"
+                          display={index === currentFactIndex ? "flex" : "none"}
+                        >
+                          <Box></Box>
+                          <VStack px="$6" pt="$4" pb="$0">
+                            <Heading $dark-color="$textLight200" size="sm"></Heading>
+                            <Text
+                              my="$1.5"
+                              $dark-color="$textLight200"
+                              fontSize="$xs"
+                            >
+                              {item.fact}
+                            </Text>
+                          </VStack>
+                        </Box>
+                      </HStack>
+                    ))}
 
 
                   </HStack>

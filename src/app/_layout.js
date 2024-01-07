@@ -14,7 +14,7 @@ const StackLayout = () => {
         <Stack.Screen name="home" options={noHead} />
         <Stack.Screen name="index" options={noHead} />
         <Stack.Screen name="editProfile" options={noHead} />
-        <Stack.Screen name="setting" options={true} />
+        <Stack.Screen name="setting" options={noHead} />
         <Stack.Screen name="LanguageSelection" options={true} />
         <Stack.Screen name="Aboutus" options={noHead} />
         <Stack.Screen name="changepassword" options={noHead} />
@@ -31,8 +31,11 @@ const StackLayout = () => {
         <Stack.Screen name="add_detail_grooming" options={noHead} />
         <Stack.Screen name="Paket" options={noHead} />
         <Stack.Screen name="FormBooking" options={noHead} />
+        <Stack.Screen name="add_detail_penitipan" options={noHead} />
         <Stack.Screen name="detail_penitipan" options={noHead} />
-        <Stack.Screen name="form_pesan" options={noHead} />
+        <Stack.Screen name="profileadmin" options={noHead} />
+        <Stack.Screen name="accordion" options={noHead} />
+
       </Stack>
     </GluestackUIProvider>
   );

@@ -17,7 +17,7 @@ const TabsLayout = () => {
             case "Paket":
               iconName = "clipboard-outline";
               break;
-            case "Profile":
+            case "profileadmin":
               iconName = "person-outline";
               break;
           }
@@ -50,7 +50,7 @@ const TabsLayout = () => {
     >
       <Tabs.Screen name="all_reservation" options={{ title: "All Reservation", ...noHead }} />
       <Tabs.Screen name="Paket" options={{ title: "Paket", ...noHead }} />
-      <Tabs.Screen name="Profile_admin" options={{ title: "Profile", ...noHead }} />
+      <Tabs.Screen name="profileadmin" options={{ title: "Profile", ...noHead }} />
     </Tabs>
   );
 };

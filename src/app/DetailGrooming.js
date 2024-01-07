@@ -47,7 +47,7 @@ const Reservation = () => {
             }}
           >
             <Box>
-
+          
             </Box>
             <VStack px="$6" pt="$4" pb="$6">
               <Heading _dark={{ color: "$textLight200" }} size="sm">
@@ -64,7 +64,7 @@ const Reservation = () => {
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-
+            
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -78,8 +78,7 @@ const Reservation = () => {
               },
             }}
           >
-            <Box>
-            </Box>
+           
             <VStack px="$6" pt="$4" pb="$6">
               <Heading _dark={{ color: "$textLight200" }} size="sm">
                 Mandi kutu
@@ -95,7 +94,7 @@ const Reservation = () => {
           <Box
             maxWidth="$70"
             borderColor="$borderLight200"
-
+            
             borderWidth="$1"
             my="$4"
             overflow="hidden"
@@ -109,8 +108,7 @@ const Reservation = () => {
               },
             }}
           >
-            <Box>
-            </Box>
+           
             <VStack px="$6" pt="$4" pb="$6">
               <Heading _dark={{ color: "$textLight200" }} size="sm">
                 Mandi Lengkap
