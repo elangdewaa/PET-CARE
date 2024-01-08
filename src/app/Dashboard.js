@@ -1,8 +1,8 @@
-import { View, Text, ImageBackground } from 'react-native'
-import { Pressable, Button, ButtonText } from '@gluestack-ui/themed'
+import { View, Text, ImageBackground, TouchableOpacity } from '@gluestack-ui/themed';
+
+import { Button, ButtonText, Box, VStack } from '@gluestack-ui/themed';
 import React from 'react';
-import { Link } from 'expo-router';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Link, useLocalSearchParams } from 'expo-router';
 
 
 const Dashboard = () => {
@@ -15,7 +15,7 @@ const Dashboard = () => {
             }} >
             <View style={{
                 marginVertical: 24,
-                marginTop: 700,
+                marginTop: 650,
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
@@ -65,8 +65,10 @@ const Dashboard = () => {
                 </Button> */}
 
             </View>
+            
 
         </ImageBackground>
+         
     )
 }
 

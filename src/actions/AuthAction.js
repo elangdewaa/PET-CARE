@@ -1,6 +1,5 @@
-import { Alert } from "react-native";
 import FIREBASE from "../config/index";
-import { clearStorage, getData, storeData } from "../utils/localStorage";
+import { storeData } from "../utils/localStorage";
 
 export const registerUser = async (data, password) => {
     try {

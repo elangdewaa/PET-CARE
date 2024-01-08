@@ -1,70 +1,16 @@
 import React, { useState, useEffect } from "react";
 import {
-  Heading,
-  Text,
   Button,
   ButtonText,
   Box,
   ButtonIcon,
   AddIcon,
-  VStack,
-  HStack,
-  withBack
 } from "@gluestack-ui/themed";
-import { TouchableOpacity, FlatList,  } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { Header } from "../components";
 import { Link } from "expo-router";
-import { MaterialIcons } from '@expo/vector-icons';
-import FIREBASE from "../config";
-import { ScrollView } from "react-native-gesture-handler";
-import Ionicons from "@expo/vector-icons/Ionicons";
 
-const DetailGrooming = () => {
-  
-  // State untuk menyimpan data dari Firebase salam hangat dari mamat :*
-  const [firebaseData, setFirebaseData] = useState([]);
-
-  // UseEffect untuk mendapatkan data dari Firebase saat komponen dimuat
-  useEffect(() => {
-    const databaseRef = FIREBASE.database().ref("addgrooming");
-
-    const onDataChange = (snapshot) => {
-      const data = snapshot.val();
-      const groomingItems = data
-        ? Object.entries(data).map(([id, value]) => ({ id, ...value }))
-        : [];
-
-      setFirebaseData(groomingItems);
-    };
-
-    databaseRef.on("value", onDataChange);
-
-    return () => {
-      databaseRef.off("value", onDataChange);
-    };
-  }, []);
-
-  // Fungsi untuk menavigasi ke halaman tambah data
-  const handleAddDetail = () => {
-    // Implementasikan navigasi ke halaman 'add_detail_grooming' sesuai kebutuhan
-  };
-
-  // Fungsi untuk menghapus data dari Firebase
-  const handleDelete = (itemId) => {
-    if (itemId) {
-      const databaseRef = FIREBASE.database().ref("addgrooming").child(itemId);
-
-      databaseRef
-        .remove()
-        .then(() => {
-          console.log("Data berhasil dihapus");
-        })
-        .catch((error) => {
-          console.error("Error menghapus data dari Firebase: ", error);
-        });
-    }
-  };
-
+const detail_grooming = () => {
   return (
     <>
      <ScrollView>
@@ -72,6 +18,13 @@ const DetailGrooming = () => {
       <VStack space="md">
         {/* Tombol untuk navigasi ke halaman tambah data */}
         <HStack>
+        <Box alignSelf="flex-start" py={10} px={10}>
+            <TouchableOpacity>
+              <Ionicons name="arrow-back-circle-outline" size={40}></Ionicons>
+              <Link href="/add_detail_grooming">
+              </Link>
+            </TouchableOpacity>
+        </Box>
         <Box alignSelf="flex-start" py={10} px={10}>
           <Button
             size="md"
@@ -138,4 +91,4 @@ const DetailGrooming = () => {
   );
 };
 
-export default DetailGrooming;
+export default detail_grooming;
