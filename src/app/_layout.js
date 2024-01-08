@@ -23,10 +23,9 @@ const StackLayout = () => {
         <Stack.Screen name="DetailPenitipan" options={noHead} />
         <Stack.Screen name="Dashboard" options={noHead} />
         <Stack.Screen name="Login" options={noHead} />
-        <Stack.Screen name="(tabs admin)" options={noHead} />
+        <Stack.Screen name="(tabs_admin)" options={noHead} />
         <Stack.Screen name="all_reservation" options={noHead} />
         <Stack.Screen name="Profile" options={noHead} />
-        <Stack.Screen name="Profile_admin" options={noHead} />
         <Stack.Screen name="detail_grooming" options={noHead} />
         <Stack.Screen name="add_detail_grooming" options={noHead} />
         <Stack.Screen name="Paket" options={noHead} />
@@ -36,6 +35,7 @@ const StackLayout = () => {
         <Stack.Screen name="profileadmin" options={noHead} />
         <Stack.Screen name="accordion" options={noHead} />
         <Stack.Screen name="AdminLogin" options={noHead} />
+       
 
       </Stack>
     </GluestackUIProvider>

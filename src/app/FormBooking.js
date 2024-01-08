@@ -24,7 +24,8 @@ const Reservation = () => {
   return (
     <>
       <Header title={"Form Booking"} />
-      <FormControl
+      <ScrollView>
+      {/* <FormControl
         p="$4"
         borderWidth="$1"
         borderRadius="$lg"
@@ -38,7 +39,9 @@ const Reservation = () => {
             borderColor: "$borderDark800",
           },
         }}
-      >
+      /> */}
+        
+        <Center>
         <VStack space="xl">
           <Heading color="$warning900" lineHeight="$md">
             Form Booking
@@ -79,6 +82,7 @@ const Reservation = () => {
               }}
             />
           </VStack>
+          <Box>
           <VStack space="xs">
             <Text color="$warning800" lineHeight="$xs">
               Jenis Layanan
@@ -160,6 +164,7 @@ const Reservation = () => {
               </Text>
             </VStack>
           </Box>
+          </VStack>
         </Center>
        
         <TouchableOpacity onPress={() => handleBoxPress('FormBooking')}>

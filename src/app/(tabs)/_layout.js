@@ -37,10 +37,10 @@ const TabsLayout = () => {
         tabBarStyle: {
           height: 70,
           backgroundColor: "coral",
-          borderTopLeftRadius: 10,  // Adjust the value as needed
-          borderTopRightRadius: 10, // Adjust the value as needed
-          borderBottomLeftRadius: 10, // Add this line
-          borderBottomRightRadius: 10, // Add this line
+          borderTopLeftRadius: 10,  
+          borderTopRightRadius: 10, 
+          borderBottomLeftRadius: 10, 
+          borderBottomRightRadius: 10, 
           marginBottom: 20,
           marginHorizontal: 10,
 

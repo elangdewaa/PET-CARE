@@ -34,10 +34,12 @@ const TabsLayout = () => {
         tabBarStyle: {
           height: 70,
           backgroundColor: "coral",
-         
-          
-          
-          
+          borderTopLeftRadius: 10,  
+          borderTopRightRadius: 10, 
+          borderBottomLeftRadius: 10, 
+          borderBottomRightRadius: 10, 
+          marginBottom: 20,
+          marginHorizontal: 10,
         },
         tabBarLabel: ({ children, color, focused }) => {
           return (
