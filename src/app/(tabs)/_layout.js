@@ -17,8 +17,8 @@ const TabsLayout = () => {
             case "reservation":
               iconName = "clipboard-outline";
               break;
-            case "status":
-              iconName = "checkmark-outline";
+            case "history":
+              iconName="refresh-circle-outline";
               break;
             case "profile":
               iconName = "person-outline";
@@ -33,21 +33,21 @@ const TabsLayout = () => {
             />
           );
         },
-        tabBarIconStyle: { marginTop: 5 }, 
+        tabBarIconStyle: { marginTop: 5 },
         tabBarStyle: {
           height: 70,
           backgroundColor: "coral",
-          borderTopLeftRadius: 10,  // Adjust the value as needed
-          borderTopRightRadius: 10, // Adjust the value as needed
-          borderBottomLeftRadius: 10, // Add this line
-          borderBottomRightRadius: 10, // Add this line
+          borderTopLeftRadius: 10,  
+          borderTopRightRadius: 10, 
+          borderBottomLeftRadius: 10, 
+          borderBottomRightRadius: 10, 
           marginBottom: 20,
           marginHorizontal: 10,
-          
+
         },
-        tabBarLabel: ({ children, color, focused  }) => {
+        tabBarLabel: ({ children, color, focused }) => {
           return (
-            <Text mb="$2" color={focused ? "$white" :"brown"} fontSize="$sm"> 
+            <Text mb="$2" color={focused ? "$white" : "brown"} fontSize="$sm">
               {children}
             </Text>
           );
@@ -56,9 +56,9 @@ const TabsLayout = () => {
     >
       <Tabs.Screen name="home" options={{ title: "Home", ...noHead }} />
       <Tabs.Screen name="reservation" options={{ title: "Reservation", ...noHead }} />
-      <Tabs.Screen name="status" options={{ title: "Status", ...noHead }} />
+      <Tabs.Screen name="history" options={{ title: "History", ...noHead }} />
       <Tabs.Screen name="profile" options={{ title: "Profile", ...noHead }} />
-      
+
     </Tabs>
   );
 };

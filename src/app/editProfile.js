@@ -25,7 +25,7 @@ import { Header } from "../components";
 import { TextInput } from 'react-native';
 import { useState } from "react";
 import React from "react";
-
+import { Link, router } from "expo-router";
 
 const EditProfile = () => {
   const [showModal, setShowModal] = useState(false)
@@ -50,7 +50,7 @@ const EditProfile = () => {
       }}
     >
       <VStack space="xl">
-        <Heading color="$warning900" lineHeight="$md" >
+        <Heading color="$warning900" lineHeight="$md">
           Edit Profile
         </Heading>
         <Image
@@ -68,7 +68,7 @@ const EditProfile = () => {
             Nama Pemilik
           </Text>
           <TextInput
-            placeholder="Ganti username Anda"
+            placeholder="Isi username Anda"
             placeholderTextColor="#6b7280"
               style={{
               height: 44,
@@ -78,6 +78,23 @@ const EditProfile = () => {
               fontSize: 15,
               fontWeight: '500',
               
+              }}
+          />
+        </VStack>
+        <VStack space="xs">
+          <Text color="$warning800" lineHeight="$xs">
+            Nama Hewan
+          </Text>
+          <TextInput
+            placeholder="Isi nama hewan Anda"
+            placeholderTextColor="#6b7280"
+              style={{
+              height: 44,
+              backgroundColor: '#ffffff',
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              fontSize: 15,
+              fontWeight: '500',
               }}
           />
         </VStack>
