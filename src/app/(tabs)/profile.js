@@ -4,27 +4,49 @@ import { Header } from "../../components";
 import { SafeAreaView } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import firebase from "../../config";
 import React, { useState,useEffect } from 'react';
 const Profile = () => {
   const [userData, setUserData] = useState({});
+  const [data, setData] = useState([]);
+  const [name, SetName] = useState({});
+
+// console.log(name)
+
   useEffect(() => {
     getUserData();
+
   }, []);
-  const getUserData = async () => {
+
+  const getUserData = async() => {
     try {
-      // Ambil data dari AsyncStorage
       const value = await AsyncStorage.getItem("user-data");
-      if (value !== null) {
+      if ( value !== null ) {
         const valueObject = JSON.parse(value);
-        // Update value state bernama "data"
         setUserData(valueObject);
-        // console.log(valueObject);
-        // Fetch Data
-        // fetchData(valueObject);
+        ambilnama(valueObject);
+
       }
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error)
     }
+  };
+  const ambilnama = (userData) => {
+    const uid = userData.credential.user.uid;
+    const dataref = firebase.database().ref("User/" + uid);
+    dataref.once("value").then((snapshot) => {
+      const dataValue = snapshot.val();
+      if (dataValue !== null) {
+        const snapshotArr = Object.entries(dataValue).map((item) => ({
+          id: item[0],
+          ...item[1],
+        }));
+        console.log("Data from ambilnama function:", snapshotArr);
+        if (snapshotArr.length > 0) {
+          SetName(snapshotArr[0]);
+        }
+      }
+    });
   };
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -44,7 +66,7 @@ const Profile = () => {
               source={require('../../assets/welcome.png')}
             />
             <VStack space="md">
-              <Text fontSize={23} marginTop={35} style={{ fontFamily: 'Helvetica', fontWeight: 'bold' }}>Hi, {userData.name} !</Text>
+              <Text fontSize={23} marginTop={35} style={{ fontFamily: 'Helvetica', fontWeight: 'bold' }}>Hi, {name.name} !</Text>
             </VStack>
           </HStack>
         </Box>

@@ -19,7 +19,7 @@ const Reservation = () => {
 
   // UseEffect untuk mendapatkan data dari Firebase saat komponen dimuat
   useEffect(() => {
-    const databaseRef = FIREBASE.database().ref("addbook");
+    const databaseRef = FIREBASE.database().ref("usergrooming");
 
     const onDataChange = (snapshot) => {
       const data = snapshot.val();
@@ -84,6 +84,9 @@ const Reservation = () => {
                     </Heading>
                     <Text style={{ fontSize: 12, lineHeight: 24, fontWeight: '350', color: '#000' }}>
                       {item.tanggalReservasi}
+                    </Text>
+                    <Text style={{ fontSize: 12, lineHeight: 24, fontWeight: '350', color: '#000' }}>
+                      {item.namaHewan}
                     </Text>
                   </VStack>
                 </Box>

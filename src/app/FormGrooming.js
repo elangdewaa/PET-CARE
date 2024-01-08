@@ -41,7 +41,12 @@ const FormBooking = () => {
     }
   };
 
+  const handleBoxPress = (screenName) => {
+    router.push(screenName);
+  };
+
   const [bookingData, setBookingData] = useState({
+    namaHewan : "",
     jenisHewan: "",
     tanggalReservasi: "",
     jenisLayanan: "",
@@ -52,7 +57,7 @@ const FormBooking = () => {
   };
 
   const addBookingDataToFirebase = () => {
-    const databaseRef = FIREBASE.database().ref("addbook");
+    const databaseRef = FIREBASE.database().ref("usergrooming");
 
     // buat push data ke database
     databaseRef
@@ -128,6 +133,29 @@ const FormBooking = () => {
         }}
       >
         <VStack space="xl">
+       < Heading color="$warning900" lineHeight="$md">
+            Form Booking
+          </Heading>
+          <VStack space="xs">
+            <Text color="$warning800" lineHeight="$xs">
+              Nama Hewan
+            </Text>
+            <TextInput
+
+              placeholder="Isi Nama hewan Anda"
+              placeholderTextColor="#6b7280"
+              style={{
+                height: 44,
+                backgroundColor: "#ffffff",
+                paddingHorizontal: 16,
+                borderRadius: 12,
+                fontSize: 15,
+                fontWeight: "500",
+              }}
+              value={bookingData.namaHewan}
+              onChangeText={(text) => handleInputChange("namaHewan", text)}
+            />
+          </VStack>
           <Heading color="$warning900" lineHeight="$md">
             Form Booking
           </Heading>
@@ -155,9 +183,9 @@ const FormBooking = () => {
             <Text color="$warning800" lineHeight="$xs">
               Tanggal Reservasi dan booking
             </Text>
-            <Pressable onPress={() => setShowBookingPicker(true)}>
+            
               <TextInput
-                //   ref={tanggalReservasiInputRef}
+              
                 placeholder="Isi tanggal rencana reservasi dan booking"
                 placeholderTextColor="#6b7280"
                 style={{
@@ -167,29 +195,12 @@ const FormBooking = () => {
                   borderRadius: 12,
                   fontSize: 15,
                   fontWeight: "500",
-                  color: "#6b7280"
+                  color: "#6b7280",
+                  
                 }}
-                editable={false}
-                value={Booking.toDateString() }
-              />
-            </Pressable>
-            {showBookingPicker && (
-              <DateTimePicker
-                value={Booking}
-                mode="date"
-                display="calendar"
-                onChange={onBookingChange}
-                style={{
-                  borderBottomWidth: 3,
-                  borderEndWidth: 3,
-                  borderTopWidth: 1,
-                  borderStartWidth: 1,
-                  borderColor: '#021C35',
-                  // Tambahkan properti gaya lainnya di sini sesuai kebutuhan
-                }}
+                onChangeText={(text) => handleInputChange("tanggalReservasi", text)}
               />
 
-            )}
           </VStack>
           <VStack space="xs">
             <Text color="$warning800" lineHeight="$xs">

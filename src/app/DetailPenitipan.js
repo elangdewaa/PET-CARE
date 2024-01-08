@@ -10,122 +10,55 @@ import {
   HStack,
   Button,
 } from "@gluestack-ui/themed";
+import React, { useState, useEffect } from "react";
 import { Header } from "../components";
-import { TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
+import { TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import FIREBASE from "../config";
+
+
+
 
 const Reservation = () => {
+  // State untuk menyimpan data dari Firebase
+  const [firebaseData, setFirebaseData] = useState([]);
+  
+  // UseEffect untuk mendapatkan data dari Firebase saat komponen dimuat
+  useEffect(() => {
+    const databaseRef = FIREBASE.database().ref("addpenitipan");
 
+    const onDataChange = (snapshot) => {
+      const data = snapshot.val();
+      const penitipanItems = data
+        ? Object.entries(data).map(([id, value]) => ({ id, ...value }))
+        : [];
+
+      setFirebaseData(penitipanItems);
+    };
+
+    databaseRef.on("value", onDataChange);
+
+    return () => {
+      databaseRef.off("value", onDataChange);
+    };
+  }, []);
+  const handleBoxPress = (screenName) => {
+    router.push(screenName);
+  };
   const handleBackPress = () => {
     router.back()
   };
 
   return (
     <>
-      <Header title={"Detail Penitipan"} />
+      <Header title={"Detail Penitipan"}  withBack="true"/>
       <ScrollView>
-        <Heading lineHeight={"$5xl"} mb={"$7"} ml={"$5"}>
+      
+        <Center>
+        <Heading lineHeight={"$5xl"} mb={"$7"}  ml={"$5"}>
           Our Services
         </Heading>
-        <Center>
-          <Box
-            maxWidth="$70"
-            borderColor="$borderLight200"
-
-            borderWidth="$1"
-            my="$4"
-            overflow="hidden"
-            sx={{
-              "@base": {
-                mx: "$5",
-              },
-              _dark: {
-                bg: "$backgroundDark900",
-                borderColor: "$borderDark800",
-              },
-            }}
-          >
-            <Box>
-
-            </Box>
-            <VStack px="$6" pt="$4" pb="$6">
-              <Heading _dark={{ color: "$textLight200" }} size="sm">
-                Penitipan perhari
-              </Heading>
-              <Heading _dark={{ color: "$textLight200" }} size="xs">
-                Rp. 40.000
-              </Heading>
-              <Text my="$1.5" _dark={{ color: "$textLight200" }} fontSize="$xs">
-                Harga penitipan dihitung perhari, include makan, mandi, cek kesehatan, perawatan.
-              </Text>
-            </VStack>
-          </Box>
-          <Box
-            maxWidth="$70"
-            borderColor="$borderLight200"
-
-            borderWidth="$1"
-            my="$4"
-            overflow="hidden"
-            sx={{
-              "@base": {
-                mx: "$5",
-              },
-              _dark: {
-                bg: "$backgroundDark900",
-                borderColor: "$borderDark800",
-              },
-            }}
-          >
-            <Box>
-
-
-            </Box>
-            <VStack px="$6" pt="$4" pb="$6">
-              <Heading _dark={{ color: "$textLight200" }} size="sm">
-                Penitipan perminggu
-              </Heading>
-              <Heading _dark={{ color: "$textLight200" }} size="xs">
-                Rp. 60.000
-              </Heading>
-              <Text my="$1.5" _dark={{ color: "$textLight200" }} fontSize="$xs">
-                Harga penitipan dihitung perminggu, include makan, vitamin, mandi, cek kesehatan, perawatan.
-              </Text>
-            </VStack>
-          </Box>
-          <Box
-            maxWidth="$70"
-            borderColor="$borderLight200"
-            borderWidth="$1"
-            my="$4"
-            overflow="hidden"
-            sx={{
-              "@base": {
-                mx: "$5",
-              },
-              _dark: {
-                bg: "$backgroundDark900",
-                borderColor: "$borderDark800",
-              },
-            }}
-          >
-            <Box>
-
-            </Box>
-            <VStack px="$6" pt="$4" pb="$6">
-              <Heading _dark={{ color: "$textLight200" }} size="sm">
-                Penitipan perbulan
-              </Heading>
-              <Heading _dark={{ color: "$textLight200" }} size="xs">
-                Rp. 100.000
-              </Heading>
-              <Text my="$1.5" _dark={{ color: "$textLight200" }} fontSize="$xs">
-                Harga penitipan dihitung perbulan, include makan, vitamin, mandi, cek kesehatan, perawatan.
-              </Text>
-            </VStack>
-          </Box>
-        </Center>
         <TouchableOpacity onPress={() => handleBoxPress('FormPenitipan')}>
           <Box
             w={110}
@@ -137,10 +70,12 @@ const Reservation = () => {
             borderWidth={2}
             alignItems="center"
             softShadow=""
+            mb="$2"
+            
           >
             <Link
               href={{
-                pathname: "/form_pesan"
+                pathname: "/FormPenitipan"
               }}
             >
               <HStack>
@@ -157,26 +92,51 @@ const Reservation = () => {
             </Link>
           </Box>
         </TouchableOpacity>
+          <FlatList
+            data={firebaseData}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <Box p="4"  borderColor="gray.300">
+
+            <Box
+            maxWidth="$70"
+            borderColor="$borderLight200"
+            
+            borderWidth="$1"
+            my="$4"
+            overflow="hidden"
+            sx={{
+              "@base": {
+                mx: "$5",
+              },
+              _dark: {
+                bg: "$backgroundDark900",
+                borderColor: "$borderDark800",
+              },
+            }}
+          >
+
+           
+            <VStack px="$6" pt="$4" pb="$6">
+              <Heading _dark={{ color: "$textLight200" }} size="sm">
+              {item.paketPenitipan}
+              </Heading>
+              <Heading _dark={{ color: "$textLight200" }} size="xs">
+              {item.harga}
+              </Heading>
+              <Text my="$1.5" _dark={{ color: "$textLight200" }} fontSize="$xs">
+              {item.deskripsi}
+              </Text>
+            </VStack>
+          </Box>
+               
+              </Box>
+            )}
+          />
+        </Center>
       </ScrollView>
     </>
   );
 };
 
 export default Reservation;
-
-// import { ScrollView, Box, VStack, Text, Link, Image, Heading, TouchableOpacity } from "@gluestack-ui/themed";
-// import { Header } from "../../components";
-// import React from 'react';
-
-// const DetailPenginapan = () => {
-//   return (
-//     <>
-//       <Header title={"Reservation"} />
-//       <ScrollView flex={1} backgroundColor="floralwhite">
-//        {/* isi konten */}
-//       </ScrollView>
-//     </>
-//   );
-// };
-
-// export default DetailPenginapan;

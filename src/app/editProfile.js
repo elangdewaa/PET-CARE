@@ -20,20 +20,33 @@ import {
   ref,
   Image,
  form,
+ Link,
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
 import { TextInput } from 'react-native';
-import { useState } from "react";
+import { useState,useRef } from "react";
 import React from "react";
-import { Link, router } from "expo-router";
+import FIREBASE from "../config"
+
 
 const EditProfile = () => {
-  const [showModal, setShowModal] = useState(false)
-   console.log(showModal)
-   const inputRef = React.useRef(null)
+  const [showModal, setShowModal] = useState(false);
+  const [newUsername, setNewUsername] = useState('');
+  const inputRef = useRef(null);
+
+  const updateProfile = () => {
+    const userRef = FIREBASE.database().ref('users/YOUR_USER_ID');
+
+    // Update the 'username' field with the new value
+    userRef.update({ username: newUsername }).then(() => {
+      console.log('Profile updated successfully');
+    }).catch((error) => {
+      console.error('Error updating profile:', error);
+    });
+  };
   return (
     <>
-    <Header title={"Profile"}  withBack="true" />
+    <Header title={"Profile"} />
     <FormControl
       p="$4"
       borderWidth="$1"
@@ -50,7 +63,7 @@ const EditProfile = () => {
       }}
     >
       <VStack space="xl">
-        <Heading color="$warning900" lineHeight="$md">
+        <Heading color="$warning900" lineHeight="$md" >
           Edit Profile
         </Heading>
         <Image
@@ -68,7 +81,7 @@ const EditProfile = () => {
             Nama Pemilik
           </Text>
           <TextInput
-            placeholder="Isi username Anda"
+            placeholder="Ganti username Anda"
             placeholderTextColor="#6b7280"
               style={{
               height: 44,
@@ -79,23 +92,8 @@ const EditProfile = () => {
               fontWeight: '500',
               
               }}
-          />
-        </VStack>
-        <VStack space="xs">
-          <Text color="$warning800" lineHeight="$xs">
-            Nama Hewan
-          </Text>
-          <TextInput
-            placeholder="Isi nama hewan Anda"
-            placeholderTextColor="#6b7280"
-              style={{
-              height: 44,
-              backgroundColor: '#ffffff',
-              paddingHorizontal: 16,
-              borderRadius: 12,
-              fontSize: 15,
-              fontWeight: '500',
-              }}
+              value={newUsername}
+              onChangeText={(text) => setNewUsername(text)}
           />
         </VStack>
       <Button onPress={() => setShowModal(true)} ref={ref}
@@ -148,7 +146,9 @@ const EditProfile = () => {
                 setShowModal(false)
               }}
             >
+               {/* <Link href={{ pathname: "/home" }}> */}
               <ButtonText>Save</ButtonText>
+              {/* </Link> */}
             </Button>
           </ModalFooter>
         </ModalContent>

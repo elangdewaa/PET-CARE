@@ -50,13 +50,14 @@ const profileadmin= () => {
       </Box>
       <Box backgroundColor="floralwhite">
         <VStack space="md" height="$full" p={20}>
-            
-        <TouchableOpacity onPress={logout} style={{ backgroundColor: 'red', padding: 10, borderRadius: 5 }}>
+            <Link  href={{ pathname: "/Login" }}>
+        <TouchableOpacity style={{ backgroundColor: 'red', padding: 10, borderRadius: 5 }}>
   <HStack alignItems="center">
     <Ionicons size={20} name="log-out" color="white" />
     <Text style={{ marginLeft: 12, color: 'white' }}> Log Out</Text>
   </HStack>
 </TouchableOpacity>
+</Link>
         </VStack>
       </Box>
     </SafeAreaView>

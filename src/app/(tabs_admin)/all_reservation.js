@@ -1,19 +1,72 @@
 import { Text, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
+import { FlatList } from "react-native";
+import FIREBASE from "../../config";
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import { Header } from "../../components";
 import { Box, HStack, VStack } from '@gluestack-ui/themed';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const noHead = { headerShown: false };
 
 const all_reservation = () => {
+  const [firebaseData, setFirebaseData] = useState([]);
+
+  // UseEffect untuk mendapatkan data dari Firebase saat komponen dimuat
+  useEffect(() => {
+    const databaseRef = FIREBASE.database().ref("usergrooming");
+
+    const onDataChange = (snapshot) => {
+      const data = snapshot.val();
+      const groomingItems = data
+        ? Object.entries(data).map(([id, value]) => ({ id, ...value }))
+        : [];
+
+      setFirebaseData(groomingItems);
+    };
+
+    databaseRef.on("value", onDataChange);
+
+    return () => {
+      databaseRef.off("value", onDataChange);
+    };
+  }, []);
   const [selectedTab, setSelectedTab] = useState(0);
 
   return (
 
     <ScrollView flex={1} backgroundColor="floralwhite">
       <Header title={"Welcome, Admin"} />
-      <Box>
+      <FlatList
+            data={firebaseData}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <Box  maxWidth="$70"
+              borderColor="$borderLight200"
+              
+              borderWidth="$1"
+              my="$4"
+              overflow="hidden"
+              sx={{
+                "@base": {
+                  mx: "$5",
+        
+                },
+                _dark: {
+                  bg: "$backgroundDark900",
+                  borderColor: "$borderDark800",
+                },
+              }}>
+
+                <Text>{`Paket Penitipan: ${item.jenisHewan}`}</Text>
+                <Text>{`Harga: ${item.jenisLayanan}`}</Text>
+                <Text>{`Tanggal: ${item.tanggalReservasi}`}</Text>
+                <Text>{`Deskripsi: ${item.namaHewan}`}</Text>
+                
+              </Box>
+            )}
+          />
+      {/* <Box>
         <Box style={{
           width: '90%',
           alignSelf: 'center',
@@ -26,8 +79,8 @@ const all_reservation = () => {
           backgroundColor: 'floralwhite',
           paddingLeft: 5,
           paddingRight: 5,
-        }}>
-          <TouchableOpacity style={{
+        }}> */}
+          {/* <TouchableOpacity style={{
             width: 155,
             height: 50,
             backgroundColor: selectedTab == 0 ? 'coral' : 'floralwhite',
@@ -37,15 +90,15 @@ const all_reservation = () => {
           }}
             onPress={() => {
               setSelectedTab(0)
-            }}>
-            <Text style={{
+            }}> */}
+            {/* <Text style={{
               fontSize: 17,
               lineHeight: 24,
               fontWeight: '600',
               color: selectedTab == 0 ? '#floralwhite' : '#000',
             }}>
-              Grooming</Text>
-          </TouchableOpacity>
+              Grooming</Text> */}
+          {/* </TouchableOpacity>
 
           <TouchableOpacity style={{
             width: 155,
@@ -66,8 +119,8 @@ const all_reservation = () => {
             }}>
               Penitipan</Text>
           </TouchableOpacity>
-        </Box>
-        {selectedTab == 0 ? (
+        </Box> */}
+        {/* {selectedTab == 0 ? (
           <Box py={"$2"} px={'$4'} m={'$1'} rounded={'$2xl'} borderRadius={'$7'}>
             <Box style={{
               width: '95%',
@@ -135,8 +188,8 @@ const all_reservation = () => {
               <VStack space={"2xl"} style={{
                 flexDirection: 'row',
                 alignItems: 'center',
-              }}>
-                <HStack>
+              }}> */}
+                {/* <HStack>
                   <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#000' }}>Dhila</Text>
                 </HStack>
               </VStack>
@@ -169,11 +222,11 @@ const all_reservation = () => {
                   <Text style={{ fontSize: 17, color: '#000', paddingLeft: '9%' }}> : 06/12/2023 </Text>
                 </HStack>
               </VStack>
-            </Box>
-            <Text>Penitipan</Text>
-          </Box>
-        )}
-      </Box>
+            </Box> */}
+            {/* <Text>Penitipan</Text> */}
+          {/* </Box> */}
+        {/* )} */}
+      {/* </Box> */}
     </ScrollView>
   )
 }

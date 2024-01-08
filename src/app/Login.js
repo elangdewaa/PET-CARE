@@ -7,7 +7,7 @@ import {
     TouchableOpacity,
     TextInput,
 } from 'react-native';
-import { Button, ButtonText, Heading, Image } from '@gluestack-ui/themed';
+import { Button, ButtonText, Heading, Image, ScrollView } from '@gluestack-ui/themed';
 import { Divider } from '@gluestack-ui/config/build/theme';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import firebase from "../config";
@@ -53,6 +53,7 @@ const Login = ({}) => {
     };
 
     return (
+        <ScrollView>
         <SafeAreaView style={{ flex: 1, backgroundColor: '#EDE4D3' }}>
             <View style={{ padding: 24, flexGrow: 1, flexShrink: 1, flexBasis: 0 }}>
                 <View style={{ marginVertical: 36 }}>
@@ -157,7 +158,7 @@ const Login = ({}) => {
                             textDecorationLine: 'underline'
                         }}>Belum punya akun? Sign Up</Text>
                     </Link>
-                    <Link
+                    {/* <Link
                         href={{
                             pathname: "/forgotpassword",
                         }}
@@ -173,7 +174,7 @@ const Login = ({}) => {
                         >
                             Lupa Password?
                         </Text>
-                    </Link>
+                    </Link> */}
                     <Link
                         href={{
                             pathname: "/AdminLogin",
@@ -192,7 +193,7 @@ const Login = ({}) => {
                             Login Admin
                         </Text>
                     </Link>
-                    <Link
+                    {/* <Link
                         href={{
                             pathname: "/Register",
                         }}
@@ -209,10 +210,11 @@ const Login = ({}) => {
                         >
                             REGISTER
                         </Text>
-                    </Link>
+                    </Link> */}
                 </View>
             </View>
         </SafeAreaView>
+        </ScrollView>
     );
 };
 

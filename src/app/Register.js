@@ -25,12 +25,22 @@ const Register = () => {
       const userData = { email, password,name, credential };
       try {
         await AsyncStorage.setItem("user-data", JSON.stringify(userData));
+        saveNamaDatabase(userData.email, userData.name, userData);
         router.replace("/home");
       } catch (error) {
         console.error(error);
       }
     };
-
+    const saveNamaDatabase = (email, name,userData) => {
+        const data = {
+          email,
+          name
+        };
+        const uid = userData.credential.user.uid;
+       // Include other userData properties
+        firebase.database().ref("User/" + uid).push(data);
+        router.replace("/home");
+      };
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#EDE4D3' }}>
             <View

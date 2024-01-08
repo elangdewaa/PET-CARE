@@ -42,6 +42,7 @@ const FormPesan = () => {
   };
 
   const [bookingData, setBookingData] = useState({
+    namaHewan : "",
     jenisHewan: "",
     tanggalReservasi: "",
     jenisLayanan: "",
@@ -52,7 +53,7 @@ const FormPesan = () => {
   };
 
   const addBookingDataToFirebase = () => {
-    const databaseRef = FIREBASE.database().ref("addbook");
+    const databaseRef = FIREBASE.database().ref("userpenitipan");
 
     // buat push data ke database
     databaseRef
@@ -131,6 +132,24 @@ const FormPesan = () => {
           <Heading color="$warning900" lineHeight="$md">
             Form Booking
           </Heading>
+          <Text color="$warning800" lineHeight="$xs">
+              Nama Hewan
+            </Text>
+            <TextInput
+
+              placeholder="Isi Nama hewan Anda"
+              placeholderTextColor="#6b7280"
+              style={{
+                height: 44,
+                backgroundColor: "#ffffff",
+                paddingHorizontal: 16,
+                borderRadius: 12,
+                fontSize: 15,
+                fontWeight: "500",
+              }}
+              value={bookingData.namaHewan}
+              onChangeText={(text) => handleInputChange("namaHewan", text)}
+            />
           <VStack space="xs">
             <Text color="$warning800" lineHeight="$xs">
               Jenis Hewan
@@ -155,7 +174,6 @@ const FormPesan = () => {
             <Text color="$warning800" lineHeight="$xs">
               Tanggal Reservasi dan booking
             </Text>
-            <Pressable onPress={() => setShowBookingPicker(true)}>
               <TextInput
                 //   ref={tanggalReservasiInputRef}
                 placeholder="Isi tanggal rencana reservasi dan booking"
@@ -169,27 +187,9 @@ const FormPesan = () => {
                   fontWeight: "500",
                   color: "#6b7280"
                 }}
-                editable={false}
-                value={Booking.toDateString() }
+                onChangeText={(text) => handleInputChange("tanggalReservasi", text)}
               />
-            </Pressable>
-            {showBookingPicker && (
-              <DateTimePicker
-                value={Booking}
-                mode="date"
-                display="calendar"
-                onChange={onBookingChange}
-                style={{
-                  borderBottomWidth: 3,
-                  borderEndWidth: 3,
-                  borderTopWidth: 1,
-                  borderStartWidth: 1,
-                  borderColor: '#021C35',
-                  // Tambahkan properti gaya lainnya di sini sesuai kebutuhan
-                }}
-              />
-
-            )}
+           
           </VStack>
           <VStack space="xs">
             <Text color="$warning800" lineHeight="$xs">

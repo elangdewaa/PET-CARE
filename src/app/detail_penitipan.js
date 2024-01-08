@@ -8,6 +8,7 @@ import {
   ButtonIcon,
   AddIcon,
   VStack,
+  ScrollView,
 } from "@gluestack-ui/themed";
 import { TouchableOpacity, FlatList } from "react-native";
 import { Header } from "../components";
@@ -16,10 +17,9 @@ import { MaterialIcons } from '@expo/vector-icons';
 import FIREBASE from "../config";
 
 const DetailPenitipan = () => {
-  // State untuk menyimpan data dari Firebase salam hangat dari mamat :*
   const [firebaseData, setFirebaseData] = useState([]);
 
-  // UseEffect untuk mendapatkan data dari Firebase saat komponen dimuat
+
   useEffect(() => {
     const databaseRef = FIREBASE.database().ref("addpenitipan");
   
@@ -63,6 +63,7 @@ const DetailPenitipan = () => {
 
   return (
     <>
+    <ScrollView>
       <Header title={"Penitipan"}  withBack="true" />
       <VStack space="md">
         {/* Tombol untuk navigasi ke halaman tambah data */}
@@ -85,9 +86,11 @@ const DetailPenitipan = () => {
         </Box>
 
         <VStack space="xl">
+        
           <Heading color="$warning900" lineHeight="$md" alignContent="center">
             Data dari Firebase
           </Heading>
+          
           <FlatList
             data={firebaseData}
             keyExtractor={(item) => item.id}
@@ -121,8 +124,12 @@ const DetailPenitipan = () => {
               </Box>
             )}
           />
+        
         </VStack>
+        
       </VStack>
+      </ScrollView>
+      
     </>
   );
 };
