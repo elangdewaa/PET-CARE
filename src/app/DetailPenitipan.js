@@ -126,7 +126,7 @@ const Reservation = () => {
             </VStack>
           </Box>
         </Center>
-        <TouchableOpacity onPress={() => handleBoxPress('FormBooking')}>
+        <TouchableOpacity onPress={() => handleBoxPress('FormPenitipan')}>
           <Box
             w={110}
             h="$100"
@@ -140,7 +140,7 @@ const Reservation = () => {
           >
             <Link
               href={{
-                pathname: "./form_pesan"
+                pathname: "/form_pesan"
               }}
             >
               <HStack>

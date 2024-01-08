@@ -27,7 +27,7 @@ import FIREBASE from "../config";
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 
-const FormPesan = () => {
+const FormBooking = () => {
   const [showModal, setShowModal] = useState(false);
   const jenisHewanInputRef = useRef(null);
   const tanggalReservasiInputRef = useRef(null);
@@ -44,7 +44,7 @@ const FormPesan = () => {
   const [bookingData, setBookingData] = useState({
     jenisHewan: "",
     tanggalReservasi: "",
-    jenisPaket: "",
+    jenisLayanan: "",
   });
 
   const handleInputChange = (field, value) => {
@@ -111,7 +111,7 @@ const FormPesan = () => {
 
   return (
     <>
-      <Header title={"Form Booking Penitipan"} />
+      <Header title={"Form Booking"} />
       <FormControl
         p="$4"
         borderWidth="$1"
@@ -196,7 +196,7 @@ const FormPesan = () => {
               Jenis Layanan
             </Text>
             <TextInput
-                ref={jenisPaketInputRef}
+                ref={jenisLayananInputRef}
               placeholder="Isi jenis layanan yang ingin dipesan"
               placeholderTextColor="#6b7280"
               style={{
@@ -272,4 +272,4 @@ const FormPesan = () => {
   );
 };
 
-export default FormPesan;
+export default FormBooking;
