@@ -24,7 +24,6 @@ import { Link, router } from "expo-router";
 import firebase from "../config";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import FIREBASE from "../config";
-import DateTimePicker from '@react-native-community/datetimepicker';
 
 const FormGrooming = () => {
   const [showModal, setShowModal] = useState(false);
@@ -88,7 +87,7 @@ const FormGrooming = () => {
     firebase
       .auth()
       .Input(jenishewan, tanggal)
-      .then((pilihpaket) => {
+      .then((pilihanpaket) => {
         // const user = userCredential.user
         saveUserData(jenishewan, tanggal, pilihanpaket);
       })
@@ -154,41 +153,23 @@ const FormGrooming = () => {
             <Text color="$warning800" lineHeight="$xs">
               Tanggal Reservasi dan booking
             </Text>
-            <Pressable onPress={() => setShowBookingPicker(true)}>
-              <TextInput
-                //   ref={tanggalReservasiInputRef}
-                placeholder="Isi tanggal rencana reservasi dan booking"
-                placeholderTextColor="#6b7280"
-                style={{
-                  height: 44,
-                  backgroundColor: "#ffffff",
-                  paddingHorizontal: 16,
-                  borderRadius: 12,
-                  fontSize: 15,
-                  fontWeight: "500",
-                  color: "#6b7280"
-                }}
-                editable={false}
-                value={Booking.toDateString() }
-              />
-            </Pressable>
-            {showBookingPicker && (
-              <DateTimePicker
-                value={Booking}
-                mode="date"
-                display="calendar"
-                onChange={onBookingChange}
-                style={{
-                  borderBottomWidth: 3,
-                  borderEndWidth: 3,
-                  borderTopWidth: 1,
-                  borderStartWidth: 1,
-                  borderColor: '#021C35',
-                  // Tambahkan properti gaya lainnya di sini sesuai kebutuhan
-                }}
-              />
-
-            )}
+            <TextInput
+              //   ref={tanggalReservasiInputRef}
+              placeholder="Isi tanggal rencana reservasi dan booking"
+              placeholderTextColor="#6b7280"
+              style={{
+                height: 44,
+                backgroundColor: "#ffffff",
+                paddingHorizontal: 16,
+                borderRadius: 12,
+                fontSize: 15,
+                fontWeight: "500",
+              }}
+              value={bookingData.tanggalReservasi}
+              onChangeText={(text) =>
+                handleInputChange("tanggalReservasi", text)
+              }
+            />
           </VStack>
           <VStack space="xs">
             <Text color="$warning800" lineHeight="$xs">
