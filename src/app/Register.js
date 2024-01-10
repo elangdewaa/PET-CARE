@@ -152,33 +152,7 @@ const Register = () => {
                                 secureTextEntry={true}
                             />
                         </View>
-
-                        {/* <View style={{ marginBottom: 16 }}>
-                            <Text style={{ fontSize: 17, fontWeight: '600', color: '#222', marginBottom: 8 }}>
-                                Konfirmasi Password
-                            </Text>
-
-                            <TextInput
-                             label="Konfirmasi Password"
-                                autoCorrect={false}
-                                onChangeText={(confirmPassword) => setconfirmPassword(confirmPassword)}
-                                placeholder="ulangi password"
-                                placeholderTextColor="#6b7280"
-                                style={{
-                                    height: 44,
-                                    backgroundColor: '#f1f5f9',
-                                    paddingHorizontal: 16,
-                                    borderRadius: 12,
-                                    fontSize: 15,
-                                    fontWeight: '500',
-                                    color: '#222',
-                                }}
-                                secureTextEntry={true}
-                                value={confirmPassword}
-
-                            />
-                        </View> */}
-
+                        
                         <View style={{ marginVertical: 24 }}>
                         <Button
                         flexDirection="$row"
@@ -197,28 +171,6 @@ const Register = () => {
                         </Button>  
                         
                         
-
-                            {/* <TouchableOpacity
-                                onPress={() => navigation.navigate('Login')}
-                            >
-                                <View
-                                    style={{
-                                        flexDirection: 'row',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        borderRadius: 8,
-                                        paddingVertical: 8,
-                                        paddingHorizontal: 16,
-                                        borderWidth: 1,
-                                        backgroundColor: '#FF7F50',
-                                        borderColor: '#FF7F50',
-                                    }}
-                                >
-                                    <Text style={{ fontSize: 17, lineHeight: 24, fontWeight: '600', color: '#fff' }} >
-                                        Sign up
-                                    </Text>
-                                </View>
-                            </TouchableOpacity> */}
                         </View>
 
                         <TouchableOpacity>

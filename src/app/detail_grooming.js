@@ -21,7 +21,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 const DetailGrooming = () => {
   
-  // State untuk menyimpan data dari Firebase salam hangat dari mamat :*
+  // State untuk menyimpan data dari Firebase 
   const [firebaseData, setFirebaseData] = useState([]);
 
   // UseEffect untuk mendapatkan data dari Firebase saat komponen dimuat

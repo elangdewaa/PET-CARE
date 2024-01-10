@@ -46,7 +46,7 @@ const EditProfile = () => {
   };
   return (
     <>
-    <Header title={"Profile"} />
+    <Header title={"Profile"} withBack="true"  />
     <FormControl
       p="$4"
       borderWidth="$1"

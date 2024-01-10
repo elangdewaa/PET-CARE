@@ -36,6 +36,7 @@ const StackLayout = () => {
         <Stack.Screen name="form_pesan" options={noHead} />
         <Stack.Screen name="Register" options={noHead} />
         <Stack.Screen name="AdminLogin" options={noHead} />
+        <Stack.Screen name="accordion" options={noHead} />
       </Stack>
     </GluestackUIProvider>
   );
