@@ -116,7 +116,7 @@ const Home = () => {
                   </TouchableOpacity>
                 </Link>
 
-                <Link href={{ pathname: "/status" }}>
+                <Link href={{ pathname: "/history" }}>
                   <TouchableOpacity>
                     <Box
                       w={100}

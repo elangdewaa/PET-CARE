@@ -28,15 +28,15 @@ const StackLayout = () => {
         <Stack.Screen name="Profile" options={noHead} />
         <Stack.Screen name="detail_grooming" options={noHead} />
         <Stack.Screen name="add_detail_grooming" options={noHead} />
-        <Stack.Screen name="Paket" options={noHead} />
-        <Stack.Screen name="FormBooking" options={noHead} />
         <Stack.Screen name="add_detail_penitipan" options={noHead} />
+        <Stack.Screen name="Paket" options={noHead} />
+        <Stack.Screen name="FormGrooming" options={noHead} />
+        <Stack.Screen name="FormPenitipan" options={noHead} />
         <Stack.Screen name="detail_penitipan" options={noHead} />
-        <Stack.Screen name="profileadmin" options={noHead} />
-        <Stack.Screen name="accordion" options={noHead} />
+        <Stack.Screen name="form_pesan" options={noHead} />
+        <Stack.Screen name="Register" options={noHead} />
         <Stack.Screen name="AdminLogin" options={noHead} />
-       
-
+        <Stack.Screen name="accordion" options={noHead} />
       </Stack>
     </GluestackUIProvider>
   );

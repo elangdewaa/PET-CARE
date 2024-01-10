@@ -89,31 +89,7 @@ const Reservation = () => {
             </VStack>
           </Box>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleBoxPress("FormBooking")}>
-          <Box
-            w={110}
-            h="$100"
-            mr="$10"
-            bg="$coral"
-            ml={19}
-            borderRadius="$3xl"
-            borderWidth={2}
-            alignItems="center"
-            softShadow=""
-          >
-            <HStack>
-              <Ionicons
-                name="add-circle-outline"
-                size={30}
-                color="floralwhite"
-                paddingBottom="3"
-              />
-              <Text color="floralwhite" fontWeight="bold" size="md" pt="$1.5">
-                Pesan
-              </Text>
-            </HStack>
-          </Box>
-        </TouchableOpacity>
+        
 
       </ScrollView>
     </>

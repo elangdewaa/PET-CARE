@@ -14,7 +14,7 @@ import {
 import { Header } from "../components";
 
 const Reservation = () => {
-  // State untuk menyimpan data dari Firebase salam hangat dari mamat :*
+  // State untuk menyimpan data dari Firebase 
   const [firebaseData, setFirebaseData] = useState([]);
   
   // UseEffect untuk mendapatkan data dari Firebase saat komponen dimuat
