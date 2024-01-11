@@ -32,7 +32,6 @@ export const loginUser = async (email, password) => {
 
           
         if (resDB.val()) {
-            // Local storage (Async Storage)
             await storeData("user", resDB.val());
             return resDB.val();
         } else {

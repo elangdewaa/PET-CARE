@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/PETCARE.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.smdrrr.PetCare"
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
