@@ -15,7 +15,7 @@ import { Link } from "expo-router";
 import FIREBASE from "../config";
 
 const DetailGrooming = () => {
-  // State untuk menyimpan data dari Firebase salam hangat dari mamat :*
+
   const [firebaseData, setFirebaseData] = useState([]);
 
   // UseEffect untuk mendapatkan data dari Firebase saat komponen dimuat
